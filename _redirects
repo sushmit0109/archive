@@ -1,0 +1,2 @@
+/api/attachment/view-pdf/* /pdfs/attachment/:splat 200
+/api/attachment/block-image/* /pdfs/attachment/:splat 200

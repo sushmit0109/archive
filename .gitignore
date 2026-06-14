@@ -1,0 +1,10 @@
+# PDFs are too large for GitHub Pages (1.5GB)
+# Host them separately or use Git LFS
+pdfs/
+
+# Old scraped Angular scaffolding (not used by rebuilt site)
+bower_components/
+
+# OS noise
+.DS_Store
+Thumbs.db

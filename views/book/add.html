@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+    <div class="panel-heading caption-subject font-blue-dark bold uppercase">
+        <span class="font-blue-dark">New Commission</span>
+        <span class="pull-right"><a ui-sref="commissions"><span
+                class="font-blue-dark">Back To Commission List</span></a></span>
+    </div>
+    <div class="panel-body">
+        <form ng-show="!success" name="form" role="form" novalidate ng-submit="save()" show-validation>
+            <div class="form-group col-md-6">
+                <label for="fullName">Name English</label>
+                <input type="text" class="form-control" id="fullName" name="fullName"
+                       placeholder="Name English"
+                       ng-model="book.name">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="nameBangla">Bangla Name</label>
+                <input type="text" class="form-control" id="nameBangla" name="fullName"
+                       placeholder="Name Bangla"
+                       ng-model="book.nameBangla">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="serial">Serial</label>
+                <input type="number" id="serial" class="form-control"  name="serial" required
+                       ng-model="book.serial">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="image">Image</label>
+                <input type="file" ngf-select class=" form-control"
+                       ngf-change="uploadFile($index, $file)"
+                       id="image" name="image">
+            </div>
+            <!--<button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>-->
+            <div class="form-group text-center">
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

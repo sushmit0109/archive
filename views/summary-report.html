@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+    <div class="panel-heading caption-subject text-left bold uppercase">
+        <span style="color: black;" translate="global.table.header.reportSummery">রিপোর্টসমূহের সারসংক্ষেপ</span>
+    </div>
+    <div class="panel-body">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <th translate="global.table.header.sl"> ক্রম</th>
+        <th translate="global.table.header.name"> কমিশনের নাম</th>
+        <th class="text-center" translate="global.table.header.summaryBangla"> সারসংক্ষেপ</th>
+        <th class="text-center" translate="global.table.header.summaryEnglish">Summary</th>
+        </thead>
+        <tbody >
+        <tr ng-repeat="book in books">
+            <td>{{$index+1}}</td>
+            <td class="text-left" >{{book['name'+fieldKey]}}</td>
+            <td class="text-center"><span ng-show="book.summaryFileName" class="text-center"><a class="nav-link" target="_blank"  href="./pdfs/attachment/{{book.summaryFileName}}">
+                <span class="font-blue-dark"><i class="fa fa-download"></i> <span translate="global.label.download"> ডাউনলোড</span></span></a></span>
+            </td>
+            <td class="text-center"><span ng-show="book.summaryEn" class="text-center"><a class="nav-link" target="_blank"  href="./pdfs/attachment/{{book.summaryEn}}">
+                <span class="font-blue-dark"><i class="fa fa-download"></i> <span translate="global.label.download"> Download</span></span></a></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

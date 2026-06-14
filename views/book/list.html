@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading caption-subject font-blue-dark bold uppercase">
+        <span class="font-blue-dark">Commission List</span>
+        <span class="pull-right"><a ui-sref="add-commission"><span
+                class="font-blue-dark">Add Commission</span></a></span>
+    </div>
+    <div class="panel-body">
+<table class="table table-bordered table-striped">
+    <thead>
+    <th>Name Bangla</th>
+    <th>Name English</th>
+    <th>Serial</th>
+    <th>Action</th>
+    </thead>
+    <tr ng-repeat="book in books">
+        <td >{{book.name}}</td>
+        <td >{{book.nameBangla}}</td>
+        <td >{{book.serial}}</td>
+        <td ><a ui-sref="add-commission({id:book.id})"><span>Edit</span></a></td>
+    </tr>
+</table>
+<div align="center"><pagination  ng-model="currentPage" total-items="totalElement"  max-size="maxSize"
+    boundary-links="true"> </pagination></div>
+    </div>
+</div>

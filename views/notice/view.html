@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+    <div class="panel-heading caption-subject font-blue-dark bold uppercase text-left">
+        <span class="font-blue-dark">নতুন নোটিশ</span>
+        <span class="pull-right"><a ui-sref="notice"><span
+                class="font-blue-dark"> নোটিশ তালিকা</span></a></span>
+    </div>
+    <div class="panel-body">
+        <form ng-show="!success" name="form" role="form" novalidate ng-submit="save()" show-validation>
+            <div class="row text-left">
+                <div class="form-group col-md-12">
+                    <h3>{{notice.title}}</h3>
+                    <p>{{notice.publishDate}}</p>
+                    <hr/>
+                </div>
+                <div class="form-group col-md-12">
+                    <p>{{notice.content}}</p>
+                </div>
+                <div class="form-group col-md-12">
+                    <img ng-show="notice.imageUrl" style="width: 100%" src="./api/attachment/block-image/{{notice.imageUrl}}">
+                    <iframe ng-show="notice.pdfUrl" ng-src="{{getIframeSrc(notice.pdfUrl)}}" style="width:100%; height:900px;" frameborder="0"></iframe>
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+

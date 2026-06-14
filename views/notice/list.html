@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+    <div class="panel-heading caption-subject text-left bold uppercase">
+        <span style="color: black;" translate="global.table.header.noticeBoard">নোটিশ বোর্ড</span>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <th class="bold font-blue-sharp" translate="global.table.header.sl">ক্রমিক নং</th>
+            <th class="bold font-blue-sharp" translate="global.table.header.title">শিরোনাম</th>
+            <th class="bold font-blue-sharp text-center" translate="global.table.header.publishedDate">প্রকাশের তারিখ</th>
+            <th class="bold font-blue-sharp" translate="global.table.header.download">ডাউনলোড</th>
+            </thead>
+            <tbody>
+            <tr ng-hide="noticeList.length>0">
+                <td colspan="4" align="center">No Data Found</td>
+            </tr>
+            <tr ng-repeat="notice in noticeList | orderBy:['-serial','id']">
+                <td style="width: 5%">{{serial+ $index+1}}</td>
+                <td class="text-left"><a ui-sref="view-notice({id:notice.id})">{{notice['title'+fieldKey]}}</a></td>
+                <td style="width: 15%">{{notice.publishDate | date:'MM-dd-yyyy'}}</td>
+                <td style="width: 5%" class="text-center">
+                    <a ng-show="notice.pdfUrl" target="_blank" class="pull-right" href="./pdfs/attachment/{{notice.pdfUrl}}">
+                        <img width="32"  src="./images/pdf.png" ></a>
+                    <a ng-show="notice.imageUrl" target="_blank" class="pull-right" href="/api/attachment/block-image/{{notice.imageUrl}}">
+                        <img width="32"  src="./images/image.png" ></a>
+<!--                    <a ui-sref="notice-add({id:notice.id})"><img width="32"  src="./images/pdf.png" ></a>-->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div align="center"><pagination  ng-model="currentPage"
+                                         total-items="totalElement"
+                                         items-per-page="itemsPerPage"
+                                         max-size="maxSize"
+                                         boundary-links="true"
+                                         ng-change="pageChanged()"> </pagination></div>
+    </div>
+</div>
+
+

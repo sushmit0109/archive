@@ -1,0 +1,104 @@
+<div class="row text-left">
+    <div class="form-group  col-md-4">
+        <label for="chapter" translate="global.label.otherCommission"> অন্যান্য কমিশনের রিপোর্ট</label>
+        <select id="chapter" name="chapter" class="form-control input-large"
+                ng-options="book['name'+fieldKey] for book in books track by book.id"
+                ng-change="loadData()"
+                ng-model="book" required>
+            <option value="">Select Commission</option>
+        </select>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading caption-subject bold uppercase text-left web-view">
+        <span  style="color: black; font-size: 16px;">{{book['title'+fieldKey]}}</span>
+        <span ng-show="book.pdfName" class="pull-right"><a class="nav-link" target="_blank"  href="./pdfs/attachment/{{book.pdfName}}"><span
+                class="font-blue-dark"><i class="fa fa-download"></i> <span translate="global.label.download">ডাউনলোড</span></span></a></span>
+        <form name="form" style="display: inline;" ng-submit="searchChapter()">
+            <p class="input-group col-md-6 pull-right">
+            <input type="text" class="m-1 form-control border-0 search-panel"
+                   placeholder="অনুসন্ধান করুন" ng-model="searchKey"
+                   style="background-image: url('./images/search.png');"
+                   aria-label="Search" aria-describedby="searchButton">
+            </p>
+        </form>
+    </div>
+    <div class="panel-heading caption-subject bold uppercase text-center mobile-view" style="font-family: 'SolaimanLipi', sans-serif;">
+        <span style="color: black; font-size: 16px;">{{book['title'+fieldKey]}}</span>
+        <span ng-show="book.pdfName" class="text-center"><a class="nav-link" target="_blank"  href="./pdfs/attachment/{{book.pdfName}}"><span
+                class="font-blue-dark"><i class="fa fa-download"></i>ডাউনলোড</span></a></span>
+        <form name="form" style="display: inline;" ng-submit="searchChapter()">
+            <p class="input-group col-md-6 text-center" style="width: 100%">
+                <input type="text" class="m-1 form-control border-0 search-panel"
+                       placeholder="অনুসন্ধান করুন" ng-model="searchKey"
+                       style="background-image: url('./images/search.png');"
+                       aria-label="Search" aria-describedby="searchButton">
+            </p>
+        </form>
+    </div>
+    <div class="panel-body">
+        <div ng-show="chapters.length==0 && volumes.length==0" class="card-body my-2" style="height: 150px;padding-top: 10px;">
+            <spinner-loader sl-visible="showLoading" ng-show="showLoading"  sl-size="large"></spinner-loader>
+        </div>
+        <ul class="cat-eli" ng-hide="book.hasVolume">
+            <li ng-repeat="chapter in chapters| orderBy:['serial','id']" class="submenu text-left">
+<!--            <a href="" ng-click="showChildMenu($event, chapter.id)" ng-class="{'category':true, 'active-category': chapter.id == cid}">{{chapter.name+': '+chapter.title}}</a>-->
+            <a href="" ng-click="expandChapter($event, chapter.id)" ng-class="{'category':true, 'active-category': chapter.id == cid}" style="font-size: 16px;">{{chapter.title}}</a>
+            <ul ng-show="chapter.sections.length>0" class="cat-eli" ng-class="{'sub-category': chapter.id == cid }" style="display:none;">
+                <li ng-repeat="section in chapter.sections | orderBy:['serial','id']"  >
+                    <a ng-hide="section.hasPdf" style="font-size: 15px;" href="" ng-class="{'category':true, 'active-category': section.id == sid}" ng-click="expandParagraph($event, chapter.id, section.id)">{{section.name}}</a>
+                    <ul ng-hide="section.hasPdf" ng-show="section.paragraphs.length>0" ng-class="{'sub-category': section.id == sid}" class="cat-eli" style="display:none;padding-left: 10px;">
+                        <li ng-repeat="paragraph in section.paragraphs | orderBy:['serial','id']"  >
+                            <h4 ng-show="paragraph.header" class="bold">{{paragraph.header}}</h4>
+                            <p  style="margin-right:.05in; text-align:justify" class="main-paragraph">
+                            <span style="font-size:14.0px; display: inline-flex">
+                                <span ng-show="paragraph.indexChar" class="col-md-1" style="font-family: 'SolaimanLipi', sans-serif; width: .5%">{{(paragraph.indexChar? paragraph.indexChar:'') }}</span>
+                                <span  ng-class="{'col-md-11':paragraph.indexChar, 'col-md-12': paragraph.indexChar==''}" style="font-family:'SolaimanLipi', sans-serif;white-space: pre-wrap; width:99.5% ">{{paragraph.content}}</span>
+                               <img style="width: 100%;" ng-show="paragraph.hasImage" src="./api/attachment/block-image/{{paragraph.fileName}}" >
+                            </span>
+                            </p>
+                            <!--                            <span></span>-->
+                        </li>
+                    </ul>
+                    <span ng-show="section.hasPdf" style="color: black; font-size: 14px; font-weight: bold">{{section.name}}</span>
+                    <iframe ng-show="section.hasPdf" ng-src="{{'../pdfs/attachment/'+section.pdfName}}" style="width:100%; height:900px;" frameborder="0"></iframe>
+                </li>
+            </ul>
+        </li>
+        </ul>
+        <ul class="cat-eli" ng-show="book.hasVolume">
+            <li ng-repeat="volume in volumes| orderBy:['serial','id']" class="submenu text-left">
+                <a href="" class="vlm-mbl-view" ng-click="expandVolume($event, volume.id)" ng-class="{'category':true, 'active-category': volume.id == vid}" style="font-size: 18px;">{{volume.name}}</a>
+                <a target="_blank" class="pull-right vlm-dwn-btn" href="./pdfs/attachment/{{volume.fileName}}">
+                    <span class="font-blue-dark"><i class="fa fa-download"></i></span></a>
+                <ul ng-show="volume.chapters.length>0" class="cat-eli" ng-class="{'sub-category': volume.id == vid }" style="display:none;">
+                    <li ng-repeat="chapter in volume.chapters| orderBy:['serial','id']">
+                        <a href="" ng-click="expandChapter($event, chapter.id, volume.id)" ng-class="{'category':true, 'active-category': chapter.id == cid}" style="font-size: 16px;">{{chapter.title}}</a>
+                        <ul ng-show="chapter.sections.length>0" class="cat-eli" ng-class="{'sub-category': chapter.id == cid }" style="display:none">
+                            <li  ng-repeat="section in chapter.sections | orderBy:['serial','id']"  >
+                                <a ng-hide="section.hasPdf" style="font-size: 15px;" href="" ng-class="{'category':true, 'active-category': section.id == sid}" ng-click="expandParagraph($event, chapter.id, section.id, volume.id)">{{section.name}}</a>
+                                <ul ng-hide="section.hasPdf" ng-show="section.paragraphs.length>0" ng-class="{'sub-category': section.id == sid}" class="cat-eli" style="display:none">
+                                    <li ng-repeat="paragraph in section.paragraphs | orderBy:['serial','id']"  >
+                                        <h4 class="bold">{{paragraph.header}}</h4>
+                                        <p  style="margin-left:.25in; margin-right:.05in; text-align:justify">
+                                        <span style="font-size:14px; display: inline-flex">
+                                            <span ng-show="paragraph.indexChar" class="col-md-1" style="font-family:'SolaimanLipi', sans-serif; width: .5%">{{(paragraph.indexChar? paragraph.indexChar:'') }}</span>
+                                            <span  ng-class="{'col-md-11':paragraph.indexChar, 'col-md-12': paragraph.indexChar==''}" style="font-family:'SolaimanLipi', sans-serif;white-space: pre-wrap; width:99.5% ">{{paragraph.content}}</span>
+                                            <img ng-show="paragraph.hasImage" style="width: 100%" src="./api/attachment/block-image/{{paragraph.fileName}}" >
+                                        </span>
+                                        </p>
+                                        <!--                            <span></span>-->
+                                    </li>
+                                </ul>
+                                <span ng-show="section.hasPdf" style="color: black; font-size: 14px; font-weight: bold">{{section.name}}</span>
+                                <iframe ng-show="section.hasPdf" ng-src="{{getIframeSrc(section.pdfName)}}" style="width:100%; height:900px;" frameborder="0"></iframe>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+

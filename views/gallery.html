@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+    <div class="panel-heading caption-subject text-left bold uppercase">
+        <span style="color: black;" translate="global.label.videoGallery"> ভিডিও গ্যালারি</span>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6" ng-repeat="video in videoGallery">
+<!--                <iframe style="-moz-border-radius: 15px;border-radius: 15px;overflow: hidden;" frameborder="0" src="https://www.youtube.com/embed/9orW0dF1dpY?rel=0" width="100%" height="300px" frameborder="0"></iframe>-->
+                <h4 class="text-left">{{video.title}}</h4>
+                <iframe style="-moz-border-radius: 15px;border-radius: 15px;overflow: hidden;" frameborder="0" src="{{trustSrc(video.videoUrl)}}" width="100%" height="300px" frameborder="0"></iframe>
+            </div>
+        </div>
+
+    </div>
+</div>

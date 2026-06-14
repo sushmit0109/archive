@@ -1,0 +1,40 @@
+<section class="slider" id="home">
+    <div class="slider-container">
+<!--        <img src="images/slider-1.jpg" alt="স্লাইডার ইমেজ" class="slider-image">-->
+        <img src="images/july-revolution.jpg" alt="স্লাইডার ইমেজ" class="slider-image">
+<!--        <a href="#commission" class="clickable-text"><p>কমিশনসমূহের প্রতিবেদন</p></a>-->
+    </div>
+</section>
+
+<h1 class="main-title" translate="global.landingPage.heading">মাননীয় প্রধান উপদেষ্টা মহোদয়ের ভূমিকা</h1>
+<br>
+<div style="text-align: justify; padding-bottom: 10px;">
+    <p style="padding: 0;" translate="global.landingPage.speech">২০২৪ সালের জুলাই-আগস্টের ছাত্রজনতার গণঅভ্যুথানের মধ্য দিয়ে বাংলাদেশের মানুষ একটি ফ্যাসিবাদী শাসনের অবসান ঘটিয়েছে। এই আন্দোলন সাফল্য লাভ করেছে এক অভূতপূর্ব জাতীয় ঐক্য গড়ে ওঠার মাধ্যমে। এই অভ্যুথানের একটি অন্যতম লক্ষ্য হচ্ছে দেশে এমন এক শাসন ব্যবস্থা গড়ে তোলা যেখানে সকলের অধিকার সুনিশ্চিত হবে, কোনও ব্যক্তি বা দল দেশের মানুষের জীবন ও দেশের সম্পদ নিয়ে ছিনিমিনি খেলতে পারবেনা, সকলের ভোট দেবার অধিকার আর কোনও দিন লুণ্ঠিত হবে না এবং নাগরিকদের সম্মতিতে দেশ পরিচালিত হবে। দেশ পরিচালনার এই পদ্ধতি তৈরি  করতে হলে দরকার বিদ্যমান শাসন ব্যবস্থা এবং রাষ্ট্রীয় প্রতিষ্ঠানগুলোর সংস্কার।
+
+        জুলাই ২০২৪-এর গণঅভ্যূত্থানের বীর শহীদরা, যারা আহত হয়েছেন তাঁরা তাঁদের আত্মদানের মধ্য দিয়ে এই সংস্কারের দায়িত্ব আমাদের সকলের ওপরে অর্পণ  করেছেন। সেই লক্ষ্য বাস্তবায়নের জন্যে ১১টি সংস্কার কমিশন গঠণ করা হয়েছে। এইসব কমিশনের সদস্যরা নিরলস পরিশ্রম করে সংস্কারের সুনির্দিষ্ট সুপারিশ করছেন । কমিশনগুলোর এইসব প্রতিবেদন মূল্যবান সম্পদ। এই সম্পদ বাংলাদেশের ইতিহাসে রক্ষিত হবে। এখান থেকে আমরা তাৎক্ষণিকভাবে কতটুকু গ্রহণ করবো, কোনটা কখন কাজে লাগাতে পারব, কীভাবে অগ্রসর হবো তা নির্ধারণের জন্যে দরকার দেশের সব মানুষের মধ্যে আলাপ-আলোচনা। সে আলোচনাকে এগিয়ে নিয়ে যাওয়ার উদ্দেশ্যে প্রথম পর্যায়ে গঠিত সংবিধান, নির্বাচন ব্যবস্থা, দুর্নীতি দমন কমিশন, বিচার বিভাগ, জনপ্রশাসন এবং পুলিশের সংস্কার বিষয়ক কমিশনগুলোর প্রতিবেদনসমূহ প্রকাশ করা হল।
+
+        জুলাই অভ্যুত্থানে যারা আত্মাহুতি দিয়েছেন, তাঁদের স্বপ্ন ছিল একটা নতুন বাংলাদেশ গড়ে তোলা। এ-দায়িত্ব পালনের প্রথম পদক্ষেপ হিসেবে এই সুপারিশমালা প্রস্তুত করা হয়েছে। এর বাস্তবায়নের মাধ্যমে নতুন বাংলাদেশ গড়ে উঠবে। এখন কর্মপরিকল্পনা প্রস্তুত করা এবং তা বাস্তবায়নের পথে অগ্রসর হতে হবে। আমাদের এই বাস্তবায়ন প্রক্রিয়া দ্রুত হোক এবং মসৃণ হোক এই কামনা করে এই সুপারিশমালা দেশবাসীর নিকট তুলে দিলাম।
+
+    </p>
+    <span class="bold pull-right" style="font-size: 14px;" translate="global.landingPage.chiefAdvisor">~ ড. মুহাম্মদ ইউনূস, মাননীয় প্রধান উপদেষ্টা</span>
+    <br>
+</div>
+
+<h1 class="main-title" translate="global.landingPage.mainTitle">বাংলাদেশ সরকার কর্তৃক গঠিত সংস্কার কমিশনসমূহের প্রতিবেদন</h1>
+
+<main class="commissions-grid" id="commission">
+    <!-- Commission Cards - Replace image files in images/ folder -->
+
+    <article class="commission-card" ui-sref="commission-report({id:book.id})" ng-repeat="book in books">
+        <img ng-show="book.fileName" src="./api/attachment/block-image/{{book.fileName}}" alt="দুদক কমিশন"
+             class="commission-logo">
+        <img ng-hide="book.fileName" src="images/BDGov.jpg" alt="দুদক কমিশন" class="commission-logo">
+        <div class="commission-info">
+<!--            <h2 class="commission-title">{{getObjectValue(book,'name')}}</h2>-->
+            <h2 class="commission-title">{{book['name'+fieldKey]}}</h2>
+        </div>
+        <button class="expand-btn">+</button>
+    </article>
+
+    <!-- Add more commission cards as needed -->
+</main>

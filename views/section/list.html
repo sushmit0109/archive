@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-heading caption-subject font-blue-dark bold uppercase">
+        <span class="font-blue-dark">Section List</span>
+        <span class="pull-right"><a ui-sref="add-section"><span
+                class="font-blue-dark">Add New Section</span></a></span>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <th>Chapter</th>
+            <th>Section Name</th>
+            <th>Action</th>
+            </thead>
+            <tr ng-repeat="section in sections">
+                <td >{{section.chapter.title}} - {{section.chapter.nameBangla}}</td>
+                <td >{{section.header}}</td>
+                <td > <a ui-sref="add-section({id:section.id})"><span>Edit</span></a></td>
+            </tr>
+        </table>
+        <div align="center"><pagination  ng-model="currentPage"
+                                         total-items="totalElement"
+                                         items-per-page="itemsPerPage"
+                                         max-size="maxSize"
+                                         boundary-links="true"
+                                         ng-change="pageChanged()"> </pagination></div>
+    </div>
+</div>
+
+

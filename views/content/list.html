@@ -1,0 +1,52 @@
+<div class="panel panel-default">
+    <div class="panel-heading caption-subject font-blue-dark bold uppercase">
+        <span class="font-blue-dark">Paragraph List</span>
+        <span class="pull-right"><a ui-sref="add-content"><span
+                class="font-blue-dark">Add New Content</span></a></span>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="chapter">Chapter</label>
+            <select id="chapter" name="chapter" class="form-control input-large"
+                    ng-options="chapter.chapterName for chapter in chapters track by chapter.serial"
+                    ng-model="chapter"
+                    ng-change="selectChapter()">
+                <option value="">Select Chapter</option>
+            </select>
+
+            <button ng-click="allData()" type="button"  class="btn btn-default pull-right" >All Data</button>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <th>Chapter</th>
+            <th>Section</th>
+            <th>sl</th>
+            <th>Header</th>
+            <th>Index</th>
+            <th>Content</th>
+            <th>image</th>
+            <th>Action</th>
+            </thead>
+            <tr ng-repeat="content in contents">
+                <td >{{content.section.chapter.nameBangla}}</td>
+                <td >{{content.section.header}}</td>
+                <td >{{content.serial}}</td>
+                <td >{{content.header}}</td>
+                <td >{{content.indexChar}}</td>
+                <td >{{content.content}}</td>
+                <td >{{content.fileName}}</td>
+                <td > <a class="btn btn-sm btn-default" ui-sref="add-content({id:content.id})"><span>Edit</span></a>
+                    <button ng-click="deleteContent(content.id)" type="button"  class="btn btn-sm btn-danger " >Delete</button>
+                </td>
+            </tr>
+        </table>
+        <div align="center"><pagination  ng-model="currentPage"
+                                         total-items="totalElement"
+                                         items-per-page="itemsPerPage"
+                                         max-size="maxSize"
+                                         boundary-links="true"
+                                         ng-change="pageChanged()"> </pagination></div>
+    </div>
+</div>
+
+
