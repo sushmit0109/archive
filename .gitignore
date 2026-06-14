@@ -1,6 +1,7 @@
-# PDFs are too large for GitHub Pages (1.5GB)
-# Host them separately or use Git LFS
-pdfs/
+# Only keep compressed PDFs in pdfs/attachment/ — exclude all other subfolders
+pdfs/*
+!pdfs/attachment/
+!pdfs/attachment/**
 
 # Old scraped Angular scaffolding (not used by rebuilt site)
 bower_components/

@@ -7,6 +7,12 @@
 
 const App = (() => {
 
+  // ── PDF hosting base URL ───────────────────────────────────────
+  // Change this one line to point PDFs anywhere (local, GitHub Releases, CDN…)
+  const PDF_BASE = './pdfs/attachment/';
+
+  function pdfUrl(filename) { return filename ? PDF_BASE + filename : ''; }
+
   // ── state ──────────────────────────────────────────────────────
   let _lang      = 'bn';
   let _books     = [];
@@ -100,7 +106,7 @@ const App = (() => {
 
   function pdfLink(filename, label, cls = 'btn btn-sm btn-outline-primary') {
     if (!filename) return '';
-    return `<a href="./pdfs/attachment/${filename}" target="_blank" class="${cls}"><i class="fas fa-download"></i> ${label}</a>`;
+    return `<a href="${pdfUrl(filename)}" target="_blank" class="${cls}"><i class="fas fa-download"></i> ${label}</a>`;
   }
 
   // ── HOME ───────────────────────────────────────────────────────
@@ -241,7 +247,7 @@ const App = (() => {
   function buildVolumeNode(vol) {
     const chapters = [...(vol.chapters || [])].sort((a, b) => (a.serial - b.serial) || (a.id - b.id));
     const dlBtn = vol.fileName
-      ? `<a href="./pdfs/attachment/${vol.fileName}" target="_blank" style="margin-left:auto; color:var(--accent); font-size:0.8rem;"><i class="fas fa-download"></i></a>`
+      ? `<a href="${pdfUrl(vol.fileName)}" target="_blank" style="margin-left:auto; color:var(--accent); font-size:0.8rem;"><i class="fas fa-download"></i></a>`
       : '';
     return `
       <li class="tree-item">
@@ -340,15 +346,24 @@ const App = (() => {
             ${p.indexChar ? `<span class="para-index">${p.indexChar}</span>` : ''}
             <span>${p.content ? p.content.replace(/\n/g, '<br>') : ''}</span>
           </div>
-          ${p.hasImage && p.fileName ? `<img src="./pdfs/attachment/${p.fileName}" style="max-width:100%; margin-top:0.5rem; border-radius:4px;">` : ''}
+          ${p.hasImage && p.fileName ? `<img src="${pdfUrl(p.fileName)}" style="max-width:100%; margin-top:0.5rem; border-radius:4px;">` : ''}
         </div>`).join('')}`;
   }
 
   function showPdfContent(title, pdfName) {
+    const url = pdfUrl(pdfName);
     document.getElementById('content-area').innerHTML = `
       <h5 class="content-heading">${title}</h5>
-      ${pdfLink(pdfName, (_lang === 'bn' ? 'ডাউনলোড করুন' : 'Download'), 'btn btn-sm btn-outline-primary mb-2')}
-      <iframe src="./pdfs/attachment/${pdfName}" class="pdf-frame"></iframe>`;
+      <div class="d-flex gap-2 mb-3 flex-wrap">
+        <a href="${url}" target="_blank" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt me-1"></i>${_lang === 'bn' ? 'নতুন ট্যাবে খুলুন' : 'Open in new tab'}</a>
+        <a href="${url}" download class="btn btn-outline-secondary btn-sm"><i class="fas fa-download me-1"></i>${_lang === 'bn' ? 'ডাউনলোড করুন' : 'Download'}</a>
+      </div>
+      <object data="${url}" type="application/pdf" class="pdf-frame">
+        <p style="color:#888; text-align:center; padding:2rem;">
+          ${_lang === 'bn' ? 'পিডিএফ প্রিভিউ সাপোর্ট করে না।' : 'PDF preview not supported in this browser.'}
+          <br><a href="${url}" target="_blank">${_lang === 'bn' ? 'এখানে ক্লিক করুন' : 'Click here to open'}</a>
+        </p>
+      </object>`;
   }
 
   // ── SUMMARY ────────────────────────────────────────────────────
@@ -375,12 +390,12 @@ const App = (() => {
                     <td>${bookName(book)}</td>
                     <td class="text-center">
                       ${book.summaryFileName
-                        ? `<a href="./pdfs/attachment/${book.summaryFileName}" target="_blank"><i class="fas fa-download me-1"></i>ডাউনলোড</a>`
+                        ? `<a href="${pdfUrl(book.summaryFileName)}" target="_blank"><i class="fas fa-download me-1"></i>ডাউনলোড</a>`
                         : '—'}
                     </td>
                     <td class="text-center">
                       ${book.summaryEn
-                        ? `<a href="./pdfs/attachment/${book.summaryEn}" target="_blank"><i class="fas fa-download me-1"></i>Download</a>`
+                        ? `<a href="${pdfUrl(book.summaryEn)}" target="_blank"><i class="fas fa-download me-1"></i>Download</a>`
                         : '—'}
                     </td>
                   </tr>`).join('')}
@@ -423,7 +438,7 @@ const App = (() => {
                       </td>
                       <td class="text-center">${n.publishDate || ''}</td>
                       <td class="text-center">
-                        ${n.pdfUrl ? `<a href="./pdfs/attachment/${n.pdfUrl}" target="_blank"><img src="./images/pdf.png" width="26" alt="PDF"></a>` : ''}
+                        ${n.pdfUrl ? `<a href="${pdfUrl(n.pdfUrl)}" target="_blank"><img src="./images/pdf.png" width="26" alt="PDF"></a>` : ''}
                       </td>
                     </tr>`).join('')}
                 </tbody>
@@ -468,7 +483,11 @@ const App = (() => {
           ${notice.pdfUrl ? `
             ${pdfLink(notice.pdfUrl, 'ডাউনলোড')}
             <div class="mt-2">
-              <iframe src="./pdfs/attachment/${notice.pdfUrl}" class="pdf-frame"></iframe>
+              <object data="${pdfUrl(notice.pdfUrl)}" type="application/pdf" class="pdf-frame">
+                <a href="${pdfUrl(notice.pdfUrl)}" target="_blank" class="btn btn-primary btn-sm mt-2">
+                  <i class="fas fa-external-link-alt me-1"></i>${_lang === 'bn' ? 'পিডিএফ খুলুন' : 'Open PDF'}
+                </a>
+              </object>
             </div>` : ''}
         </div>
       </div>`;
