@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+cou<!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
@@ -335,6 +335,37 @@
       #app { padding: 1rem 0.5rem 3rem; }
     }
 
+    /* ── DOWNLOAD BAR ── */
+    .download-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      background: rgba(255,255,255,.95);
+      border-radius: 10px;
+      padding: 0.85rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.09);
+      margin-bottom: 1.2rem;
+    }
+    .download-bar .dl-label { font-size: 0.88rem; color: #444; }
+    .download-bar .dl-label strong { color: var(--primary); }
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    .dl-btn:hover { background: var(--accent); color: white; }
+
     /* hidden for filter */
     .advisor-card.hidden { display: none; }
   </style>
@@ -398,6 +429,21 @@
           Following the July 2024 mass uprising and the resignation of Prime Minister Sheikh Hasina, an interim government was formed on 8 August 2024 under the leadership of Nobel Peace Prize laureate Dr. Muhammad Yunus. This page presents the official asset declarations of the advisors and officials of equivalent rank of that government.
         </p>
       </div>
+    </div>
+
+    <!-- DOWNLOAD BAR -->
+    <div class="download-bar">
+      <div class="dl-label bn-text">
+        <strong>মূল সরকারি প্রজ্ঞাপন</strong> — মন্ত্রিপরিষদ বিভাগ, ১০ ফেব্রুয়ারি ২০২৬
+      </div>
+      <div class="dl-label en-text" style="display:none">
+        <strong>Original Gazette Notification</strong> — Cabinet Division, 10 February 2026
+      </div>
+      <a class="dl-btn" href="./advisers_wealth_statements.pdf" download="advisers_wealth_statements.pdf">
+        <i class="fas fa-file-pdf"></i>
+        <span class="bn-text">PDF ডাউনলোড করুন</span>
+        <span class="en-text" style="display:none">Download PDF</span>
+      </a>
     </div>
 
     <!-- SEARCH -->
