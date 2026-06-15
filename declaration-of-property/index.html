@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>উপদেষ্টামণ্ডলীর সম্পদ বিবরণী ২০২৫ | Asset Declaration of Advisors 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+  <style>
+    @font-face {
+      font-family: 'ShurjoWeb';
+      src: url('../reform-site/font/ShurjoWeb_400.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'ShurjoWeb';
+      src: url('../reform-site/font/ShurjoWeb_700.woff2') format('woff2');
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    :root {
+      --primary:   #004080;
+      --secondary: #003366;
+      --accent:    #1a6bbf;
+      --white:     #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans Bengali', 'ShurjoWeb', Arial, sans-serif;
+      background: url('../reform-site/images/body.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--primary);
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,.25);
+    }
+    .site-header img { height: 58px; object-fit: contain; }
+    .site-header .site-title {
+      color: white;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-align: center;
+      flex: 1;
+      line-height: 1.5;
+    }
+    .site-header .site-title small {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: #bcd5ff;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      background: var(--secondary);
+      padding: 0.4rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,.2);
+    }
+    .site-nav ul {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.2rem 0.5rem;
+    }
+    .site-nav a {
+      color: #dce9ff;
+      text-decoration: none;
+      padding: 0.4rem 0.7rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      display: block;
+      transition: background .2s;
+    }
+    .site-nav a:hover { background: rgba(255,255,255,.18); color: white; }
+
+    /* language toggle */
+    .lang-wrap { display: flex; align-items: center; gap: 0.4rem; color: #dce9ff; font-size: 0.85rem; margin-left: 0.5rem; }
+    .lang-switch { position: relative; display: inline-block; width: 46px; height: 24px; }
+    .lang-switch input { opacity: 0; width: 0; height: 0; }
+    .lang-slider { position: absolute; inset: 0; background: #546e8a; border-radius: 24px; cursor: pointer; transition: .3s; }
+    .lang-slider:before { content: ''; position: absolute; width: 18px; height: 18px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: .3s; }
+    #lang-check:checked + .lang-slider { background: var(--accent); }
+    #lang-check:checked + .lang-slider:before { transform: translateX(22px); }
+
+    /* ── MAIN ── */
+    #app { padding: 1.5rem 1rem 4rem; min-height: 60vh; }
+
+    /* ── PREAMBLE ── */
+    .preamble-card {
+      background: rgba(255,255,255,.96);
+      border-radius: 12px;
+      padding: 1.6rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,.1);
+      margin-bottom: 1.8rem;
+    }
+    .preamble-header {
+      text-align: center;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .preamble-header h1 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0 0 0.2rem;
+    }
+    .preamble-header .sub { color: #444; font-size: 0.92rem; }
+    .preamble-header .ref-no {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 0.5rem;
+      font-family: monospace;
+    }
+    .preamble-body {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: #333;
+      text-align: justify;
+    }
+    .preamble-body .highlight {
+      background: #e8f0fb;
+      border-left: 4px solid var(--accent);
+      padding: 0.8rem 1rem;
+      border-radius: 0 6px 6px 0;
+      margin: 0.8rem 0;
+    }
+
+    /* ── SEARCH ── */
+    .search-wrap {
+      margin-bottom: 1.2rem;
+      position: relative;
+    }
+    .search-wrap input {
+      width: 100%;
+      padding: 0.6rem 1rem 0.6rem 2.8rem;
+      border: 1.5px solid #cdd9e8;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: white;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .search-wrap input:focus { border-color: var(--accent); }
+    .search-wrap .search-icon {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+    }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--primary);
+      background: rgba(255,255,255,.7);
+      border-radius: 4px;
+      padding: 0.25rem 0.7rem;
+      margin: 1.4rem 0 0.7rem;
+      display: inline-block;
+    }
+
+    /* ── ADVISOR ACCORDION ── */
+    .advisor-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.09);
+      margin-bottom: 0.7rem;
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    .advisor-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,.13); }
+
+    .advisor-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 1.2rem;
+      cursor: pointer;
+      user-select: none;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+    .advisor-header:focus { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+    .sl-badge {
+      background: var(--primary);
+      color: white;
+      border-radius: 6px;
+      min-width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .advisor-info { flex: 1; }
+    .advisor-name { font-weight: 700; color: var(--primary); font-size: 1rem; line-height: 1.3; }
+    .advisor-role { font-size: 0.82rem; color: #555; margin-top: 0.1rem; }
+    .advisor-total {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .advisor-total .label { font-size: 0.72rem; color: #888; }
+    .advisor-total .amount { font-size: 0.9rem; font-weight: 700; color: #1a5c1a; }
+    .advisor-total .amount.decrease { color: #b00; }
+    .chevron { color: #888; transition: transform .25s; flex-shrink: 0; }
+    .advisor-card.open .chevron { transform: rotate(180deg); }
+
+    .advisor-body {
+      display: none;
+      border-top: 1px solid #eef0f3;
+      padding: 1rem 1.2rem 1.2rem;
+    }
+    .advisor-card.open .advisor-body { display: block; }
+
+    /* ── ASSET TABLE ── */
+    .person-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin: 0.8rem 0 0.4rem;
+    }
+    .person-label:first-child { margin-top: 0; }
+
+    .asset-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-bottom: 0.4rem;
+    }
+    .asset-table th {
+      background: var(--primary);
+      color: white;
+      padding: 0.4rem 0.7rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .asset-table th:first-child { border-radius: 6px 0 0 0; }
+    .asset-table th:last-child  { border-radius: 0 6px 0 0; }
+    .asset-table td {
+      padding: 0.38rem 0.7rem;
+      border-bottom: 1px solid #f0f2f5;
+      vertical-align: middle;
+    }
+    .asset-table tr:last-child td { border-bottom: none; }
+    .asset-table tr:nth-child(even) { background: #f8fafc; }
+    .asset-table .row-total td { background: #e8f0fb; font-weight: 700; }
+    .asset-table .row-liab  td { background: #fff4f4; color: #8b0000; }
+    .asset-table .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+    .change-positive { color: #1a5c1a; font-size: 0.75rem; }
+    .change-negative { color: #b00;    font-size: 0.75rem; }
+
+    .note-box {
+      background: #fffbf0;
+      border-left: 3px solid #e8a800;
+      border-radius: 0 6px 6px 0;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.82rem;
+      color: #555;
+      margin-top: 0.7rem;
+    }
+
+    .spouse-deceased {
+      font-size: 0.85rem;
+      color: #888;
+      font-style: italic;
+      padding: 0.5rem 0;
+    }
+
+    .no-data-pill {
+      display: inline-block;
+      background: #f0f2f5;
+      color: #888;
+      border-radius: 20px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.78rem;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--primary);
+      color: #cce0ff;
+      padding: 1.2rem 2rem;
+    }
+    .site-footer a { color: #cce0ff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .site-header { padding: 0.6rem 1rem; }
+      .site-header .site-title { font-size: 0.95rem; }
+      .site-header img { height: 44px; }
+      .preamble-card { padding: 1.1rem; }
+      .preamble-header h1 { font-size: 1.1rem; }
+      .advisor-total { display: none; }
+      .asset-table th, .asset-table td { padding: 0.3rem 0.5rem; font-size: 0.82rem; }
+    }
+    @media (max-width: 480px) {
+      .site-header .site-title small { display: none; }
+      #app { padding: 1rem 0.5rem 3rem; }
+    }
+
+    /* hidden for filter */
+    .advisor-card.hidden { display: none; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <img src="../reform-site/images/BDGov.jpg" alt="Bangladesh Government Emblem">
+  <div class="site-title">
+    <span class="bn-text">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার · মন্ত্রিপরিষদ বিভাগ</span>
+    <span class="en-text" style="display:none">Government of the People's Republic of Bangladesh · Cabinet Division</span>
+    <small class="bn-text">উপদেষ্টামণ্ডলীর সম্পদ বিবরণী ২০২৫</small>
+    <small class="en-text" style="display:none">Advisors' Asset Declaration 2025</small>
+  </div>
+  <img src="../reform-site/images/a2i-ict-logo.png" alt="ICT Division">
+</header>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <ul>
+    <li><a href="../"><i class="fas fa-home"></i></a></li>
+    <li><a href="../reform-site/" class="bn-text">সংস্কার কমিশন</a><a href="../reform-site/" class="en-text" style="display:none">Reform Commission</a></li>
+    <li>
+      <div class="lang-wrap">
+        <span>বাংলা</span>
+        <label class="lang-switch">
+          <input type="checkbox" id="lang-check">
+          <span class="lang-slider"></span>
+        </label>
+        <span>ENG</span>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<!-- MAIN -->
+<main id="app">
+  <div class="container-lg">
+
+    <!-- PREAMBLE -->
+    <div class="preamble-card">
+      <div class="preamble-header">
+        <h1 class="bn-text">অন্তর্বর্তীকালীন সরকারের উপদেষ্টামণ্ডলীর সম্পদ বিবরণী</h1>
+        <h1 class="en-text" style="display:none">Asset Declaration — Interim Government Advisors</h1>
+        <div class="sub bn-text">ঢাকা, ২৭ মাঘ ১৪৩২ / ১০ ফেব্রুয়ারি ২০২৬</div>
+        <div class="sub en-text" style="display:none">Dhaka, 10 February 2026 (27 Magh 1432 BS)</div>
+        <div class="ref-no">নং: ০৪.০০.০০০০.৪২২.৪৮.০২১.২৪.৬৯</div>
+      </div>
+      <div class="preamble-body">
+        <div class="highlight bn-text">
+          মন্ত্রিপরিষদ বিভাগ থেকে গত ১ অক্টোবর ২০২৪ তারিখে জারিকৃত প্রজাপন অনুযায়ী অন্তর্বর্ত্তীকালীন সরকারের উপদেষ্টা এবং সমপদমর্যাদাসম্পন্ন ব্যক্তিবর্গ এবং তাদের স্ত্রী/স্বামীর ৩০ জুন ২০২৪ ও ৩০ জুন ২০২৫ তারিখের সম্পদ বিবরণী প্রকাশ করা হলো।
+        </div>
+        <div class="highlight en-text" style="display:none">
+          In accordance with the gazette notification issued by the Cabinet Division on 1 October 2024, the asset declarations as of 30 June 2024 and 30 June 2025 of the advisors of the interim government and persons of equivalent rank, along with their spouses, are hereby published.
+        </div>
+        <p class="bn-text" style="margin-top:0.8rem; font-size:0.9rem; color:#555;">
+          ২০২৪ সালের জুলাই গণ-অভ্যুত্থানের পর প্রধানমন্ত্রী শেখ হাসিনার পদত্যাগের পরিপ্রেক্ষিতে ৮ আগস্ট ২০২৪ তারিখে নোবেল শান্তি পুরস্কারজয়ী ড. মুহাম্মদ ইউনুসের নেতৃত্বে অন্তর্বর্তীকালীন সরকার গঠিত হয়। এই পাতায় সেই সরকারের উপদেষ্টা ও সমপদমর্যাদার ব্যক্তিদের সরকারি সম্পদ বিবরণী উপস্থাপন করা হয়েছে।
+        </p>
+        <p class="en-text" style="display:none; margin-top:0.8rem; font-size:0.9rem; color:#555;">
+          Following the July 2024 mass uprising and the resignation of Prime Minister Sheikh Hasina, an interim government was formed on 8 August 2024 under the leadership of Nobel Peace Prize laureate Dr. Muhammad Yunus. This page presents the official asset declarations of the advisors and officials of equivalent rank of that government.
+        </p>
+      </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-wrap">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="search-input" placeholder="নাম অনুসন্ধান করুন… / Search by name…" oninput="filterAdvisors(this.value)">
+    </div>
+
+    <!-- ADVISORS LIST -->
+    <div id="advisors-list"></div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <div></div>
+    <div class="text-center bn-text">
+      সূত্র: মন্ত্রিপরিষদ বিভাগ, বাংলাদেশ সরকার &nbsp;·&nbsp; প্রজাপন নং ০৪.০০.০০০০.৪২২.৪৮.০২১.২৪.৬৯
+    </div>
+    <div class="text-center en-text" style="display:none">
+      Source: Cabinet Division, Government of Bangladesh &nbsp;·&nbsp; Notification No. 04.00.0000.422.48.021.24.69
+    </div>
+    <div class="text-end">
+      <div style="font-size:0.78rem; margin-bottom:3px;" class="bn-text">কারিগরি সহযোগিতায়</div>
+      <div style="font-size:0.78rem; margin-bottom:3px;" class="en-text" style="display:none">Technical support</div>
+      <img src="../reform-site/images/a2i-ict-logo.png" width="88" alt="ICT">
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────────
+const GROUPS = [
+  {
+    labelBn: 'মাননীয় প্রধান উপদেষ্টা',
+    labelEn: 'Chief Advisor',
+    items: [
+      {
+        sl: '১', slEn: '1',
+        nameBn: 'ড. মুহাম্মদ ইউনুস', nameEn: 'Dr. Muhammad Yunus',
+        roleBn: 'মাননীয় প্রধান উপদেষ্টা', roleEn: 'Chief Advisor',
+        self: {
+          fin24: '১৩,১৮,৭১,৪৩৩', fin25: '১৪,৭৬,৬৪,৪০১',
+          nf24:  '২০,৯২,৫০০',    nf25:  '২১,০৬,২৫০',
+          os24:  '৬৬,৭৫,৭৪০',   os25:  '৬৪,৭৩,৪১৪',
+          tot24: '১৪,০১,৩৯,৬৭৩', tot25: '১৫,৬২,৪৪,০৬৫',
+          lib24: '০', lib25: '০',
+        },
+        spouse: {
+          nameBn: 'ড. আফরোজী ইউনুস', nameEn: 'Dr. Afrozi Yunus',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '৯৫,৪৬,৬৭৯',   fin25: '৪,৫৬,৮৬০',
+          nf24:  '১,১৬,৩৫,৫৯৫', nf25:  '১,২৩,১১,৫০০',
+          os24:  '০',             os25:  '০',
+          tot24: '২,১১,৭৭,২৭৪',  tot25: '১,২৭,৬৩,৩৬০',
+          lib24: '১৬,৮৬,০০০',    lib25: '১৬,৯৬,০০০',
+        },
+        notesBn: 'সঞ্চয়পত্র নগদায়ন, সঞ্চয়ী/মেয়াদী আমানতে বৃদ্ধি এবং উত্তরাধিকার সূত্রে প্রাপ্ত শেয়ার প্রভৃতি কারণে মোট সম্পদের পরিবৃদ্ধি হয়েছে।',
+        notesEn: 'Total assets increased due to encashment of savings certificates, growth in savings/fixed deposits, and shares received through inheritance.',
+      },
+    ]
+  },
+  {
+    labelBn: 'উপদেষ্টামণ্ডলী',
+    labelEn: 'Advisors',
+    items: [
+      {
+        sl: '২', slEn: '2',
+        nameBn: 'ড. সালেহ উদ্দিন আহমেদ', nameEn: 'Dr. Saleh Uddin Ahmed',
+        roleBn: 'মাননীয় উপদেষ্টা (অর্থ)', roleEn: 'Advisor (Finance)',
+        self: {
+          fin24: '৬,৫২,৪২,৫১৮', fin25: '৬,৮৭,৫২,৮২৬',
+          nf24:  '৫৮,০৭,২০০',   nf25:  '২৮,৬২,২০০',
+          os24:  '০',            os25:  '০',
+          tot24: '৭,১০,৪৯,৭১৮', tot25: '৭,১৬,১৫,০২৬',
+          lib24: '৮৪,০০০',      lib25: '০',
+        },
+        spouse: {
+          nameBn: 'মিজ্ পারভীন আহমেদ', nameEn: 'Mrs. Parveen Ahmed',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '২,২৬,৩৪,৯৪৫', fin25: '৩,০০,৯১,৬৩৭',
+          nf24:  '২,৩৭,৯২,৩৬০', nf25:  '২,৩৭,৯২,৩৬০',
+          os24:  '০',            os25:  '০',
+          tot24: '৪,৬৪,২৭,৩০৫', tot25: '৫,৩৮,৮৩,৯৯৭',
+          lib24: '২,৫৪,৬০,০০০', lib25: '৩,১২,৩০,০০০',
+        },
+      },
+      {
+        sl: '৩', slEn: '3',
+        nameBn: 'জনাব ওয়াহিদ উদ্দিন মাহমুদ', nameEn: 'Mr. Wahiduddin Mahmud',
+        roleBn: 'মাননীয় উপদেষ্টা (পরিকল্পনা)', roleEn: 'Advisor (Planning)',
+        self: {
+          fin24: '১৪,১১,৬৯,১০২', fin25: '১৫,২৫,৫১,৪৮৩',
+          nf24:  '৯৭,৪৪,০০০',   nf25:  '৯৭,৪৪,০০০',
+          os24:  '০',            os25:  '০',
+          tot24: '১৫,০৯,১৩,১০২', tot25: '১৬,২২,৯৫,৪৮৩',
+          lib24: '০',            lib25: '০',
+        },
+        spouseDeceased: true,
+        notesBn: 'ব্যাংক আমানত থেকে প্রাপ্ত মুনাফা এবং ডেভেলপার কোম্পানির সঙ্গে চুক্তি হতে আয় প্রভৃতি কারণে মোট সম্পদের পরিবৃদ্ধি হয়েছে।',
+        notesEn: 'Total assets increased due to profit from bank deposits and income from agreement with a developer company.',
+      },
+      {
+        sl: '৪', slEn: '4',
+        nameBn: 'ড. আসিফ নজরুল', nameEn: 'Dr. Asif Nazrul',
+        roleBn: 'মাননীয় উপদেষ্টা (আইন)', roleEn: 'Advisor (Law)',
+        self: {
+          fin24: '৮৮,৪৪,৬৩৩',  fin25: '৯১,৩২,৪৩২',
+          nf24:  '৫৯,৬৫,৮০০',  nf25:  '৬৯,৬৫,৮০০',
+          os24:  '০',           os25:  '০',
+          tot24: '১,৪৮,১০,৪৩৩', tot25: '১,৬০,৯৮,২৩২',
+          lib24: '০',           lib25: '০',
+        },
+        spouse: {
+          nameBn: 'মজি শীলা আহমেদ', nameEn: 'Mrs. Sheela Ahmed',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '—', fin25: '—', nf24: '—', nf25: '—',
+          os24: '—', os25: '—', tot24: '—', tot25: '—', lib24: '—', lib25: '—',
+        },
+      },
+      {
+        sl: '৫', slEn: '5',
+        nameBn: 'জনাব মোঃ তৌহিদ হোসেন', nameEn: 'Mr. Md. Touhid Hossain',
+        roleBn: 'মাননীয় উপদেষ্টা (পররাষ্ট্র)', roleEn: 'Advisor (Foreign Affairs)',
+        self: {
+          fin24: '২,০১,৩৪,৭২০', fin25: '২,৪৪,৯২,৬১৩',
+          nf24:  '০',           nf25:  '০',
+          os24:  '০',           os25:  '০',
+          tot24: '২,০১,৩৪,৭২০', tot25: '২,৪৪,৯২,৬১৩',
+          lib24: '০',           lib25: '০',
+        },
+        spouse: {
+          nameBn: 'মজি জাহান আরা সিদ্দিকী', nameEn: 'Mrs. Jahan Ara Siddiqui',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '—', fin25: '—', nf24: '—', nf25: '—',
+          os24: '—', os25: '—', tot24: '—', tot25: '—', lib24: '—', lib25: '—',
+        },
+      },
+      {
+        sl: '৬', slEn: '6',
+        nameBn: 'লেফটেন্যান্ট জেনারেল মোঃ জাহাঙ্গীর আলম (অবঃ)', nameEn: 'Lt. General Md. Jahangir Alam (Retd.)',
+        roleBn: 'মাননীয় উপদেষ্টা (স্বরাষ্ট্র)', roleEn: 'Advisor (Home Affairs)',
+        self: {
+          fin24: '২,৫৩,৪৬,৬০৯', fin25: '২,৫৯,৭১,১৫৮',
+          nf24:  '৩৩,৪০,০০০',   nf25:  '৩৩,৪০,০০০',
+          os24:  '০',            os25:  '০',
+          tot24: '২,৮৬,৮৬,৬০৯', tot25: '২,৯৩,১১,১৫৮',
+          lib24: '০',            lib25: '০',
+        },
+        spouse: {
+          nameBn: 'মজি লায়লা আরজু', nameEn: 'Mrs. Layla Arzu',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '—', fin25: '—', nf24: '—', nf25: '—',
+          os24: '—', os25: '—', tot24: '—', tot25: '—', lib24: '—', lib25: '—',
+        },
+      },
+      {
+        sl: '৭', slEn: '7',
+        nameBn: 'জনাব আদিলুর রহমান খান', nameEn: 'Mr. Adilur Rahman Khan',
+        roleBn: 'মাননীয় উপদেষ্টা (তথ্য)', roleEn: 'Advisor (Information)',
+        self: {
+          fin24: '১,৭৭,১০,২৫৪', fin25: '১,৯২,৬৫,১৪৯',
+          nf24:  '৮৪,৫৫,৬২৫',  nf25:  '৮৪,৫৫,৬২৫',
+          os24:  '০',           os25:  '০',
+          tot24: '২,৬১,৬৫,৮৭৯', tot25: '২,৭৭,২০,৭৭৪',
+          lib24: '০',           lib25: '০',
+        },
+        spouse: {
+          nameBn: 'ড. সায়রা রহমান খান', nameEn: 'Dr. Sayra Rahman Khan',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '৯৭,১৭,০০৭',  fin25: '১,১০,২৭,২৬৯',
+          nf24:  '১,০৫,০০০',   nf25:  '১,৪২,৭২,০০০',
+          os24:  '০',          os25:  '০',
+          tot24: '৯৮,২২,০০৭',  tot25: '২,৫২,৯৯,২৬৯',
+          lib24: '১,৫৫,০০০',   lib25: '১,৫৫,০০০',
+        },
+        notesBn: '* উত্তরাধিকার সূত্রে গৃহসম্পত্তি ও কৃষি সম্পত্তি প্রাপ্ত হওয়ায় স্ত্রীর নন-ফাইনান্সিয়াল সম্পদ বৃদ্ধি পেয়েছে।',
+        notesEn: "* Spouse's non-financial assets increased due to receiving residential and agricultural property through inheritance.",
+      },
+      {
+        sl: '৮', slEn: '8',
+        nameBn: 'জনাব আলী ইমাম মজুমদার', nameEn: 'Mr. Ali Imam Majumder',
+        roleBn: 'মাননীয় উপদেষ্টা (জনপ্রশাসন)', roleEn: 'Advisor (Public Administration)',
+        self: {
+          fin24: '৩,১৩,৬৫,৪২০', fin25: '৩,৭৬,৩৫,৪৯৪',
+          nf24:  '২৩,৫০,০০০',   nf25:  '১২,৬২,৫০০',
+          os24:  '০',            os25:  '০',
+          tot24: '৩,৩৭,১৫,৪২০', tot25: '৩,৮৮,৯৭,৯৯৪',
+          lib24: '০',            lib25: '০',
+        },
+        spouseDeceased: true,
+      },
+      {
+        sl: '৯', slEn: '9',
+        nameBn: 'অধ্যাপক ড. চৌধুরী রফিকুল আবরার', nameEn: 'Prof. Dr. C. R. Abrar',
+        roleBn: 'মাননীয় উপদেষ্টা', roleEn: 'Advisor',
+        self: {
+          fin24: '৪,৮৪,৫৫,৮৫৮', fin25: '৫,৩৯,৯৮,১১২',
+          nf24:  '২,১৭,৪৫,৩১০', nf25:  '২,১৭,৪৫,৩১০',
+          os24:  '০',            os25:  '০',
+          tot24: '৭,০২,০১,১৬৮', tot25: '৭,৫৭,৪৩,৪২২',
+          lib24: '৯,৫০,১৮৭',    lib25: '২,৭৩,৩৮৭',
+        },
+        spouse: {
+          nameBn: 'অধ্যাপক (অবঃ) তাসনিম আরেকা সিদ্দিকী', nameEn: 'Prof. (Retd.) Tasnim Areka Siddiqui',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '৪,১৮,৪৯,১৪৪', fin25: '৪,৬৫,৩১,৬৩১',
+          nf24:  '৩,৬৩,৭০,০০০', nf25:  '৩,৬৩,৭০,০০০',
+          os24:  '০',            os25:  '০',
+          tot24: '৭,৮২,১৯,১৪৪', tot25: '৮,২৯,০১,৬৩১',
+          lib24: '১৭,১৬,২০৮',   lib25: '১২,৬৩,৮১৮',
+        },
+      },
+      {
+        sl: '১০', slEn: '10',
+        nameBn: 'জনাব মুহাম্মদ ফাওজুল কবির খান', nameEn: 'Mr. Muhammad Fawzul Kabir Khan',
+        roleBn: 'মাননীয় উপদেষ্টা (বিদ্যুৎ ও জ্বালানি)', roleEn: 'Advisor (Power & Energy)',
+        self: {
+          fin24: '৬,১৬,৭৩,৩৯৭', fin25: '৬,৬৩,৯৯,৩৩৭',
+          nf24:  '৩০,৪৭,০০০',   nf25:  '৮,৫৬,০০০',
+          os24:  '০',            os25:  '০',
+          tot24: '৬,৪৭,২০,৩৯৭', tot25: '৬,৭২,৫৫,৩৩৭',
+          lib24: '০',            lib25: '০',
+        },
+        spouse: {
+          nameBn: 'মিজ্ দিলরুবা কবির', nameEn: 'Mrs. Dilruba Kabir',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '২,৬৭,৫৮,৫৪৯', fin25: '২,৭৭,৯৯,৪৯০',
+          nf24:  '৪০,০০,০০০',   nf25:  '৪০,০০,০০০',
+          os24:  '০',           os25:  '০',
+          tot24: '৩,০৭,৫৮,৫৪৯', tot25: '৩,১৭,৯৯,৪৯০',
+          lib24: '০',           lib25: '০',
+        },
+      },
+      {
+        sl: '১১', slEn: '11',
+        nameBn: 'সৈয়দা রিজওয়ানা হাসান', nameEn: 'Syeda Rizwana Hasan',
+        roleBn: 'মাননীয় উপদেষ্টা (পরিবেশ)', roleEn: 'Advisor (Environment)',
+        self: {
+          fin24: '১,৯৪,৬০,৯৪৮', fin25: '৮১,৬৮,৮১৭',
+          nf24:  '৩১,০৪,১০৭',   nf25:  '৩১,০৪,১০৭',
+          os24:  '০',            os25:  '০',
+          tot24: '২,২৫,৬৫,০৫৫', tot25: '১,১২,৭২,৯২৪',
+          lib24: '—',            lib25: '—',
+        },
+        spouse: {
+          nameBn: 'জনাব আবু বকর সিদ্দিক', nameEn: 'Mr. Abu Bakar Siddique',
+          relBn: 'স্বামী', relEn: 'Husband',
+          fin24: '১২,১৬,৫৩৩',   fin25: '১২,৯৫,৬৪৫',
+          nf24:  '১,৭৭,৪৪,২৫০', nf25:  '১,৭৭,৪৪,২৫০',
+          os24:  '০',            os25:  '০',
+          tot24: '১,৮৯,৬০,৭৮৩', tot25: '১,৯০,৩৯,৮৯৫',
+          lib24: '১,৩২,৬২,৪৭৪', lib25: '৬,৮৮,৪৩১',
+        },
+      },
+      {
+        sl: '১২', slEn: '12',
+        nameBn: 'জনাব ফারুক ই আজম, বীর প্রতীক', nameEn: 'Mr. Faruque-E-Azam, Bir Pratik',
+        roleBn: 'মাননীয় উপদেষ্টা (মুক্তিযুদ্ধ বিষয়ক)', roleEn: 'Advisor (Liberation War Affairs)',
+        self: {
+          fin24: '৬৩,৪৩,৮৫৮',  fin25: '৭৮,৩০,৩৩৫',
+          nf24:  '১,১৩,২১,৩০৬', nf25:  '১,২৩,৭৮,৫৯৪',
+          os24:  '০',           os25:  '০',
+          tot24: '১,৭৬,৬৫,১৬৪', tot25: '২,০২,০৮,৯২৯',
+          lib24: '১২,০০,০০০',   lib25: '০',
+        },
+        spouse: {
+          nameBn: 'মিজ্ শামীমা ফারুক', nameEn: 'Mrs. Shamima Faruque',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '৩৬,৬০,১৯৮', fin25: '৩৯,৭৩,৯৮৫',
+          nf24:  '১০,০০০',    nf25:  '০',
+          os24:  '০',         os25:  '০',
+          tot24: '৩৬,৭০,১৯৮', tot25: '৩৯,৭৩,৯৮৫',
+          lib24: '৯,২০,০০০',  lib25: '৯,২০,০০০',
+        },
+      },
+      {
+        sl: '১৩', slEn: '13',
+        nameBn: '—', nameEn: '—',
+        roleBn: 'মাননীয় উপদেষ্টা', roleEn: 'Advisor',
+        self: {
+          fin24: '২,৭৪,২৭,৪০৫', fin25: '২,৯৮,৭০,৭৪২',
+          nf24:  '৫০,৭২,১১২',   nf25:  '৫২,৪২,১১২',
+          os24:  '০',            os25:  '০',
+          tot24: '৩,২৪,৯৯,৫১৭', tot25: '৩,৫১,১২,৮৫৪',
+          lib24: '০',            lib25: '০',
+        },
+        spouse: {
+          nameBn: 'লেফটেন্যান্ট কর্ণেল (অবঃ) রেহানা খানম', nameEn: 'Lt. Colonel (Retd.) Rehana Khanam',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '৩১,১১,০৫২', fin25: '২৯,৭৮,৪৯৯',
+          nf24:  '৩,৭০,০০০',  nf25:  '৩,৭০,০০০',
+          os24:  '০',         os25:  '০',
+          tot24: '৩৪,৮১,০৫২', tot25: '৩৩,৪৮,৪৯৯',
+          lib24: '৭,০৮,৮৮৮',  lib25: '০',
+        },
+        notesBn: '* ক্রম ১৩-এর উপদেষ্টার নাম মূল দলিলে স্পষ্ট নয়।',
+        notesEn: '* Name of the advisor at serial 13 is unclear in the source document.',
+      },
+      {
+        sl: '১৪', slEn: '14',
+        nameBn: '—', nameEn: '—',
+        roleBn: 'মাননীয় উপদেষ্টা', roleEn: 'Advisor',
+        self: {
+          fin24: '৩,৩৮,৬২,৮৩৭', fin25: '৩,৪২,৭২,৬৭৪',
+          nf24:  '২,৮২,১৩,৯৮৯', nf25:  '২,৮২,১৩,৯৮৯',
+          os24:  '০',            os25:  '০',
+          tot24: '৬,২০,৭৬,৮২৬', tot25: '৬,২৪,৮৬,৬৬৩',
+          lib24: '০',            lib25: '০',
+        },
+        spouse: {
+          nameBn: 'জনাব কে এম আসাদুজ্জামান', nameEn: 'Mr. K. M. Asaduzzaman',
+          relBn: 'স্বামী', relEn: 'Husband',
+          fin24: '২,৪২,৯১,৭৮৩', fin25: '৭৮,৪৯,৮৮৮',
+          nf24:  '৪৫,১১,৭৭১',   nf25:  '৫৯,১১,৭৭১',
+          os24:  '০',            os25:  '০',
+          tot24: '২,৮৮,০৩,৫৫৪', tot25: '১,৩৭,৬১,৬৫৯',
+          lib24: '১,৫১,৭২,১৫৫', lib25: '০',
+        },
+        notesBn: '* ক্রম ১৪-এর উপদেষ্টার নাম মূল দলিলে স্পষ্ট নয়।',
+        notesEn: '* Name of the advisor at serial 14 is unclear in the source document.',
+      },
+      {
+        sl: '১৫', slEn: '15',
+        nameBn: '—', nameEn: '—',
+        roleBn: 'মাননীয় উপদেষ্টা', roleEn: 'Advisor',
+        self: {
+          fin24: '৪,২৪,০৩,৭৬৫', fin25: '৫,৬০,৩১,১১৩',
+          nf24:  '২২,৭৯,৪২২',   nf25:  '২২,৭৯,৪২২',
+          os24:  '০',            os25:  '০',
+          tot24: '৪,৪৬,৮৩,১৮৭', tot25: '৫,৮৩,১০,৫৩৫',
+          lib24: '০',            lib25: '০',
+        },
+        spouse: {
+          nameBn: 'ডাঃ রমা সাহা', nameEn: 'Dr. Roma Saha',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '২,৯১,৭৭,১৯৮', fin25: '৩,১৮,০৮,৮৭৩',
+          nf24:  '২২,৮৮,৭৬৫',   nf25:  '২২,৮৮,৭৬৫',
+          os24:  '০',            os25:  '০',
+          tot24: '৩,১৪,৬৫,৯৬৩', tot25: '৩,৪০,৯৭,৬৩৮',
+          lib24: '০',            lib25: '০',
+        },
+        notesBn: '* ক্রম ১৫-এর উপদেষ্টার নাম মূল দলিলে স্পষ্ট নয়।',
+        notesEn: '* Name of the advisor at serial 15 is unclear in the source document.',
+      },
+      {
+        sl: '১৬', slEn: '16',
+        nameBn: 'জনাব ফরিদা আখতার', nameEn: 'Mrs. Farida Akhtar',
+        roleBn: 'মাননীয় উপদেষ্টা (মহিলা ও শিশু)', roleEn: 'Advisor (Women & Children)',
+        self: {
+          fin24: '৫৪,৪২,৮০৯', fin25: '৭০,৩৮,৯৪০',
+          nf24:  '২৬,৮৬,১২০', nf25:  '৩১,৮৬,১২০',
+          os24:  '০',         os25:  '০',
+          tot24: '৮১,২৮,৯২৯', tot25: '১,০২,২৫,০৬০',
+          lib24: '০',         lib25: '০',
+        },
+        spouse: {
+          nameBn: 'জনাব এফ এম মজহারুল হক', nameEn: 'Mr. F. M. Mozaharul Haque',
+          relBn: 'স্বামী', relEn: 'Husband',
+          fin24: '৪০,৯৬,৬৮১', fin25: '৩৯,৬৬,৬৪৯',
+          nf24:  '৬৫,৫৭,৩০০', nf25:  '৭০,৫৭,৩০০',
+          os24:  '০',         os25:  '০',
+          tot24: '১,০৬,৫৩,৯৮১', tot25: '১,১০,২৩,৯৪৯',
+          lib24: '০',         lib25: '০',
+        },
+      },
+      {
+        sl: '১৭', slEn: '17',
+        nameBn: 'জনাব শারমীন এস মুরশিদ', nameEn: 'Mrs. Sharmeen S. Murshid',
+        roleBn: 'মাননীয় উপদেষ্টা (সমাজ কল্যাণ)', roleEn: 'Advisor (Social Welfare)',
+        self: {
+          fin24: '৮,৫৪,৪৮,১৭৪', fin25: '৮,৯০,২৮,৮৩৭',
+          nf24:  '২,১০,৬১,১০২', nf25:  '২,০৩,৩৫,৮৮২',
+          os24:  '০',           os25:  '০',
+          tot24: '১০,৬৫,০৯,২৭৬', tot25: '১০,৯৩,৬৪,৭১৯',
+          lib24: '২,৮৬,৪৯,২০২', lib25: '১,৯১,৩৭,৯২৯',
+        },
+        spouse: {
+          nameBn: 'জনাব হুমায়ুন কাদের চৌধুরী', nameEn: 'Mr. Humayun Kader Chowdhury',
+          relBn: 'স্বামী', relEn: 'Husband',
+          fin24: '—',            fin25: '৬,৪৩,৮৫,৩৯০',
+          nf24:  '—',            nf25:  '১,৯১,৩৩,৮৯৬',
+          os24:  '—',            os25:  '০',
+          tot24: '৭,৩৫,১৯,২৮৬', tot25: '৮,৩৫,১৯,২৮৬',
+          lib24: '—',            lib25: '১,০০,০০,০০০',
+        },
+      },
+      {
+        sl: '১৮', slEn: '18',
+        nameBn: 'ড. আ ফ ম খালিদ হোসেন', nameEn: 'Dr. A.F.M. Khalid Hossain',
+        roleBn: 'মাননীয় উপদেষ্টা (ধর্ম বিষয়ক)', roleEn: 'Advisor (Religious Affairs)',
+        self: {
+          fin24: '৪৮,৭৮,২৭৪', fin25: '৭৪,৫৪,৬০২',
+          nf24:  '৩৯,৩৭,৫০০', nf25:  '৩৯,৩৭,৫০০',
+          os24:  '০',         os25:  '০',
+          tot24: '৮৮,১৫,৭৭৪', tot25: '১,১৩,৯২,১০২',
+          lib24: '০',         lib25: '০',
+        },
+        spouse: {
+          nameBn: 'মিজ কামরুনেসা হাসিনা', nameEn: 'Mrs. Kamrunessa Hasina',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '০',          fin25: '০',
+          nf24:  '১০,৬১,৬০০', nf25:  '১৪,১১,৬০০',
+          os24:  '০',          os25:  '০',
+          tot24: '১০,৬১,৬০০', tot25: '১৪,১১,৬০০',
+          lib24: '০',          lib25: '০',
+        },
+      },
+      {
+        sl: '১৯', slEn: '19',
+        nameBn: 'জনাব সুপ্রদীপ চাকমা', nameEn: 'Mr. Supradip Chakma',
+        roleBn: 'মাননীয় উপদেষ্টা (পার্বত্য চট্টগ্রাম)', roleEn: 'Advisor (CHT Affairs)',
+        self: {
+          fin24: '৯৪,১৮,১৪১', fin25: '৭৭,৮৩,৭৯৬',
+          nf24:  '৩২,১৫,০০০', nf25:  '৩২,১৫,০০০',
+          os24:  '০',         os25:  '০',
+          tot24: '১,২৬,৩৩,১৪১', tot25: '১,০৯,৯৮,৭৯৬',
+          lib24: '০',         lib25: '০',
+        },
+        spouse: {
+          nameBn: 'মিজ নদিতা চাকমা', nameEn: 'Mrs. Nodita Chakma',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '২৫,২৫,১৪৯', fin25: '২০,৮০,৫৯৪',
+          nf24:  '৩৭,৯৫,০০০', nf25:  '৩৭,৯৫,০০০',
+          os24:  '০',         os25:  '০',
+          tot24: '৬৩,২০,১৪৯', tot25: '৫৮,৭৫,৫৯৪',
+          lib24: '১৬,০০,৭৮১', lib25: '৯,৪৭,৫৪৫',
+        },
+      },
+      {
+        sl: '২০', slEn: '20',
+        nameBn: 'শেখ বশিরউদ্দীন', nameEn: 'Sheikh Bashiruddin',
+        roleBn: 'মাননীয় উপদেষ্টা (কৃষি)', roleEn: 'Advisor (Agriculture)',
+        self: {
+          fin24: '১২,৩৯,৪০,৭৫০', fin25: '৯,৪৫,১০,১৭৪',
+          nf24:  '৭৮,৭১,৫৮,০৯২', nf25:  '৮২,২০,০০,৭২১',
+          os24:  '০',             os25:  '০',
+          tot24: '৯১,১০,৯৮,৮৪২', tot25: '৯১,৬৫,১০,৮৯৫',
+          lib24: '০',             lib25: '০',
+        },
+        spouse: {
+          nameBn: 'মিজ ইফসিয়া মাহিন', nameEn: 'Mrs. Ifsia Mahin',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '২,০৬,৪৯,৫৮৯', fin25: '২,০৯,৯৬,৯৩০',
+          nf24:  '১,৫৭,৬৬১',    nf25:  '৯০,৫০০',
+          os24:  '০',            os25:  '০',
+          tot24: '২,০৮,০৭,২৫০', tot25: '২,১০,৮৭,৪৩০',
+          lib24: '০',            lib25: '০',
+        },
+      },
+      {
+        sl: '২১', slEn: '21',
+        nameBn: 'জনাব মোস্তফা সরয়র ফারুকী', nameEn: 'Mr. Mostofa Sarwar Faruki',
+        roleBn: 'মাননীয় উপদেষ্টা (সংস্কৃতি)', roleEn: 'Advisor (Cultural Affairs)',
+        self: {
+          fin24: '৭৮,৮৩,৫৮৬',  fin25: '৮৫,৫৪,৫৮৬',
+          nf24:  '১,৪৮,০৮,৪৪০', nf25:  '১,২৯,৬৩,৪৪০',
+          os24:  '০',           os25:  '০',
+          tot24: '২,২৬,৯২,০২৬', tot25: '২,১৫,১৮,০২৬',
+          lib24: '০',           lib25: '০',
+        },
+        spouse: {
+          nameBn: 'মিজ নুসরাত ইমরোজ তিশা', nameEn: 'Mrs. Nusrat Imroz Tisha',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '১,০৪,১১,৫৬০', fin25: '২,২২,৯৩,৩৪৩',
+          nf24:  '৩৬,৭০,৩০০',  nf25:  '৭৬,৯৬,১৫৮',
+          os24:  '০',           os25:  '০',
+          tot24: '১,৪০,৮১,৮৬০', tot25: '২,৯৯,৮৯,৫০১',
+          lib24: '০',           lib25: '১,০০,০০,০০০',
+        },
+      },
+    ]
+  },
+  {
+    labelBn: 'সাবেক উপদেষ্টা',
+    labelEn: 'Former Advisors',
+    items: [
+      {
+        sl: '২২', slEn: '22',
+        nameBn: 'জনাব আসিফ মাহমুদ সজীব ভূইয়া', nameEn: 'Mr. Asif Mahmud Sajib Bhuiya',
+        roleBn: 'সাবেক মাননীয় উপদেষ্টা (যুব ও ক্রীড়া)', roleEn: 'Former Advisor (Youth & Sports)',
+        self: {
+          fin24: '*', fin25: '১৪,২৪,৭১৭',
+          nf24:  '*', nf25:  '১,১০,০০০',
+          os24:  '*', os25:  '০',
+          tot24: '*', tot25: '১৫,৩৪,৭১৭',
+          lib24: '*', lib25: '২৮,৬৬৯',
+        },
+        notesBn: '* ২০২৩-২৪ অর্থবছরে তাঁর TIN ছিল না, তাই ২০২৪ সালের তথ্য নেই।',
+        notesEn: '* He did not have a TIN (Tax Identification Number) in the 2023-24 fiscal year, hence 2024 data is unavailable.',
+      },
+      {
+        sl: '২৩', slEn: '23',
+        nameBn: 'জনাব মোঃ মাহফুজ আলম', nameEn: 'Mr. Md. Mahfuz Alam',
+        roleBn: 'সাবেক মাননীয় উপদেষ্টা (ডাক ও টেলিযোগাযোগ)', roleEn: 'Former Advisor (Posts & Telecommunications)',
+        self: {
+          fin24: '৪,০০,০০০',  fin25: '১২,৫৬,৮৭৯',
+          nf24:  '২০,০০০',    nf25:  '২০,০০০',
+          os24:  '০',         os25:  '০',
+          tot24: '৪,২০,০০০',  tot25: '১২,৭৬,৮৭৯',
+          lib24: '০',         lib25: '০',
+        },
+      },
+    ]
+  },
+  {
+    labelBn: 'বিশেষ সহকারী ও উপদেষ্টার পদমর্যাদায় অন্যান্য',
+    labelEn: 'Special Assistants & Others of Equivalent Rank',
+    items: [
+      {
+        sl: '২৪', slEn: '24',
+        nameBn: 'লেফটেন্যান্ট জেনারেল (অবং) আব্দুল হাফিজ', nameEn: 'Lt. General (Retd.) Abdul Hafiz',
+        roleBn: 'মাননীয় প্রধান উপদেষ্টার বিশেষ সহকারী (উপদেষ্টার পদমর্যাদা)', roleEn: "Special Assistant to the Chief Advisor (Equivalent Rank)",
+        self: {
+          fin24: '৪,১১,৬৬,১২৫', fin25: '৪,৯০,৬৯,৬৯৮',
+          nf24:  '৫,০৮,২৭,৫০২', nf25:  '৪,৮৫,৩২,৪১৩',
+          os24:  '৩,৫২,৯৪,০৮৪', os25:  '৩,৮১,৪৭,৪২৮',
+          tot24: '১২,৭২,৮৭,৭১১', tot25: '১৩,৫৭,৪৯,৫৩৯',
+          lib24: '০',            lib25: '০',
+        },
+        spouse: {
+          nameBn: 'মিজ ঈশিতা সারওয়াত মিম', nameEn: 'Mrs. Eshita Sarwat Mim',
+          relBn: 'স্ত্রী', relEn: 'Wife',
+          fin24: '২০,৫১,৩৬৬', fin25: '১৭,১৪,৫৬৪',
+          nf24:  '—',          nf25:  '—',
+          os24:  '—',          os25:  '—',
+          tot24: '—',          tot25: '—',
+          lib24: '—',          lib25: '—',
+        },
+        notesBn: '* বাংলাদেশের বাইরের সম্পদ: ব্যাংক একাউন্টে গচ্ছিত অর্থ। ** জাতিসংঘে কর্মকালীন আয় হতে ক্রয়কৃত ফ্ল্যাট।',
+        notesEn: '* Overseas assets: funds deposited in bank accounts. ** Flat purchased from income during service at the United Nations.',
+      },
+      {
+        sl: '২৫', slEn: '25',
+        nameBn: 'অধ্যাপক আলী রীয়াজ', nameEn: 'Prof. Ali Riaz',
+        roleBn: 'মাননীয় প্রধান উপদেষ্টার বিশেষ সহকারী (উপদেষ্টার পদমর্যাদা)', roleEn: "Special Assistant to the Chief Advisor (Equivalent Rank)",
+        self: {
+          fin24: '২০,৫১,৩৬৬', fin25: '১৭,১৪,৫৬৪',
+          nf24:  '২,৩৯,০০,০০০', nf25: '২,৪৪,০০,০০০',
+          os24:  '০',           os25: '০',
+          tot24: '২,৫৯,৫১,৩৬৬', tot25: '২,৬১,১৪,৫৬৪',
+          lib24: '০',           lib25: '০',
+        },
+      },
+      {
+        sl: '২৬', slEn: '26',
+        nameBn: 'জনাব লুংফে সিদ্দিকী', nameEn: 'Mr. Lungfe Siddiqui',
+        roleBn: 'মাননীয় প্রধান উপদেষ্টার আন্তর্জাতিক বিষয় সংক্রান্ত বিশেষ দূত (অবৈতনিক) (উপদেষ্টার পদমর্যাদা)', roleEn: 'Special Envoy for International Affairs (Unpaid) to the Chief Advisor (Equivalent Rank)',
+        self: {
+          fin24: '*', fin25: '*',
+          nf24:  '*', nf25:  '*',
+          os24:  '*', os25:  '*',
+          tot24: '*', tot25: '*',
+          lib24: '*', lib25: '*',
+        },
+        notesBn: '* তিনি ১৩ নভেম্বর ২০২৫ তারিখে উপদেষ্টার পদমর্যাদায় যোগদান করেছেন।',
+        notesEn: '* He joined with the rank of Advisor on 13 November 2025.',
+      },
+      {
+        sl: '২৭', slEn: '27',
+        nameBn: 'ড. খলিলুর রহমান', nameEn: 'Dr. Khalilur Rahman',
+        roleBn: 'জাতীয় নিরাপত্তা উপদেষ্টা এবং রোহিঙ্গা সমস্যা বিষয়ক হাই রিপ্রেজেন্টেটিভ (উপদেষ্টার পদমর্যাদা) [নিজ ও স্ত্রীর সম্পদের হিসাব একত্রে দাখিলকৃত]',
+        roleEn: 'National Security Advisor & High Representative for Rohingya Affairs (Equivalent Rank) [Combined disclosure with spouse]',
+        self: {
+          fin24: '২০,০০,০০০ ৳',  fin25: '২২,০০,০০০ ৳',
+          nf24:  '—',            nf25:  '—',
+          os24:  '৪৬,৩৫,৮৫০ USD', os25: '৪৬,৩৫,৮৫০ USD',
+          tot24: '৪৬,৩৫,৮৫০ USD + ২০,০০,০০০ ৳', tot25: '৪৬,৩৫,৮৫০ USD + ২২,০০,০০০ ৳',
+          lib24: '১২,৩০,০০০ USD', lib25: '১২,০০,০০০ USD',
+        },
+        notesBn: '* বাংলাদেশের বাইরে অবস্থিত পরিসম্পদ: ইমারত, ফ্ল্যাট ও অন্যান্য অস্থাবর সম্পদ। তিনি সরকারি সুবিধাদি গ্রহণ করেন না।',
+        notesEn: '* Overseas assets include buildings, flats, and other movable assets. He does not receive government benefits.',
+      },
+    ]
+  }
+];
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+let currentLang = 'bn';
+
+function t(item, key) {
+  return currentLang === 'en' ? (item[key + 'En'] || item[key + 'Bn'] || '') : (item[key + 'Bn'] || '');
+}
+
+function assetRow(labelBn, labelEn, val24, val25, extraClass) {
+  const label = currentLang === 'en' ? labelEn : labelBn;
+  const cls   = extraClass ? ` class="${extraClass}"` : '';
+  return `<tr${cls}><td>${label}</td><td class="num">${val24}</td><td class="num">${val25}</td></tr>`;
+}
+
+function buildAssetTable(data) {
+  if (!data) return '';
+  const rows = [
+    assetRow('(ক) আর্থিক সম্পদ',                   '(a) Financial Assets',                    data.fin24, data.fin25, ''),
+    assetRow('(খ) নন-ফাইনান্সিয়াল সম্পদ',          '(b) Non-Financial Assets',                data.nf24,  data.nf25,  ''),
+    assetRow('(গ) বিদেশে অবস্থিত পরিসম্পদ',         '(c) Assets Outside Bangladesh',           data.os24,  data.os25,  ''),
+    assetRow('(ঘ) মোট পরিসম্পদ',                     '(d) Total Assets',                        data.tot24, data.tot25, 'row-total'),
+    assetRow('ব্যক্তিগত ও ব্যবসায়িক দায়',          'Personal & Business Liabilities',         data.lib24, data.lib25, 'row-liab'),
+  ];
+  const hDate24 = currentLang === 'en' ? '30 Jun 2024' : '৩০ জুন ২০২৪';
+  const hDate25 = currentLang === 'en' ? '30 Jun 2025' : '৩০ জুন ২০২৫';
+  const hType   = currentLang === 'en' ? 'Asset Type' : 'সম্পদের ধরন';
+  const hAmt    = currentLang === 'en' ? 'Amount (BDT)' : 'পরিমাণ (টাকা)';
+  return `
+    <table class="asset-table">
+      <thead>
+        <tr>
+          <th>${hType}</th>
+          <th class="num">${hDate24}</th>
+          <th class="num">${hDate25}</th>
+        </tr>
+      </thead>
+      <tbody>${rows.join('')}</tbody>
+    </table>`;
+}
+
+function buildCard(item) {
+  const selfTable   = buildAssetTable(item.self);
+  const selfLabel   = currentLang === 'en' ? 'Self' : 'নিজ';
+  const spouseLabel = currentLang === 'en' ? 'Spouse' : 'স্ত্রী/স্বামী';
+  const deceasedMsg = currentLang === 'en'
+    ? '<span class="spouse-deceased">Spouse is deceased.</span>'
+    : '<span class="spouse-deceased">মাননীয় উপদেষ্টার স্ত্রী প্রয়াত হয়েছেন।</span>';
+
+  let spouseBlock = '';
+  if (item.spouseDeceased) {
+    spouseBlock = deceasedMsg;
+  } else if (item.spouse) {
+    const sName = currentLang === 'en' ? item.spouse.nameEn : item.spouse.nameBn;
+    const sRel  = currentLang === 'en' ? item.spouse.relEn  : item.spouse.relBn;
+    spouseBlock = `<div class="person-label">${spouseLabel} — ${sName} (${sRel})</div>${buildAssetTable(item.spouse)}`;
+  }
+
+  const note = currentLang === 'en' ? item.notesEn : item.notesBn;
+  const noteHtml = note ? `<div class="note-box"><i class="fas fa-info-circle" style="color:#e8a800;margin-right:4px"></i>${note}</div>` : '';
+
+  const slDisplay = currentLang === 'en' ? item.slEn : item.sl;
+  const name      = currentLang === 'en' ? item.nameEn : item.nameBn;
+  const role      = currentLang === 'en' ? item.roleEn : item.roleBn;
+  const tot25     = item.self?.tot25 || '';
+  const selfLbl   = currentLang === 'en' ? 'Self' : 'নিজ';
+
+  return `
+    <div class="advisor-card" data-name-bn="${item.nameBn}" data-name-en="${item.nameEn}">
+      <button class="advisor-header" onclick="toggleCard(this)" aria-expanded="false">
+        <div class="sl-badge">${slDisplay}</div>
+        <div class="advisor-info">
+          <div class="advisor-name">${name}</div>
+          <div class="advisor-role">${role}</div>
+        </div>
+        <div class="advisor-total">
+          <div class="label">${currentLang === 'en' ? 'Total Assets (2025)' : 'মোট পরিসম্পদ (২০২৫)'}</div>
+          <div class="amount">${tot25}</div>
+        </div>
+        <i class="fas fa-chevron-down chevron"></i>
+      </button>
+      <div class="advisor-body">
+        <div class="person-label">${selfLbl}</div>
+        ${selfTable}
+        ${spouseBlock}
+        ${noteHtml}
+      </div>
+    </div>`;
+}
+
+function render() {
+  const list = document.getElementById('advisors-list');
+  let html = '';
+  for (const group of GROUPS) {
+    const label = currentLang === 'en' ? group.labelEn : group.labelBn;
+    html += `<div class="section-label">${label}</div>`;
+    for (const item of group.items) html += buildCard(item);
+  }
+  list.innerHTML = html;
+}
+
+function toggleCard(btn) {
+  const card = btn.closest('.advisor-card');
+  const open = card.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+}
+
+function filterAdvisors(q) {
+  q = q.trim().toLowerCase();
+  document.querySelectorAll('.advisor-card').forEach(card => {
+    const bn = card.dataset.nameBn.toLowerCase();
+    const en = card.dataset.nameEn.toLowerCase();
+    card.classList.toggle('hidden', q !== '' && !bn.includes(q) && !en.includes(q));
+  });
+}
+
+// ── LANGUAGE TOGGLE ───────────────────────────────────────────────────────────
+function applyLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.bn-text').forEach(el => el.style.display = lang === 'bn' ? '' : 'none');
+  document.querySelectorAll('.en-text').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+  document.getElementById('search-input').placeholder =
+    lang === 'en' ? 'Search by name…' : 'নাম অনুসন্ধান করুন…';
+  render();
+  filterAdvisors(document.getElementById('search-input').value);
+}
+
+document.getElementById('lang-check').addEventListener('change', function() {
+  applyLang(this.checked ? 'en' : 'bn');
+});
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>
