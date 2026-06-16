@@ -6,29 +6,23 @@
   <title>ICT ও PTD রূপান্তর কৌশল ২০২৫–৩০ | ICT & PTD Transformation Strategy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&family=Inter:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
   <style>
-    @font-face {
-      font-family: 'ShurjoWeb';
-      src: url('../reform-site/font/ShurjoWeb_400.woff2') format('woff2');
-      font-weight: 400; font-display: swap;
-    }
-    @font-face {
-      font-family: 'ShurjoWeb';
-      src: url('../reform-site/font/ShurjoWeb_700.woff2') format('woff2');
-      font-weight: 700; font-display: swap;
-    }
+    @font-face { font-family:'ShurjoWeb'; src:url('../reform-site/font/ShurjoWeb_400.woff2') format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'ShurjoWeb'; src:url('../reform-site/font/ShurjoWeb_700.woff2') format('woff2'); font-weight:700; font-display:swap; }
 
     :root {
       --primary:   #004080;
       --secondary: #003366;
       --accent:    #1a6bbf;
-      --nav-h:     50px;
-      --sidebar-w: 290px;
+      --teal:      #0d7a8c;
+      --nav-h:     48px;
+      --hdr-h:     84px;
+      --sidebar-w: 282px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,59 +34,192 @@
       min-height: 100vh;
     }
 
-    /* ── HEADER ── */
+    /* ── BILINGUAL ──────────────────────────────────────────────────────────── */
+    .en-text { display: none; }
+    body.en .bn-text { display: none !important; }
+    body.en .en-text { display: revert; }
+    /* spans styled as block need explicit override */
+    body.en span.sub-label.en-text { display: block; }
+
+    /* ── HEADER ──────────────────────────────────────────────────────────────── */
     .site-header {
-      background: var(--primary);
-      padding: 0.9rem 5rem;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,.3);
+      background: linear-gradient(135deg, var(--secondary) 0%, #005199 100%);
+      box-shadow: 0 2px 10px rgba(0,0,0,.35);
       position: relative;
     }
-    .site-header .site-title { color: #fff; font-size: 1.1rem; font-weight: 700; line-height: 1.45; }
-    .site-header .site-sub   { color: #bcd5ff; font-size: 0.76rem; margin-top: 0.2rem; }
+    .hdr-inner {
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem 5rem; min-height: var(--hdr-h); text-align: center;
+    }
+    .site-title { color: #fff; font-size: 1.08rem; font-weight: 700; line-height: 1.5; }
+    .site-sub   { color: #a8c8f0; font-size: 0.73rem; margin-top: 0.25rem; }
     .back-link {
-      position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%);
-      color: #bcd5ff; text-decoration: none; font-size: 0.82rem;
+      position: absolute; left: 1.3rem; top: 50%; transform: translateY(-50%);
+      color: #a8c8f0; text-decoration: none; font-size: 0.78rem;
       display: flex; align-items: center; gap: 0.4rem; transition: color .2s;
     }
     .back-link:hover { color: #fff; }
 
-    /* ── NAV ── */
+    /* ── NAV ─────────────────────────────────────────────────────────────────── */
     .site-nav {
       background: var(--secondary);
       position: sticky; top: 0; z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,.25);
+      box-shadow: 0 2px 5px rgba(0,0,0,.28);
       height: var(--nav-h);
     }
     .nav-inner {
-      display: flex; align-items: stretch; justify-content: space-between;
-      height: 100%; padding: 0 1rem;
+      display: flex; align-items: stretch; height: 100%;
+      padding: 0 1.1rem; justify-content: space-between;
     }
-    .tab-btns { display: flex; }
-    .tab-btn {
-      background: none; border: none; border-bottom: 3px solid transparent;
-      color: #bcd5ff; padding: 0 1.2rem; font-family: inherit; font-size: 0.88rem;
-      font-weight: 600; cursor: pointer; display: flex; align-items: center;
-      gap: 0.4rem; white-space: nowrap; transition: all .2s; height: 100%;
+    .nav-left { display: flex; align-items: center; gap: 0.6rem; }
+    .nav-back-btn {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22);
+      color: #bcd5ff; border-radius: 6px; padding: 0.28rem 0.9rem;
+      font-family: inherit; font-size: 0.8rem; cursor: pointer;
+      display: none; align-items: center; gap: 0.4rem; transition: all .2s;
     }
-    .tab-btn:hover { color: #fff; background: rgba(255,255,255,.07); }
-    .tab-btn.active { color: #fff; border-bottom-color: #5fa8ff; }
-
-    .lang-wrap {
-      display: flex; align-items: center; gap: 0.4rem;
-      color: #dce9ff; font-size: 0.82rem; padding: 0 0.3rem;
-    }
+    .nav-back-btn:hover { background: rgba(255,255,255,.2); color: #fff; }
+    .nav-crumb { color: rgba(255,255,255,.48); font-size: 0.76rem; }
+    .lang-wrap { display: flex; align-items: center; gap: 0.4rem; color: #dce9ff; font-size: 0.82rem; }
     .lang-switch { position: relative; display: inline-block; width: 44px; height: 22px; }
     .lang-switch input { opacity: 0; width: 0; height: 0; }
     .lang-slider { position: absolute; inset: 0; background: #546e8a; border-radius: 22px; cursor: pointer; transition: .3s; }
-    .lang-slider::before { content: ''; position: absolute; width: 16px; height: 16px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .3s; }
+    .lang-slider::before { content:''; position:absolute; width:16px; height:16px; left:3px; bottom:3px; background:#fff; border-radius:50%; transition:.3s; }
     #lang-check:checked + .lang-slider { background: var(--accent); }
     #lang-check:checked + .lang-slider::before { transform: translateX(22px); }
 
-    /* ── PAGE LAYOUT ── */
-    .page-layout { display: flex; min-height: calc(100vh - var(--nav-h) - 90px); }
+    /* ── VIEW SYSTEM ──────────────────────────────────────────────────────────── */
+    @keyframes viewIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+    .view-active { animation: viewIn .22s ease; }
 
-    /* ── SIDEBAR ── */
+    /* ── HUB VIEW ─────────────────────────────────────────────────────────────── */
+    .hub-wrap { max-width: 940px; margin: 0 auto; padding: 2.8rem 1.5rem 6rem; }
+
+    .hub-intro { text-align: center; margin-bottom: 2.8rem; }
+    .hub-intro h2 {
+      color: #fff; font-size: 1.55rem; font-weight: 700;
+      text-shadow: 0 1px 6px rgba(0,0,0,.4); margin-bottom: 0.4rem;
+    }
+    .hub-intro .sub-label {
+      display: block; font-size: 0.9rem; font-weight: 400;
+      color: rgba(255,255,255,.72); font-family: 'Inter', sans-serif;
+      margin-top: 0.1rem;
+    }
+    .hub-intro p {
+      color: rgba(255,255,255,.82); font-size: 0.9rem;
+      max-width: 600px; margin: 0.8rem auto 0; line-height: 1.75;
+      text-shadow: 0 1px 3px rgba(0,0,0,.28);
+    }
+
+    .hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(390px, 1fr)); gap: 1.6rem; }
+
+    .hub-card {
+      background: rgba(255,255,255,.97);
+      border-radius: 18px; padding: 2rem 2rem 1.6rem;
+      cursor: pointer; display: block;
+      box-shadow: 0 6px 28px rgba(0,20,80,.15);
+      transition: transform .22s, box-shadow .22s, border-color .22s;
+      border: 2px solid transparent;
+      position: relative; overflow: hidden;
+    }
+    .hub-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+    .hub-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 50px rgba(0,20,80,.22);
+      border-color: rgba(26,107,191,.3);
+    }
+    .hub-card-icon { font-size: 2.8rem; display: block; margin-bottom: 0.9rem; line-height: 1; }
+    .hub-card-title-bn { color: var(--primary); font-size: 1.22rem; font-weight: 700; margin-bottom: 0.15rem; }
+    .hub-card-title-en { color: #5580a8; font-size: 0.84rem; font-family: 'Inter', sans-serif; margin-bottom: 0.1rem; }
+    .hub-card-div-en   { color: #7090b0; font-size: 0.76rem; font-family: 'Inter', sans-serif; margin-bottom: 0.95rem; }
+    .hub-card-div-bn   { color: #7090b0; font-size: 0.78rem; margin-bottom: 0.95rem; }
+    .hub-card-desc { color: #4a5568; font-size: 0.85rem; line-height: 1.75; margin-bottom: 1.2rem; }
+    .hub-card-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .hub-tag {
+      background: #eef3fb; color: var(--primary);
+      border-radius: 20px; padding: 0.2rem 0.72rem;
+      font-size: 0.72rem; font-weight: 600; border: 1px solid #d5e2f0;
+    }
+    .hub-card-arrow {
+      display: flex; align-items: center; gap: 0.45rem;
+      color: var(--accent); font-size: 0.83rem; font-weight: 600;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── REFORM SUB-PAGE ────────────────────────────────────────────────────── */
+    .reform-wrap { max-width: 800px; margin: 0 auto; padding: 2.2rem 1.5rem 6rem; }
+    .reform-header { margin-bottom: 2rem; }
+    .reform-header h2 {
+      color: #fff; font-size: 1.4rem; font-weight: 700;
+      text-shadow: 0 1px 5px rgba(0,0,0,.35); margin: 0;
+    }
+    .reform-header .sub {
+      display: block; font-size: 0.83rem; font-weight: 400;
+      color: rgba(255,255,255,.65); font-family: 'Inter', sans-serif; margin-top: 0.15rem;
+    }
+
+    .doc-opt-card {
+      background: rgba(255,255,255,.97);
+      border-radius: 14px; padding: 1.5rem 1.7rem;
+      cursor: pointer; display: flex; align-items: center; gap: 1.4rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 22px rgba(0,20,80,.11);
+      transition: transform .2s, box-shadow .2s;
+      border: 2px solid transparent;
+      border-left: 5px solid var(--accent);
+    }
+    .doc-opt-card.note-card { border-left-color: var(--teal); }
+    .doc-opt-card:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 34px rgba(0,20,80,.18);
+      border-color: rgba(26,107,191,.25);
+    }
+    .doc-opt-card.note-card:hover { border-color: rgba(13,122,140,.3); }
+    .doc-opt-icon {
+      width: 54px; height: 54px; border-radius: 13px;
+      background: #eef3fb; display: flex; align-items: center;
+      justify-content: center; font-size: 1.65rem; flex-shrink: 0;
+    }
+    .note-card .doc-opt-icon { background: #e5f5f7; }
+    .doc-opt-body { flex: 1; min-width: 0; }
+    .doc-opt-title    { color: var(--primary); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.12rem; }
+    .note-card .doc-opt-title { color: var(--teal); }
+    .doc-opt-title-en { color: #6b7a8d; font-size: 0.79rem; font-family: 'Inter', sans-serif; margin-bottom: 0.4rem; }
+    .doc-opt-desc     { color: #555; font-size: 0.82rem; line-height: 1.65; }
+    .doc-opt-arrow    { color: #a0b8d0; font-size: 1rem; flex-shrink: 0; transition: transform .2s, color .2s; }
+    .doc-opt-card:hover .doc-opt-arrow { transform: translateX(4px); color: var(--accent); }
+    .doc-opt-card.note-card:hover .doc-opt-arrow { color: var(--teal); }
+
+    /* ── NOTE VIEWER ──────────────────────────────────────────────────────────── */
+    .note-wrap { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+    .note-card-shell {
+      background: rgba(255,255,255,.98);
+      border-radius: 16px; padding: 2.5rem 3rem;
+      box-shadow: 0 6px 28px rgba(0,20,80,.12);
+      border-top: 5px solid var(--teal);
+    }
+    .note-toc {
+      background: #f0f8f9; border-radius: 10px;
+      padding: 1rem 1.2rem; margin-bottom: 2rem;
+      border-left: 4px solid var(--teal);
+    }
+    .note-toc h4 { color: var(--teal); font-size: 0.78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .07em; margin-bottom: 0.6rem; }
+    .note-toc ul { list-style: none; padding: 0; margin: 0; }
+    .note-toc li { margin-bottom: 0.25rem; }
+    .note-toc a {
+      color: var(--teal); text-decoration: none; font-size: 0.83rem;
+      padding: 0.15rem 0; display: block; transition: color .15s;
+    }
+    .note-toc a:hover { color: var(--accent); }
+    .note-toc a.lvl-h3 { padding-left: 1.1rem; font-size: 0.78rem; color: #4a7a84; }
+
+    /* ── DOC VIEWER ───────────────────────────────────────────────────────────── */
+    .doc-layout { display: flex; min-height: calc(100vh - var(--nav-h) - var(--hdr-h)); }
+
     .sidebar {
       width: var(--sidebar-w); flex-shrink: 0;
       background: rgba(5,18,50,.9); backdrop-filter: blur(8px);
@@ -100,8 +227,6 @@
       display: flex; flex-direction: column; gap: 0.6rem;
       padding: 0.9rem 0.8rem; overflow: hidden;
     }
-
-    /* search */
     .search-wrap { position: relative; flex-shrink: 0; }
     .search-wrap input {
       width: 100%; padding: 0.5rem 0.75rem 0.5rem 2.2rem;
@@ -113,18 +238,12 @@
     .search-wrap input::placeholder { color: rgba(255,255,255,.38); }
     .search-wrap input:focus { border-color: rgba(100,160,255,.6); background: rgba(255,255,255,.12); }
     .search-icon { position: absolute; left: 0.65rem; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,.38); font-size: 0.75rem; }
-
     .search-meta { display: flex; justify-content: space-between; align-items: center; min-height: 1.3rem; flex-shrink: 0; }
     .search-count { font-size: 0.7rem; color: rgba(255,255,255,.45); }
     .snav { display: flex; gap: 0.3rem; }
-    .snav-btn {
-      background: rgba(255,255,255,.1); border: none; border-radius: 4px;
-      color: #aac8ff; font-size: 0.7rem; padding: 0.18rem 0.55rem; cursor: pointer;
-    }
+    .snav-btn { background: rgba(255,255,255,.1); border: none; border-radius: 4px; color: #aac8ff; font-size: 0.7rem; padding: 0.18rem 0.55rem; cursor: pointer; }
     .snav-btn:hover { background: rgba(255,255,255,.2); }
     .snav-btn:disabled { opacity: 0.3; cursor: default; }
-
-    /* toc */
     .toc-hdr { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.35); flex-shrink: 0; padding: 0 0.2rem; }
     .toc-scroll { flex: 1; overflow-y: auto; overflow-x: hidden; }
     .toc-scroll::-webkit-scrollbar { width: 3px; }
@@ -140,14 +259,10 @@
     .toc-link.lvl-h2 { padding-left: 1.2rem; font-size: 0.74rem; }
     .toc-link.lvl-h3 { padding-left: 2rem; font-size: 0.7rem; color: rgba(255,255,255,.42); }
 
-    /* ── CONTENT ── */
     .content-area { flex: 1; background: rgba(255,255,255,.97); padding: 2rem 2.8rem; min-width: 0; }
 
-    /* ── LOAD / ERROR ── */
-    .load-state {
-      display: flex; flex-direction: column; align-items: center;
-      justify-content: center; padding: 5rem 2rem; gap: 1.3rem; color: var(--primary);
-    }
+    /* ── LOAD / ERROR ─────────────────────────────────────────────────────────── */
+    .load-state { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5rem 2rem; gap: 1.3rem; color: var(--primary); }
     .load-spin { font-size: 2.5rem; animation: _spin 1s linear infinite; }
     @keyframes _spin { to { transform: rotate(360deg); } }
     .load-bar-wrap { width: 260px; height: 7px; background: #d0dcea; border-radius: 10px; overflow: hidden; }
@@ -157,95 +272,47 @@
     .err-state i { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
     .err-state p { color: #555; font-size: 0.85rem; margin-top: 0.5rem; max-width: 420px; margin-inline: auto; }
 
-    /* ── INJECTED DOC STYLES ── */
-    /* We override LibreOffice's default styles for a cleaner look */
+    /* ── INJECTED DOC STYLES ─────────────────────────────────────────────────── */
     .doc-wrap { max-width: 860px; margin: 0 auto; }
-
     .doc-wrap * { max-width: 100%; }
+    .doc-wrap h1 { color:var(--primary)!important; font-size:1.5rem!important; font-weight:700!important; margin:2rem 0 0.9rem!important; padding-bottom:0.45rem!important; border-bottom:2px solid var(--primary)!important; scroll-margin-top:calc(var(--nav-h) + 8px); }
+    .doc-wrap h2 { color:var(--secondary)!important; font-size:1.15rem!important; font-weight:700!important; margin:1.7rem 0 0.6rem!important; padding:0.35rem 0.85rem!important; border-left:4px solid var(--accent)!important; background:#f0f5fb!important; border-radius:0 6px 6px 0!important; scroll-margin-top:calc(var(--nav-h) + 8px); }
+    .doc-wrap h3 { color:#1a4870!important; font-size:1.02rem!important; font-weight:700!important; margin:1.3rem 0 0.45rem!important; scroll-margin-top:calc(var(--nav-h) + 8px); }
+    .doc-wrap h4 { color:#2a5a8a!important; font-size:0.95rem!important; font-weight:700!important; margin:1rem 0 0.35rem!important; scroll-margin-top:calc(var(--nav-h) + 8px); }
+    .doc-wrap p  { margin-bottom:0.75rem!important; line-height:1.85!important; font-size:0.96rem!important; }
+    .doc-wrap ul, .doc-wrap ol { margin:0.3rem 0 0.75rem 1.4rem!important; }
+    .doc-wrap li { margin-bottom:0.25rem!important; line-height:1.75!important; }
+    .doc-wrap table { width:100%!important; border-collapse:collapse!important; margin:1.1rem 0!important; font-size:0.88rem!important; }
+    .doc-wrap th { background:var(--primary)!important; color:#fff!important; padding:0.45rem 0.7rem!important; font-weight:600!important; text-align:left!important; }
+    .doc-wrap td { padding:0.38rem 0.7rem!important; border-bottom:1px solid #e5ecf5!important; vertical-align:top!important; }
+    .doc-wrap tr:nth-child(even) td { background:#f5f8fc!important; }
+    .doc-wrap img { max-width:100%!important; height:auto!important; display:block!important; margin:1rem auto!important; border-radius:5px!important; box-shadow:0 2px 8px rgba(0,0,0,.12)!important; }
+    .doc-wrap a { color:var(--accent)!important; }
+    mark.sh { background:#ffe566; color:#111; border-radius:2px; padding:0 1px; }
+    mark.sh.cur { background:#ff9900; color:#fff; }
 
-    /* headings */
-    .doc-wrap h1 {
-      color: var(--primary) !important;
-      font-size: 1.5rem !important; font-weight: 700 !important;
-      margin: 2rem 0 0.9rem !important;
-      padding-bottom: 0.45rem !important;
-      border-bottom: 2px solid var(--primary) !important;
-      scroll-margin-top: calc(var(--nav-h) + 8px);
-    }
-    .doc-wrap h2 {
-      color: var(--secondary) !important;
-      font-size: 1.15rem !important; font-weight: 700 !important;
-      margin: 1.7rem 0 0.6rem !important;
-      padding: 0.35rem 0.85rem !important;
-      border-left: 4px solid var(--accent) !important;
-      background: #f0f5fb !important;
-      border-radius: 0 6px 6px 0 !important;
-      scroll-margin-top: calc(var(--nav-h) + 8px);
-    }
-    .doc-wrap h3 {
-      color: #1a4870 !important;
-      font-size: 1.02rem !important; font-weight: 700 !important;
-      margin: 1.3rem 0 0.45rem !important;
-      scroll-margin-top: calc(var(--nav-h) + 8px);
-    }
-    .doc-wrap h4 {
-      color: #2a5a8a !important; font-size: 0.95rem !important; font-weight: 700 !important;
-      margin: 1rem 0 0.35rem !important;
-      scroll-margin-top: calc(var(--nav-h) + 8px);
-    }
-    .doc-wrap p  { margin-bottom: 0.75rem !important; line-height: 1.85 !important; font-size: 0.96rem !important; }
-    .doc-wrap ul, .doc-wrap ol { margin: 0.3rem 0 0.75rem 1.4rem !important; }
-    .doc-wrap li { margin-bottom: 0.25rem !important; line-height: 1.75 !important; }
-    .doc-wrap table {
-      width: 100% !important; border-collapse: collapse !important;
-      margin: 1.1rem 0 !important; font-size: 0.88rem !important;
-    }
-    .doc-wrap th {
-      background: var(--primary) !important; color: #fff !important;
-      padding: 0.45rem 0.7rem !important; font-weight: 600 !important; text-align: left !important;
-    }
-    .doc-wrap td {
-      padding: 0.38rem 0.7rem !important; border-bottom: 1px solid #e5ecf5 !important; vertical-align: top !important;
-    }
-    .doc-wrap tr:nth-child(even) td { background: #f5f8fc !important; }
-    .doc-wrap img {
-      max-width: 100% !important; height: auto !important; display: block !important;
-      margin: 1rem auto !important; border-radius: 5px !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,.12) !important;
-    }
-    .doc-wrap a { color: var(--accent) !important; }
+    /* note viewer doc overrides */
+    .note-card-shell .doc-wrap { max-width: none; }
+    .note-card-shell .doc-wrap h2 { background: #f0f8f9 !important; border-left-color: var(--teal) !important; color: var(--teal) !important; }
 
-    /* search highlight */
-    mark.sh  { background: #ffe566; color: #111; border-radius: 2px; padding: 0 1px; }
-    mark.sh.cur { background: #ff9900; color: #fff; }
+    /* ── BACK TO TOP ──────────────────────────────────────────────────────────── */
+    #back-top { position:fixed; bottom:1.8rem; right:1.8rem; width:40px; height:40px; background:var(--primary); color:#fff; border:none; border-radius:50%; font-size:1rem; cursor:pointer; z-index:500; opacity:0; pointer-events:none; transition:opacity .3s; box-shadow:0 2px 8px rgba(0,0,0,.25); }
+    #back-top.vis { opacity:1; pointer-events:auto; }
+    #back-top:hover { background:var(--accent); }
 
-    /* ── BACK TO TOP ── */
-    #back-top {
-      position: fixed; bottom: 1.8rem; right: 1.8rem; width: 40px; height: 40px;
-      background: var(--primary); color: #fff; border: none; border-radius: 50%;
-      font-size: 1rem; cursor: pointer; z-index: 500;
-      opacity: 0; pointer-events: none; transition: opacity .3s;
-      box-shadow: 0 2px 8px rgba(0,0,0,.25);
-    }
-    #back-top.vis { opacity: 1; pointer-events: auto; }
-    #back-top:hover { background: var(--accent); }
-
-    /* ── FOOTER ── */
+    /* ── FOOTER ───────────────────────────────────────────────────────────────── */
     .site-footer { background: var(--primary); color: #cce0ff; padding: 1.1rem 2rem; }
 
-    /* ── MOBILE ── */
+    /* ── MOBILE ───────────────────────────────────────────────────────────────── */
     @media (max-width: 768px) {
       .sidebar { display: none; }
-      .site-header { padding: 0.8rem 3.5rem; }
-      .site-header .site-title { font-size: 0.95rem; }
+      .hdr-inner { padding: 0.8rem 3.5rem; }
+      .site-title { font-size: 0.92rem; }
       .content-area { padding: 1.2rem 1rem; }
-      .tab-btn { padding: 0 0.7rem; font-size: 0.8rem; }
+      .hub-grid { grid-template-columns: 1fr; }
+      .doc-opt-card { flex-direction: column; gap: 0.9rem; }
+      .note-card-shell { padding: 1.5rem 1.2rem; }
     }
-
-    /* ── BILINGUAL ── */
-    .en-text { display: none; }
-    body.en .bn-text { display: none; }
-    body.en .en-text { display: inline; }
   </style>
 </head>
 <body>
@@ -254,33 +321,33 @@
 <header class="site-header">
   <a class="back-link" href="../">
     <i class="fas fa-arrow-left"></i>
-    <span class="bn-text">ফিরে যান</span>
+    <span class="bn-text">আর্কাইভ</span>
     <span class="en-text">Archive</span>
   </a>
-  <div class="site-title">
-    <span class="bn-text">ডাক, টেলিযোগাযোগ ও তথ্যপ্রযুক্তি মন্ত্রণালয় — রূপান্তর কৌশল ২০২৫–৩০</span>
-    <span class="en-text">Ministry of Posts, Telecommunications and IT — Transformation Strategy 2025–30</span>
-  </div>
-  <div class="site-sub">
-    <span class="bn-text">ফয়েজ আহমদ তয়্যব · বিশেষ সহকারী (প্রতিমন্ত্রী মর্যাদা) · ৫ মার্চ ২০২৫ – ১৪ ফেব্রুয়ারি ২০২৬</span>
-    <span class="en-text">Faiz Ahmad Taiyeb · Special Assistant (State Minister rank) · 5 March 2025 – 14 February 2026</span>
+  <div class="hdr-inner">
+    <div>
+      <div class="site-title">
+        <span class="bn-text">ডাক, টেলিযোগাযোগ ও তথ্যপ্রযুক্তি মন্ত্রণালয়</span>
+        <span class="en-text">Ministry of Posts, Telecommunications and IT</span>
+      </div>
+      <div class="site-sub">
+        <span class="bn-text">ফয়েজ আহমদ তয়্যব · বিশেষ সহকারী (প্রতিমন্ত্রী মর্যাদা) · ৫ মার্চ ২০২৫ – ১৪ ফেব্রুয়ারি ২০২৬</span>
+        <span class="en-text">Faiz Ahmad Taiyeb · Special Assistant (State Minister rank) · 5 March 2025 – 14 February 2026</span>
+      </div>
+    </div>
   </div>
 </header>
 
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-inner">
-    <div class="tab-btns">
-      <button class="tab-btn active" id="tab-ict" onclick="switchTab('ict')">
-        <i class="fas fa-laptop-code"></i>
-        <span class="bn-text">আইসিটি সংস্কার</span>
-        <span class="en-text">ICT Reform</span>
+    <div class="nav-left">
+      <button id="nav-back-btn" class="nav-back-btn" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i>
+        <span class="bn-text">ফিরে যান</span>
+        <span class="en-text">Back</span>
       </button>
-      <button class="tab-btn" id="tab-ptd" onclick="switchTab('ptd')">
-        <i class="fas fa-satellite-dish"></i>
-        <span class="bn-text">ডাক ও টেলিযোগাযোগ সংস্কার</span>
-        <span class="en-text">PTD Reform</span>
-      </button>
+      <span id="nav-crumb" class="nav-crumb"></span>
     </div>
     <div class="lang-wrap">
       <span>বাংলা</span>
@@ -293,10 +360,143 @@
   </div>
 </nav>
 
-<!-- PAGE -->
-<div class="page-layout">
+<!-- ═══════════════════════════════════════ VIEW: HUB ═══════════════════════ -->
+<div id="view-hub">
+  <div class="hub-wrap">
+    <div class="hub-intro">
+      <h2>
+        <span class="bn-text">সংস্কার উদ্যোগ</span>
+        <span class="en-text">Reform Initiatives</span>
+        <span class="sub-label bn-text">Ministry of Posts, Telecommunications and IT</span>
+        <span class="sub-label en-text">ডাক, টেলিযোগাযোগ ও তথ্যপ্রযুক্তি মন্ত্রণালয়</span>
+      </h2>
+      <p>
+        <span class="bn-text">ফয়েজ আহমদ তয়্যব রচিত রূপান্তর কৌশল দলিল এবং উত্তরসূরির প্রতি পত্র — আইসিটি বিভাগ ও ডাক ও টেলিযোগাযোগ বিভাগের জন্য।</span>
+        <span class="en-text">Transformation strategy documents and notes to successor by Faiz Ahmad Taiyeb, covering the ICT Division and Post &amp; Telecommunications Division.</span>
+      </p>
+    </div>
 
-  <!-- SIDEBAR -->
+    <div class="hub-grid">
+      <!-- ICT Card -->
+      <div class="hub-card" onclick="navigate('ict')" role="button" tabindex="0">
+        <span class="hub-card-icon">💻</span>
+        <div class="hub-card-title-bn bn-text">আইসিটি সংস্কার</div>
+        <div class="hub-card-title-bn en-text" style="color:var(--primary);font-size:1.22rem;font-weight:700;margin-bottom:.15rem">ICT Reform</div>
+        <div class="hub-card-title-en">ICT Division · তথ্য ও যোগাযোগ প্রযুক্তি বিভাগ</div>
+        <div class="hub-card-desc">
+          <span class="bn-text">ডিজিটাল রূপান্তর, সাইবার সুরক্ষা, অবকাঠামো উন্নয়ন এবং আইসিটি বিভাগের সংস্কার পরিকল্পনা — বিস্তারিত কৌশল দলিল ও উত্তরসূরির প্রতি পত্র।</span>
+          <span class="en-text">Digital transformation, cyber security, infrastructure development and ICT Division reform plans — full strategy document and handover note.</span>
+        </div>
+        <div class="hub-card-tags">
+          <span class="hub-tag">📄 <span class="bn-text">উত্তরসূরির পত্র</span><span class="en-text">Note to Successor</span></span>
+          <span class="hub-tag">📚 <span class="bn-text">কৌশল ২০২৫–৩০</span><span class="en-text">Strategy 2025–30</span></span>
+          <span class="hub-tag">বাংলা · English</span>
+        </div>
+        <div class="hub-card-arrow">
+          <span class="bn-text">বিস্তারিত দেখুন</span>
+          <span class="en-text">View Details</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <!-- PTD Card -->
+      <div class="hub-card" onclick="navigate('ptd')" role="button" tabindex="0">
+        <span class="hub-card-icon">📡</span>
+        <div class="hub-card-title-bn bn-text">ডাক ও টেলিযোগাযোগ সংস্কার</div>
+        <div class="hub-card-title-bn en-text" style="color:var(--primary);font-size:1.22rem;font-weight:700;margin-bottom:.15rem">PTD Reform</div>
+        <div class="hub-card-title-en">Post &amp; Telecom Division · ডাক ও টেলিযোগাযোগ বিভাগ</div>
+        <div class="hub-card-desc">
+          <span class="bn-text">টেলিযোগাযোগ নিয়ন্ত্রণ, ইন্টারনেট অবকাঠামো, স্যাটেলাইট সেবা এবং ডাক ও টেলিযোগাযোগ বিভাগের সংস্কার পরিকল্পনা — বিস্তারিত কৌশল দলিল ও উত্তরসূরির প্রতি পত্র।</span>
+          <span class="en-text">Telecom regulation, internet infrastructure, satellite services and PTD reform plans — full strategy document and handover note.</span>
+        </div>
+        <div class="hub-card-tags">
+          <span class="hub-tag">📄 <span class="bn-text">উত্তরসূরির পত্র</span><span class="en-text">Note to Successor</span></span>
+          <span class="hub-tag">📚 <span class="bn-text">কৌশল ২০২৫–৩০</span><span class="en-text">Strategy 2025–30</span></span>
+          <span class="hub-tag">বাংলা · English</span>
+        </div>
+        <div class="hub-card-arrow">
+          <span class="bn-text">বিস্তারিত দেখুন</span>
+          <span class="en-text">View Details</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════ VIEW: REFORM SUB-PAGE ══════════════ -->
+<div id="view-reform" style="display:none">
+  <div class="reform-wrap">
+    <div class="reform-header">
+      <h2>
+        <span id="reform-h-bn" class="bn-text"></span>
+        <span id="reform-h-en" class="en-text"></span>
+        <span class="sub" id="reform-h-sub"></span>
+      </h2>
+    </div>
+
+    <!-- Note to Successor -->
+    <div class="doc-opt-card note-card" onclick="navigateTo('note')" role="button" tabindex="0">
+      <div class="doc-opt-icon">📄</div>
+      <div class="doc-opt-body">
+        <div class="doc-opt-title">
+          <span class="bn-text">উত্তরসূরির প্রতি পত্র</span>
+          <span class="en-text">Note to Successor</span>
+        </div>
+        <div class="doc-opt-title-en">
+          <span class="bn-text">Note to Successor</span>
+          <span class="en-text">উত্তরসূরির প্রতি পত্র</span>
+        </div>
+        <div class="doc-opt-desc">
+          <span class="bn-text">পরবর্তী দায়িত্বশীলের উদ্দেশ্যে ব্যক্তিগত পত্র — চলমান উদ্যোগ, সম্পন্ন কাজ এবং ভবিষ্যৎ সুপারিশ সংক্রান্ত।</span>
+          <span class="en-text">A personal handover note covering ongoing initiatives, key actions taken, and recommendations for the successor.</span>
+        </div>
+      </div>
+      <div class="doc-opt-arrow"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <!-- Strategy Document -->
+    <div class="doc-opt-card" onclick="navigateTo('doc')" role="button" tabindex="0">
+      <div class="doc-opt-icon">📚</div>
+      <div class="doc-opt-body">
+        <div class="doc-opt-title">
+          <span id="doc-title-bn" class="bn-text"></span>
+          <span id="doc-title-en" class="en-text"></span>
+        </div>
+        <div class="doc-opt-title-en">
+          <span id="doc-sub-bn" class="bn-text"></span>
+          <span id="doc-sub-en" class="en-text"></span>
+        </div>
+        <div class="doc-opt-desc">
+          <span class="bn-text">পূর্ণ কৌশল দলিল — অধ্যায়ভিত্তিক নেভিগেশন, পূর্ণপাঠ্য সার্চ এবং সকল সংযুক্তি-সহ।</span>
+          <span class="en-text">Full strategy document with chapter-by-chapter navigation, full-text search, and all annexures.</span>
+        </div>
+      </div>
+      <div class="doc-opt-arrow"><i class="fas fa-chevron-right"></i></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ VIEW: NOTE VIEWER ════════════════════ -->
+<div id="view-note" style="display:none">
+  <div class="note-wrap">
+    <div id="note-load" class="load-state">
+      <div class="load-spin"><i class="fas fa-spinner"></i></div>
+      <div class="load-bar-wrap"><div class="load-bar" id="note-bar"></div></div>
+      <div class="load-msg">
+        <span class="bn-text">লোড হচ্ছে…</span>
+        <span class="en-text">Loading…</span>
+      </div>
+    </div>
+    <div class="note-card-shell" id="note-shell" style="display:none">
+      <div id="note-toc-wrap"></div>
+      <div class="doc-wrap" id="note-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════ VIEW: DOC VIEWER ═══════════════════ -->
+<div id="view-doc" class="doc-layout" style="display:none">
   <aside class="sidebar">
     <div class="search-wrap">
       <i class="fas fa-search search-icon"></i>
@@ -319,32 +519,16 @@
       <ul class="toc-list" id="toc-list"></ul>
     </div>
   </aside>
-
-  <!-- CONTENT -->
-  <main class="content-area" id="content-area">
-    <div id="panel-ict">
-      <div class="load-state" id="load-ict">
-        <div class="load-spin"><i class="fas fa-spinner"></i></div>
-        <div class="load-bar-wrap"><div class="load-bar" id="bar-ict"></div></div>
-        <div class="load-msg" id="msg-ict">
-          <span class="bn-text">ডকুমেন্ট লোড হচ্ছে…</span>
-          <span class="en-text">Loading document…</span>
-        </div>
+  <main class="content-area">
+    <div id="doc-load" class="load-state">
+      <div class="load-spin"><i class="fas fa-spinner"></i></div>
+      <div class="load-bar-wrap"><div class="load-bar" id="doc-bar"></div></div>
+      <div class="load-msg">
+        <span class="bn-text">ডকুমেন্ট লোড হচ্ছে…</span>
+        <span class="en-text">Loading document…</span>
       </div>
-      <div class="doc-wrap" id="doc-ict" style="display:none"></div>
     </div>
-
-    <div id="panel-ptd" style="display:none">
-      <div class="load-state" id="load-ptd">
-        <div class="load-spin"><i class="fas fa-spinner"></i></div>
-        <div class="load-bar-wrap"><div class="load-bar" id="bar-ptd"></div></div>
-        <div class="load-msg" id="msg-ptd">
-          <span class="bn-text">ডকুমেন্ট লোড হচ্ছে…</span>
-          <span class="en-text">Loading document…</span>
-        </div>
-      </div>
-      <div class="doc-wrap" id="doc-ptd" style="display:none"></div>
-    </div>
+    <div class="doc-wrap" id="doc-content" style="display:none"></div>
   </main>
 </div>
 
@@ -359,7 +543,7 @@
     <div></div>
     <div class="text-center" style="font-size:0.82rem">
       <span class="bn-text">ডাক, টেলিযোগাযোগ ও তথ্যপ্রযুক্তি মন্ত্রণালয় &nbsp;·&nbsp; গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</span>
-      <span class="en-text">Ministry of Posts, Telecommunications & IT &nbsp;·&nbsp; Government of Bangladesh</span>
+      <span class="en-text">Ministry of Posts, Telecommunications &amp; IT &nbsp;·&nbsp; Government of Bangladesh</span>
     </div>
     <div style="font-size:0.8rem;color:#aac8ff">
       <span class="bn-text">তৈরি করেছেন <strong style="color:#fff">Sushmit Asif</strong></span>
@@ -369,46 +553,138 @@
 </footer>
 
 <script>
-// ── CONFIG ───────────────────────────────────────────────────────────────────
-const TABS = {
-  ict: { src: './converted/ict.html', imgBase: './converted/', panelId: 'panel-ict', loadId: 'load-ict', barId: 'bar-ict', msgId: 'msg-ict', docId: 'doc-ict', loaded: false },
-  ptd: { src: './converted/ptd.html', imgBase: './converted/', panelId: 'panel-ptd', loadId: 'load-ptd', barId: 'bar-ptd', msgId: 'msg-ptd', docId: 'doc-ptd', loaded: false }
+// ── CONFIG ────────────────────────────────────────────────────────────────────
+const REFORMS = {
+  ict: {
+    bn: 'আইসিটি সংস্কার', en: 'ICT Reform',
+    sub: 'ICT Division · তথ্য ও যোগাযোগ প্রযুক্তি বিভাগ',
+    docBn: 'ডিজিটাল রূপান্তর কৌশল ২০২৫–৩০',
+    docEn: 'Digital Transformation Strategy 2025–30',
+    src: './converted/ict.html', imgBase: './converted/'
+  },
+  ptd: {
+    bn: 'ডাক ও টেলিযোগাযোগ সংস্কার', en: 'PTD Reform',
+    sub: 'Post & Telecom Division · ডাক ও টেলিযোগাযোগ বিভাগ',
+    docBn: 'পিটিডি রূপান্তর কৌশল ২০২৫–৩০',
+    docEn: 'PTD Transformation Strategy 2025–30',
+    src: './converted/ptd.html', imgBase: './converted/'
+  }
 };
 
-let curTab      = 'ict';
-let srchTimer   = null;
-let srchMatches = [];
-let srchIdx     = -1;
+const bodyCache = { ict: null, ptd: null };
+let curReform = null;
+let srchTimer = null, srchMatches = [], srchIdx = -1;
 
-// ── LANG ─────────────────────────────────────────────────────────────────────
-function toggleLang() {
-  document.body.classList.toggle('en', document.getElementById('lang-check').checked);
+// ── ROUTING ───────────────────────────────────────────────────────────────────
+window.addEventListener('hashchange', route);
+window.addEventListener('load', route);
+
+function route() {
+  const hash  = location.hash.slice(1);
+  if (!hash) { showView('hub'); return; }
+  const parts  = hash.split('/');
+  const reform = parts[0];
+  const mode   = parts[1];
+  if (!REFORMS[reform]) { showView('hub'); return; }
+  curReform = reform;
+  if (!mode)         showView('reform');
+  else if (mode === 'note') showView('note');
+  else if (mode === 'doc')  showView('doc');
+  else showView('reform');
 }
 
-// ── TABS ─────────────────────────────────────────────────────────────────────
-function switchTab(tab) {
-  if (tab === curTab) return;
-  curTab = tab;
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
-  Object.keys(TABS).forEach(k => {
-    document.getElementById(TABS[k].panelId).style.display = k === tab ? '' : 'none';
+function navigate(reform)      { curReform = reform; location.hash = reform; }
+function navigateTo(mode)      { location.hash = curReform + '/' + mode; }
+function goBack() {
+  const h = location.hash.slice(1);
+  if (h.includes('/')) { location.hash = curReform; }
+  else                 { location.hash = ''; }
+}
+
+// ── VIEW SWITCHER ─────────────────────────────────────────────────────────────
+const VIEWS = ['hub', 'reform', 'note', 'doc'];
+
+function showView(view) {
+  VIEWS.forEach(v => {
+    const el = document.getElementById('view-' + v);
+    el.style.display = 'none';
+    el.classList.remove('view-active');
   });
-  clearSearch();
-  loadDoc(tab);
-  if (TABS[tab].loaded) buildTOC(tab);
+  const el = document.getElementById('view-' + view);
+  el.style.display = view === 'doc' ? 'flex' : 'block';
+  requestAnimationFrame(() => el.classList.add('view-active'));
+  updateNav(view);
+  if (view === 'reform') renderReform();
+  if (view === 'note')   renderNote();
+  if (view === 'doc')    renderDoc();
+  window.scrollTo(0, 0);
 }
 
-// ── LOAD ─────────────────────────────────────────────────────────────────────
-async function loadDoc(tab) {
-  const t    = TABS[tab];
-  if (t.loaded) return;
+// ── NAV ───────────────────────────────────────────────────────────────────────
+function updateNav(view) {
+  const btn  = document.getElementById('nav-back-btn');
+  const crumb = document.getElementById('nav-crumb');
+  const isEn = document.body.classList.contains('en');
+  const r    = curReform ? REFORMS[curReform] : null;
 
-  const barEl  = document.getElementById(t.barId);
-  const loadEl = document.getElementById(t.loadId);
-  const docEl  = document.getElementById(t.docId);
+  btn.style.display = (view === 'hub') ? 'none' : 'flex';
 
-  // Animate indeterminate progress
+  if (!r) { crumb.textContent = ''; return; }
+  if (view === 'reform') crumb.textContent = isEn ? r.en : r.bn;
+  else if (view === 'note') crumb.textContent = (isEn ? r.en : r.bn) + ' · ' + (isEn ? 'Note to Successor' : 'উত্তরসূরির পত্র');
+  else if (view === 'doc')  crumb.textContent = isEn ? r.docEn : r.docBn;
+  else crumb.textContent = '';
+}
+
+// ── REFORM VIEW ───────────────────────────────────────────────────────────────
+function renderReform() {
+  const r = REFORMS[curReform];
+  document.getElementById('reform-h-bn').textContent  = r.bn;
+  document.getElementById('reform-h-en').textContent  = r.en;
+  document.getElementById('reform-h-sub').textContent = r.sub;
+  document.getElementById('doc-title-bn').textContent = r.docBn;
+  document.getElementById('doc-title-en').textContent = r.docEn;
+  document.getElementById('doc-sub-bn').textContent   = r.docEn;
+  document.getElementById('doc-sub-en').textContent   = r.docBn;
+}
+
+// ── BODY CACHE ────────────────────────────────────────────────────────────────
+async function getBody(reform, onProgress) {
+  if (bodyCache[reform]) return bodyCache[reform];
+  const r   = REFORMS[reform];
+  const res = await fetch(r.src);
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  const html   = await res.text();
+  if (onProgress) onProgress(92);
+  const parsed = new DOMParser().parseFromString(html, 'text/html');
+  const body   = parsed.body;
+  body.querySelectorAll('img').forEach(img => {
+    const src = img.getAttribute('src');
+    if (src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('./'))
+      img.setAttribute('src', r.imgBase + src);
+    img.setAttribute('loading', 'lazy');
+    img.removeAttribute('width');
+    img.removeAttribute('height');
+  });
+  body.querySelectorAll('div[style*="page-break"]').forEach(d => d.remove());
+  bodyCache[reform] = body;
+  return body;
+}
+
+// ── NOTE VIEW ─────────────────────────────────────────────────────────────────
+async function renderNote() {
+  const loadEl  = document.getElementById('note-load');
+  const barEl   = document.getElementById('note-bar');
+  const shellEl = document.getElementById('note-shell');
+  const tocWrap = document.getElementById('note-toc-wrap');
+  const contEl  = document.getElementById('note-content');
+
+  shellEl.style.display = 'none';
+  loadEl.style.display  = 'flex';
+  contEl.innerHTML = '';
+  tocWrap.innerHTML = '';
+  barEl.style.width = '0%';
+
   let pct = 0;
   const ticker = setInterval(() => {
     pct = Math.min(pct + (pct < 60 ? 3 : pct < 85 ? 1 : 0.3), 90);
@@ -416,93 +692,151 @@ async function loadDoc(tab) {
   }, 200);
 
   try {
-    const res = await fetch(t.src);
-    if (!res.ok) throw new Error('HTTP ' + res.status + ' — converted HTML not found at ' + t.src);
-
-    const html = await res.text();
+    const body  = await getBody(curReform, p => { barEl.style.width = p + '%'; });
     clearInterval(ticker);
-    barEl.style.width = '92%';
-
-    // Parse the LibreOffice HTML and extract body content
-    const parser = new DOMParser();
-    const parsed = parser.parseFromString(html, 'text/html');
-    const body   = parsed.body;
-
-    // Fix image src paths: LibreOffice uses bare filenames, prepend our base
-    body.querySelectorAll('img').forEach(img => {
-      const src = img.getAttribute('src');
-      if (src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('./')) {
-        img.setAttribute('src', t.imgBase + src);
-      }
-      img.setAttribute('loading', 'lazy');
-      img.removeAttribute('width');
-      img.removeAttribute('height');
-    });
-
-    // Trim to Executive Summary — skip cover pages, ToC, acknowledgements
-    const allH1s = Array.from(body.querySelectorAll('h1'));
-    const execH1 = allH1s.find(h => /executive\s*summary/i.test(h.textContent.trim()));
-    if (execH1) {
-      // Walk up to the direct body child that contains execH1
-      let startEl = execH1;
-      while (startEl.parentNode !== body) startEl = startEl.parentNode;
-      // Remove every sibling before it
-      while (startEl.previousSibling) startEl.previousSibling.remove();
-    }
-
-    // Add IDs to headings for TOC / anchor links
-    let hi = 0;
-    body.querySelectorAll('h1,h2,h3,h4').forEach(h => {
-      if (!h.id) h.id = 'sec-' + (++hi);
-    });
-
-    // Remove LibreOffice page-break divs
-    body.querySelectorAll('div[style*="page-break"]').forEach(d => d.remove());
-
     barEl.style.width = '100%';
 
+    const clone = body.cloneNode(true);
+    trimToNote(clone);
+
+    // Add IDs to headings
+    let hi = 0;
+    clone.querySelectorAll('h1,h2,h3,h4').forEach(h => { if (!h.id) h.id = 'ns-' + (++hi); });
+
     setTimeout(() => {
-      docEl.innerHTML = body.innerHTML;
+      contEl.innerHTML = clone.innerHTML;
+
+      // Build inline TOC
+      const hds = Array.from(contEl.querySelectorAll('h2,h3'));
+      if (hds.length > 1) {
+        const tocEl = document.createElement('div');
+        tocEl.className = 'note-toc';
+        tocEl.innerHTML = '<h4><span class="bn-text">বিষয়সূচি</span><span class="en-text">Contents</span></h4>';
+        const ul = document.createElement('ul');
+        hds.forEach(h => {
+          const li = document.createElement('li');
+          const a  = document.createElement('a');
+          a.href = '#';
+          a.className = h.tagName === 'H3' ? 'lvl-h3' : '';
+          a.textContent = h.textContent.trim().slice(0, 80);
+          a.addEventListener('click', e => {
+            e.preventDefault();
+            const t = document.getElementById(h.id);
+            if (t) {
+              const top = t.getBoundingClientRect().top + window.scrollY - 56;
+              window.scrollTo({ top, behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+        tocEl.appendChild(ul);
+        tocWrap.appendChild(tocEl);
+      }
+
+      loadEl.style.display  = 'none';
+      shellEl.style.display = '';
+    }, 200);
+
+  } catch(err) {
+    clearInterval(ticker);
+    loadEl.innerHTML = `<div class="err-state"><i class="fas fa-exclamation-triangle"></i><p>${err.message}</p></div>`;
+  }
+}
+
+function trimToNote(body) {
+  // Find "Note to Successor" heading
+  const noteH = Array.from(body.querySelectorAll('h1,h2,h3')).find(
+    h => /note\s+to\s+successor/i.test(h.textContent.trim())
+  );
+  if (!noteH) return;
+  // Walk to direct child of body
+  let el = noteH;
+  while (el.parentNode !== body) el = el.parentNode;
+  // Remove everything before it
+  while (el.previousSibling) el.previousSibling.remove();
+}
+
+// ── DOC VIEW ──────────────────────────────────────────────────────────────────
+async function renderDoc() {
+  const loadEl = document.getElementById('doc-load');
+  const barEl  = document.getElementById('doc-bar');
+  const docEl  = document.getElementById('doc-content');
+
+  clearSearch();
+  docEl.style.display  = 'none';
+  loadEl.style.display = 'flex';
+  docEl.innerHTML = '';
+  document.getElementById('toc-list').innerHTML = '';
+  document.getElementById('toc-hdr').style.display = 'none';
+  barEl.style.width = '0%';
+
+  let pct = 0;
+  const ticker = setInterval(() => {
+    pct = Math.min(pct + (pct < 60 ? 3 : pct < 85 ? 1 : 0.3), 90);
+    barEl.style.width = pct + '%';
+  }, 200);
+
+  try {
+    const body  = await getBody(curReform, p => { barEl.style.width = p + '%'; });
+    clearInterval(ticker);
+    barEl.style.width = '100%';
+
+    const clone = body.cloneNode(true);
+    trimToExec(clone);
+
+    let hi = 0;
+    clone.querySelectorAll('h1,h2,h3,h4').forEach(h => { if (!h.id) h.id = 'sec-' + (++hi); });
+
+    setTimeout(() => {
+      docEl.innerHTML = clone.innerHTML;
       loadEl.style.display = 'none';
       docEl.style.display  = '';
-      t.loaded = true;
-      buildTOC(tab);
-      activateScrollSpy(tab);
+      buildTOC();
+      activateScrollSpy();
     }, 250);
 
-  } catch (err) {
+  } catch(err) {
     clearInterval(ticker);
     loadEl.innerHTML = `
       <div class="err-state">
         <i class="fas fa-exclamation-triangle"></i>
-        <div class="bn-text" style="font-weight:700;font-size:1rem">ডকুমেন্ট লোড করা সম্ভব হয়নি।</div>
-        <div class="en-text" style="font-weight:700;font-size:1rem">Could not load the document.</div>
+        <div style="font-weight:700">
+          <span class="bn-text">ডকুমেন্ট লোড করা সম্ভব হয়নি।</span>
+          <span class="en-text">Could not load the document.</span>
+        </div>
         <p>${err.message}</p>
       </div>`;
   }
 }
 
+function trimToExec(body) {
+  const h1s   = Array.from(body.querySelectorAll('h1'));
+  const execH = h1s.find(h => /executive\s*summary/i.test(h.textContent.trim()));
+  if (!execH) return;
+  let el = execH;
+  while (el.parentNode !== body) el = el.parentNode;
+  while (el.previousSibling) el.previousSibling.remove();
+}
+
 // ── TOC ───────────────────────────────────────────────────────────────────────
-function buildTOC(tab) {
-  const docEl = document.getElementById(TABS[tab].docId);
+function buildTOC() {
+  const docEl = document.getElementById('doc-content');
   const list  = document.getElementById('toc-list');
   list.innerHTML = '';
   let count = 0;
-
   docEl.querySelectorAll('h1,h2,h3').forEach(h => {
     if (!h.textContent.trim()) return;
-    const tag = h.tagName.toLowerCase();
-    const li  = document.createElement('li');
-    const a   = document.createElement('a');
-    a.className  = 'toc-link lvl-' + tag;
-    a.href       = '#' + h.id;
+    const li = document.createElement('li');
+    const a  = document.createElement('a');
+    a.className  = 'toc-link lvl-' + h.tagName.toLowerCase();
+    a.href       = '#';
     a.dataset.id = h.id;
     a.textContent = h.textContent.trim().slice(0, 70) + (h.textContent.trim().length > 70 ? '…' : '');
     a.addEventListener('click', e => {
       e.preventDefault();
-      const target = document.getElementById(h.id) || h;
-      const navOffset = 58; // sticky nav height + buffer
-      const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+      const t = document.getElementById(h.id) || h;
+      const top = t.getBoundingClientRect().top + window.scrollY - 56;
       window.scrollTo({ top, behavior: 'smooth' });
       list.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
       a.classList.add('active');
@@ -511,21 +845,18 @@ function buildTOC(tab) {
     list.appendChild(li);
     count++;
   });
-
   document.getElementById('toc-hdr').style.display = count ? '' : 'none';
 }
 
-// ── SCROLL SPY ────────────────────────────────────────────────────────────────
-function activateScrollSpy(tab) {
-  const docEl    = document.getElementById(TABS[tab].docId);
+// ── SCROLL SPY ─────────────────────────────────────────────────────────────────
+function activateScrollSpy() {
+  const docEl    = document.getElementById('doc-content');
   const headings = Array.from(docEl.querySelectorAll('h1,h2,h3'));
-  const navH     = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 50;
-
   window.addEventListener('scroll', () => {
-    if (curTab !== tab) return;
+    if (document.getElementById('view-doc').style.display === 'none') return;
     let cur = null;
     for (const h of headings) {
-      if (h.getBoundingClientRect().top <= navH + 24) cur = h;
+      if (h.getBoundingClientRect().top <= 56 + 24) cur = h;
     }
     document.querySelectorAll('.toc-link').forEach(a => {
       a.classList.toggle('active', !!(cur && a.dataset.id === cur.id));
@@ -534,38 +865,25 @@ function activateScrollSpy(tab) {
 }
 
 // ── SEARCH ────────────────────────────────────────────────────────────────────
-function schedSearch(q) {
-  clearTimeout(srchTimer);
-  srchTimer = setTimeout(() => doSearch(q), 350);
-}
+function schedSearch(q) { clearTimeout(srchTimer); srchTimer = setTimeout(() => doSearch(q), 350); }
 
 function doSearch(q) {
-  const docEl    = document.getElementById(TABS[curTab].docId);
-  const metaEl   = document.getElementById('search-meta');
-  const countEl  = document.getElementById('search-count');
-  const btnPrev  = document.getElementById('btn-prev');
-  const btnNext  = document.getElementById('btn-next');
-
-  if (!TABS[curTab].loaded) return;
-
-  // Remove existing highlights
+  const docEl   = document.getElementById('doc-content');
+  const metaEl  = document.getElementById('search-meta');
+  const countEl = document.getElementById('search-count');
+  const bPrev   = document.getElementById('btn-prev');
+  const bNext   = document.getElementById('btn-next');
+  if (!docEl || docEl.style.display === 'none') return;
   docEl.querySelectorAll('mark.sh').forEach(m => m.replaceWith(document.createTextNode(m.textContent)));
   docEl.normalize();
   srchMatches = []; srchIdx = -1;
-
-  if (!q || q.trim().length < 2) {
-    metaEl.style.display = 'none';
-    return;
-  }
-
+  if (!q || q.trim().length < 2) { metaEl.style.display = 'none'; return; }
   const re = new RegExp(escRe(q), 'gi');
   const walker = document.createTreeWalker(docEl, NodeFilter.SHOW_TEXT, {
-    acceptNode: n => (n.parentElement.closest('script,style') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT)
+    acceptNode: n => n.parentElement.closest('script,style') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
   });
-
   const nodes = [];
   while (walker.nextNode()) nodes.push(walker.currentNode);
-
   let total = 0;
   for (const node of nodes) {
     const text = node.textContent;
@@ -576,73 +894,67 @@ function doSearch(q) {
     while ((m = re.exec(text)) !== null) {
       if (last < m.index) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
       const mark = document.createElement('mark');
-      mark.className = 'sh';
-      mark.textContent = m[0];
+      mark.className = 'sh'; mark.textContent = m[0];
       frag.appendChild(mark);
       last = m.index + m[0].length; total++;
     }
     if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
     node.parentNode.replaceChild(frag, node);
   }
-
   srchMatches = Array.from(docEl.querySelectorAll('mark.sh'));
   metaEl.style.display = '';
-
-  if (total === 0) {
-    countEl.textContent = 'কোনো ফলাফল নেই';
-    btnPrev.disabled = btnNext.disabled = true;
-    return;
-  }
-
+  if (total === 0) { countEl.textContent = 'কোনো ফলাফল নেই'; bPrev.disabled = bNext.disabled = true; return; }
   srchIdx = 0;
-  btnPrev.disabled = btnNext.disabled = srchMatches.length < 2;
-  updateCount();
-  hlCur();
+  bPrev.disabled = bNext.disabled = srchMatches.length < 2;
+  updateCount(); hlCur();
   srchMatches[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-function updateCount() {
-  document.getElementById('search-count').textContent = (srchIdx + 1) + ' / ' + srchMatches.length;
-}
-function hlCur() {
-  srchMatches.forEach((m, i) => { m.className = i === srchIdx ? 'sh cur' : 'sh'; });
-}
-function nextMatch() {
-  if (!srchMatches.length) return;
-  srchIdx = (srchIdx + 1) % srchMatches.length;
-  hlCur(); updateCount();
-  srchMatches[srchIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-function prevMatch() {
-  if (!srchMatches.length) return;
-  srchIdx = (srchIdx - 1 + srchMatches.length) % srchMatches.length;
-  hlCur(); updateCount();
-  srchMatches[srchIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
+function updateCount() { document.getElementById('search-count').textContent = (srchIdx + 1) + ' / ' + srchMatches.length; }
+function hlCur() { srchMatches.forEach((m, i) => { m.className = i === srchIdx ? 'sh cur' : 'sh'; }); }
+function nextMatch() { if (!srchMatches.length) return; srchIdx = (srchIdx + 1) % srchMatches.length; hlCur(); updateCount(); srchMatches[srchIdx].scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+function prevMatch() { if (!srchMatches.length) return; srchIdx = (srchIdx - 1 + srchMatches.length) % srchMatches.length; hlCur(); updateCount(); srchMatches[srchIdx].scrollIntoView({ behavior: 'smooth', block: 'center' }); }
 function clearSearch() {
   const inp = document.getElementById('search-input');
   if (inp) inp.value = '';
-  doSearch('');
+  const docEl = document.getElementById('doc-content');
+  if (docEl) { docEl.querySelectorAll('mark.sh').forEach(m => m.replaceWith(document.createTextNode(m.textContent))); docEl.normalize(); }
+  srchMatches = []; srchIdx = -1;
+  const me = document.getElementById('search-meta');
+  if (me) me.style.display = 'none';
 }
 function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+// ── LANG TOGGLE ───────────────────────────────────────────────────────────────
+function toggleLang() {
+  document.body.classList.toggle('en', document.getElementById('lang-check').checked);
+  // Re-render crumb text in new language
+  const h = location.hash.slice(1);
+  if (h) {
+    const parts = h.split('/');
+    const reform = parts[0];
+    const mode   = parts[1];
+    if (reform && REFORMS[reform]) updateNav(mode || 'reform');
+  }
+}
+
+// ── KEYBOARD ─────────────────────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); }
+  if (e.key === 'F3') { e.preventDefault(); e.shiftKey ? prevMatch() : nextMatch(); }
+  if (e.key === 'Enter' && document.activeElement === document.getElementById('search-input')) { e.shiftKey ? prevMatch() : nextMatch(); }
+  if (e.key === 'Escape') clearSearch();
+});
+
+// ── KEYBOARD NAV ON HUB CARDS ────────────────────────────────────────────────
+document.querySelectorAll('.hub-card').forEach(c => {
+  c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); c.click(); } });
+});
 
 // ── BACK TO TOP ───────────────────────────────────────────────────────────────
 window.addEventListener('scroll', () => {
   document.getElementById('back-top').classList.toggle('vis', window.scrollY > 350);
 }, { passive: true });
-
-// ── KEYBOARD ──────────────────────────────────────────────────────────────────
-document.addEventListener('keydown', e => {
-  if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); }
-  if (e.key === 'F3') { e.preventDefault(); e.shiftKey ? prevMatch() : nextMatch(); }
-  if (e.key === 'Enter' && document.activeElement === document.getElementById('search-input')) {
-    e.shiftKey ? prevMatch() : nextMatch();
-  }
-  if (e.key === 'Escape') clearSearch();
-});
-
-// ── INIT ──────────────────────────────────────────────────────────────────────
-loadDoc('ict');
 </script>
 </body>
 </html>
