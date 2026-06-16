@@ -439,13 +439,24 @@ async function loadDoc(tab) {
       img.removeAttribute('height');
     });
 
+    // Trim to Executive Summary — skip cover pages, ToC, acknowledgements
+    const allH1s = Array.from(body.querySelectorAll('h1'));
+    const execH1 = allH1s.find(h => /executive\s*summary/i.test(h.textContent.trim()));
+    if (execH1) {
+      // Walk up to the direct body child that contains execH1
+      let startEl = execH1;
+      while (startEl.parentNode !== body) startEl = startEl.parentNode;
+      // Remove every sibling before it
+      while (startEl.previousSibling) startEl.previousSibling.remove();
+    }
+
     // Add IDs to headings for TOC / anchor links
     let hi = 0;
     body.querySelectorAll('h1,h2,h3,h4').forEach(h => {
       if (!h.id) h.id = 'sec-' + (++hi);
     });
 
-    // Remove LibreOffice page-break divs and empty paragraphs at start
+    // Remove LibreOffice page-break divs
     body.querySelectorAll('div[style*="page-break"]').forEach(d => d.remove());
 
     barEl.style.width = '100%';
@@ -489,7 +500,10 @@ function buildTOC(tab) {
     a.textContent = h.textContent.trim().slice(0, 70) + (h.textContent.trim().length > 70 ? '…' : '');
     a.addEventListener('click', e => {
       e.preventDefault();
-      document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const target = document.getElementById(h.id) || h;
+      const navOffset = 58; // sticky nav height + buffer
+      const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
       list.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
       a.classList.add('active');
     });
