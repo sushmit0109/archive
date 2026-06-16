@@ -196,6 +196,29 @@
     .doc-opt-card:hover .doc-opt-arrow { transform: translateX(4px); color: var(--accent); }
     .doc-opt-card.note-card:hover .doc-opt-arrow { color: var(--teal); }
 
+    .pdf-dl-strip { display: flex; justify-content: flex-end; margin: -0.6rem 0 1.4rem; padding-right: 0.25rem; }
+    .pdf-dl-pill {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.76rem; color: #1a6e7e; font-weight: 600;
+      text-decoration: none; padding: 0.26rem 0.75rem;
+      border: 1px solid #b3dde3; border-radius: 20px;
+      background: rgba(255,255,255,.85);
+      transition: all .15s;
+      font-family: 'Inter', sans-serif;
+    }
+    .pdf-dl-pill:hover { background: #e0f2f5; color: #0a5060; border-color: #80c8d2; }
+    .pdf-dl-pill.doc-pill { color: var(--accent); border-color: #b3cde8; }
+    .pdf-dl-pill.doc-pill:hover { background: #e8f0fb; color: #1558a8; border-color: #7aaad8; }
+    .nav-dl-btn {
+      display: none; align-items: center; gap: 0.35rem;
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+      border-radius: 5px; color: #fff; text-decoration: none;
+      padding: 0.22rem 0.7rem; font-size: 0.76rem; font-weight: 600;
+      transition: background .15s; white-space: nowrap;
+    }
+    .nav-dl-btn:hover { background: rgba(255,255,255,.28); color: #fff; }
+    .nav-dl-btn.show { display: inline-flex; }
+
     /* ── NOTE VIEWER ──────────────────────────────────────────────────────────── */
     .note-wrap { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
     .note-card-shell {
@@ -398,6 +421,11 @@
         <span style="font-size:0.75rem">সূচি</span>
       </button>
     </div>
+    <a id="nav-dl-btn" class="nav-dl-btn" href="#" download>
+      <i class="fas fa-download"></i>
+      <span class="bn-text">PDF</span>
+      <span class="en-text">PDF</span>
+    </a>
     <div class="lang-wrap">
       <span>বাংলা</span>
       <label class="lang-switch" title="Switch language">
@@ -503,6 +531,13 @@
       </div>
       <div class="doc-opt-arrow"><i class="fas fa-chevron-right"></i></div>
     </div>
+    <div class="pdf-dl-strip">
+      <a id="dl-note-pill" class="pdf-dl-pill" href="#" download onclick="event.stopPropagation()">
+        <i class="fas fa-file-pdf"></i>
+        <span class="bn-text">PDF ডাউনলোড</span>
+        <span class="en-text">Download PDF</span>
+      </a>
+    </div>
 
     <!-- Strategy Document -->
     <div class="doc-opt-card" onclick="navigateTo('doc')" role="button" tabindex="0">
@@ -522,6 +557,13 @@
         </div>
       </div>
       <div class="doc-opt-arrow"><i class="fas fa-chevron-right"></i></div>
+    </div>
+    <div class="pdf-dl-strip">
+      <a id="dl-doc-pill" class="pdf-dl-pill doc-pill" href="#" download onclick="event.stopPropagation()">
+        <i class="fas fa-file-pdf"></i>
+        <span class="bn-text">PDF ডাউনলোড</span>
+        <span class="en-text">Download PDF</span>
+      </a>
     </div>
   </div>
 </div>
@@ -612,14 +654,18 @@ const REFORMS = {
     sub: 'ICT Division · তথ্য ও যোগাযোগ প্রযুক্তি বিভাগ',
     docBn: 'ডিজিটাল রূপান্তর কৌশল ২০২৫–৩০',
     docEn: 'Digital Transformation Strategy 2025–30',
-    src: './converted/ict.html', imgBase: './converted/'
+    src: './converted/ict.html', imgBase: './converted/',
+    notePdf: './pdfs/ict-note.pdf', notePdfName: 'ICT-Note-to-Successor.pdf',
+    docPdf:  './pdfs/ict-strategy.pdf', docPdfName:  'ICT-Digital-Transformation-Strategy-2025-30.pdf'
   },
   ptd: {
     bn: 'ডাক ও টেলিযোগাযোগ সংস্কার', en: 'PTD Reform',
     sub: 'Post & Telecom Division · ডাক ও টেলিযোগাযোগ বিভাগ',
     docBn: 'পিটিডি রূপান্তর কৌশল ২০২৫–৩০',
     docEn: 'PTD Transformation Strategy 2025–30',
-    src: './converted/ptd.html', imgBase: './converted/'
+    src: './converted/ptd.html', imgBase: './converted/',
+    notePdf: './pdfs/ptd-note.pdf', notePdfName: 'PTD-Note-to-Successor.pdf',
+    docPdf:  './pdfs/ptd-strategy.pdf', docPdfName:  'PTD-Transformation-Strategy-2025-30.pdf'
   }
 };
 
@@ -683,6 +729,15 @@ function updateNav(view) {
 
   btn.style.display = (view === 'hub') ? 'none' : 'flex';
 
+  const dlBtn = document.getElementById('nav-dl-btn');
+  if (r && (view === 'note' || view === 'doc')) {
+    dlBtn.href     = view === 'note' ? r.notePdf : r.docPdf;
+    dlBtn.download = view === 'note' ? r.notePdfName : r.docPdfName;
+    dlBtn.classList.add('show');
+  } else {
+    dlBtn.classList.remove('show');
+  }
+
   if (!r) { crumb.textContent = ''; return; }
   if (view === 'reform') crumb.textContent = isEn ? r.en : r.bn;
   else if (view === 'note') crumb.textContent = (isEn ? r.en : r.bn) + ' · ' + (isEn ? 'Note to Successor' : 'উত্তরসূরির পত্র');
@@ -700,6 +755,12 @@ function renderReform() {
   document.getElementById('doc-title-en').textContent = r.docEn;
   document.getElementById('doc-sub-bn').textContent   = r.docEn;
   document.getElementById('doc-sub-en').textContent   = r.docBn;
+  const notePill = document.getElementById('dl-note-pill');
+  notePill.href     = r.notePdf;
+  notePill.download = r.notePdfName;
+  const docPill = document.getElementById('dl-doc-pill');
+  docPill.href      = r.docPdf;
+  docPill.download  = r.docPdfName;
 }
 
 // ── BODY CACHE ────────────────────────────────────────────────────────────────
