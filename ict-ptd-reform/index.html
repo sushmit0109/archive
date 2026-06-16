@@ -525,7 +525,7 @@
 // ── CONFIG ──────────────────────────────────────────────────────────────────
 const TABS = {
   ict: {
-    file:    'https://github.com/sushmit0109/archive/releases/download/docs-v1/Digital.Transformation.Strategy.2025-30.docx',
+    file:    'https://api.github.com/repos/sushmit0109/archive/releases/assets/448719617',
     panelId: 'panel-ict',
     loadId:  'load-ict',
     barId:   'bar-ict',
@@ -535,7 +535,7 @@ const TABS = {
     blobUrls: []
   },
   ptd: {
-    file:    'https://github.com/sushmit0109/archive/releases/download/docs-v1/PTD_Transformation.Strategy.2025-30.docx',
+    file:    'https://api.github.com/repos/sushmit0109/archive/releases/assets/448719615',
     panelId: 'panel-ptd',
     loadId:  'load-ptd',
     barId:   'bar-ptd',
@@ -592,7 +592,7 @@ async function loadDoc(tab) {
     // 1. Fetch with progress tracking
     setMsg('<span class="bn-text">ফাইল ডাউনলোড হচ্ছে…</span><span class="en-text">Fetching file…</span>');
 
-    const res = await fetch(t.file);
+    const res = await fetch(t.file, { headers: { 'Accept': 'application/octet-stream' } });
     if (!res.ok) throw new Error('HTTP ' + res.status + ' — file not found');
 
     const contentLength = parseInt(res.headers.get('content-length') || '0');
