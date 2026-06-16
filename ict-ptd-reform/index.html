@@ -27,8 +27,8 @@
       --primary:   #004080;
       --secondary: #003366;
       --accent:    #1a6bbf;
-      --sidebar-w: 290px;
       --nav-h:     50px;
+      --sidebar-w: 290px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -48,76 +48,39 @@
       box-shadow: 0 2px 6px rgba(0,0,0,.3);
       position: relative;
     }
-    .site-header .site-title {
-      color: #fff;
-      font-size: 1.15rem;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-    .site-header .site-sub {
-      color: #bcd5ff;
-      font-size: 0.78rem;
-      margin-top: 0.25rem;
-    }
+    .site-header .site-title { color: #fff; font-size: 1.1rem; font-weight: 700; line-height: 1.45; }
+    .site-header .site-sub   { color: #bcd5ff; font-size: 0.76rem; margin-top: 0.2rem; }
     .back-link {
-      position: absolute;
-      left: 1.2rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #bcd5ff;
-      text-decoration: none;
-      font-size: 0.82rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: color .2s;
+      position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%);
+      color: #bcd5ff; text-decoration: none; font-size: 0.82rem;
+      display: flex; align-items: center; gap: 0.4rem; transition: color .2s;
     }
     .back-link:hover { color: #fff; }
 
     /* ── NAV ── */
     .site-nav {
       background: var(--secondary);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: sticky; top: 0; z-index: 1000;
       box-shadow: 0 2px 4px rgba(0,0,0,.25);
       height: var(--nav-h);
     }
     .nav-inner {
-      display: flex;
-      align-items: stretch;
-      justify-content: space-between;
-      height: 100%;
-      padding: 0 1rem;
+      display: flex; align-items: stretch; justify-content: space-between;
+      height: 100%; padding: 0 1rem;
     }
     .tab-btns { display: flex; }
     .tab-btn {
-      background: none;
-      border: none;
-      border-bottom: 3px solid transparent;
-      color: #bcd5ff;
-      padding: 0 1.3rem;
-      font-family: inherit;
-      font-size: 0.88rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      white-space: nowrap;
-      transition: all .2s;
-      height: 100%;
+      background: none; border: none; border-bottom: 3px solid transparent;
+      color: #bcd5ff; padding: 0 1.2rem; font-family: inherit; font-size: 0.88rem;
+      font-weight: 600; cursor: pointer; display: flex; align-items: center;
+      gap: 0.4rem; white-space: nowrap; transition: all .2s; height: 100%;
     }
     .tab-btn:hover { color: #fff; background: rgba(255,255,255,.07); }
     .tab-btn.active { color: #fff; border-bottom-color: #5fa8ff; }
 
     .lang-wrap {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      color: #dce9ff;
-      font-size: 0.82rem;
-      padding: 0 0.3rem;
+      display: flex; align-items: center; gap: 0.4rem;
+      color: #dce9ff; font-size: 0.82rem; padding: 0 0.3rem;
     }
     .lang-switch { position: relative; display: inline-block; width: 44px; height: 22px; }
     .lang-switch input { opacity: 0; width: 0; height: 0; }
@@ -126,262 +89,155 @@
     #lang-check:checked + .lang-slider { background: var(--accent); }
     #lang-check:checked + .lang-slider::before { transform: translateX(22px); }
 
-    /* ── LAYOUT ── */
-    .page-layout {
-      display: flex;
-      min-height: calc(100vh - var(--nav-h) - 90px);
-    }
+    /* ── PAGE LAYOUT ── */
+    .page-layout { display: flex; min-height: calc(100vh - var(--nav-h) - 90px); }
 
     /* ── SIDEBAR ── */
     .sidebar {
-      width: var(--sidebar-w);
-      flex-shrink: 0;
-      background: rgba(5, 18, 50, 0.9);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: var(--nav-h);
-      height: calc(100vh - var(--nav-h));
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      padding: 0.9rem 0.8rem;
-      overflow: hidden;
+      width: var(--sidebar-w); flex-shrink: 0;
+      background: rgba(5,18,50,.9); backdrop-filter: blur(8px);
+      position: sticky; top: var(--nav-h); height: calc(100vh - var(--nav-h));
+      display: flex; flex-direction: column; gap: 0.6rem;
+      padding: 0.9rem 0.8rem; overflow: hidden;
     }
 
     /* search */
     .search-wrap { position: relative; flex-shrink: 0; }
     .search-wrap input {
-      width: 100%;
-      padding: 0.5rem 0.75rem 0.5rem 2.2rem;
-      border: 1.5px solid rgba(255,255,255,.18);
-      border-radius: 7px;
-      background: rgba(255,255,255,.08);
-      color: #fff;
-      font-size: 0.84rem;
-      font-family: inherit;
-      outline: none;
+      width: 100%; padding: 0.5rem 0.75rem 0.5rem 2.2rem;
+      border: 1.5px solid rgba(255,255,255,.18); border-radius: 7px;
+      background: rgba(255,255,255,.08); color: #fff;
+      font-size: 0.84rem; font-family: inherit; outline: none;
       transition: border-color .2s, background .2s;
     }
     .search-wrap input::placeholder { color: rgba(255,255,255,.38); }
     .search-wrap input:focus { border-color: rgba(100,160,255,.6); background: rgba(255,255,255,.12); }
-    .search-wrap .si { position: absolute; left: 0.65rem; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,.38); font-size: 0.75rem; }
+    .search-icon { position: absolute; left: 0.65rem; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,.38); font-size: 0.75rem; }
 
-    .search-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 1.4rem;
-      flex-shrink: 0;
-    }
+    .search-meta { display: flex; justify-content: space-between; align-items: center; min-height: 1.3rem; flex-shrink: 0; }
     .search-count { font-size: 0.7rem; color: rgba(255,255,255,.45); }
-    .search-nav { display: flex; gap: 0.3rem; }
+    .snav { display: flex; gap: 0.3rem; }
     .snav-btn {
-      background: rgba(255,255,255,.1);
-      border: none;
-      border-radius: 4px;
-      color: #aac8ff;
-      font-size: 0.7rem;
-      padding: 0.18rem 0.55rem;
-      cursor: pointer;
-      transition: background .15s;
+      background: rgba(255,255,255,.1); border: none; border-radius: 4px;
+      color: #aac8ff; font-size: 0.7rem; padding: 0.18rem 0.55rem; cursor: pointer;
     }
     .snav-btn:hover { background: rgba(255,255,255,.2); }
     .snav-btn:disabled { opacity: 0.3; cursor: default; }
 
     /* toc */
-    .toc-header {
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: rgba(255,255,255,.35);
-      flex-shrink: 0;
-      padding: 0 0.2rem;
-    }
-    .toc-scroll {
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
+    .toc-hdr { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.35); flex-shrink: 0; padding: 0 0.2rem; }
+    .toc-scroll { flex: 1; overflow-y: auto; overflow-x: hidden; }
     .toc-scroll::-webkit-scrollbar { width: 3px; }
     .toc-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 2px; }
     .toc-list { list-style: none; }
     .toc-link {
-      display: block;
-      padding: 0.32rem 0.5rem;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,.65);
-      line-height: 1.3;
-      border-left: 2px solid transparent;
-      transition: all .15s;
-      word-break: break-word;
+      display: block; padding: 0.32rem 0.5rem; border-radius: 5px;
+      text-decoration: none; font-size: 0.79rem; color: rgba(255,255,255,.65);
+      line-height: 1.3; border-left: 2px solid transparent; transition: all .15s; word-break: break-word;
     }
     .toc-link:hover { background: rgba(255,255,255,.08); color: #fff; border-left-color: rgba(95,168,255,.6); }
     .toc-link.active { background: rgba(95,168,255,.12); color: #9dcfff; border-left-color: #5fa8ff; font-weight: 600; }
-    .toc-link.lvl-h2 { padding-left: 1.2rem; font-size: 0.75rem; }
-    .toc-link.lvl-h3 { padding-left: 2rem; font-size: 0.71rem; color: rgba(255,255,255,.42); }
-    .toc-link.lvl-h3:hover { color: rgba(255,255,255,.75); }
+    .toc-link.lvl-h2 { padding-left: 1.2rem; font-size: 0.74rem; }
+    .toc-link.lvl-h3 { padding-left: 2rem; font-size: 0.7rem; color: rgba(255,255,255,.42); }
 
     /* ── CONTENT ── */
-    .content-area {
-      flex: 1;
-      background: rgba(255,255,255,.965);
-      padding: 2rem 2.8rem;
-      min-width: 0;
-    }
+    .content-area { flex: 1; background: rgba(255,255,255,.97); padding: 2rem 2.8rem; min-width: 0; }
 
-    /* mammoth-rendered document */
-    .doc-body {
-      max-width: 820px;
-      margin: 0 auto;
-      font-size: 0.97rem;
-      line-height: 1.95;
-      color: #1c1c1c;
-    }
-    .doc-body h1 {
-      color: var(--primary);
-      font-size: 1.55rem;
-      font-weight: 700;
-      margin: 2.2rem 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--primary);
-      scroll-margin-top: calc(var(--nav-h) + 0.5rem);
-    }
-    .doc-body h2 {
-      color: var(--secondary);
-      font-size: 1.18rem;
-      font-weight: 700;
-      margin: 1.8rem 0 0.7rem;
-      padding: 0.4rem 0.9rem;
-      border-left: 4px solid var(--accent);
-      background: #f0f5fb;
-      border-radius: 0 6px 6px 0;
-      scroll-margin-top: calc(var(--nav-h) + 0.5rem);
-    }
-    .doc-body h3 {
-      color: #1a4870;
-      font-size: 1.04rem;
-      font-weight: 700;
-      margin: 1.4rem 0 0.5rem;
-      scroll-margin-top: calc(var(--nav-h) + 0.5rem);
-    }
-    .doc-body h4 {
-      color: #2a5a8a;
-      font-size: 0.97rem;
-      font-weight: 700;
-      margin: 1.1rem 0 0.4rem;
-      scroll-margin-top: calc(var(--nav-h) + 0.5rem);
-    }
-    .doc-body p  { margin-bottom: 0.85rem; text-align: justify; }
-    .doc-body ul, .doc-body ol { margin: 0.4rem 0 0.85rem 1.6rem; }
-    .doc-body li { margin-bottom: 0.3rem; }
-    .doc-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.2rem 0;
-      font-size: 0.88rem;
-      box-shadow: 0 1px 6px rgba(0,0,0,.07);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .doc-body th {
-      background: var(--primary);
-      color: #fff;
-      padding: 0.5rem 0.75rem;
-      font-weight: 600;
-      text-align: left;
-      font-size: 0.83rem;
-    }
-    .doc-body td {
-      padding: 0.4rem 0.75rem;
-      border-bottom: 1px solid #e8eef5;
-      vertical-align: top;
-    }
-    .doc-body tr:last-child td { border-bottom: none; }
-    .doc-body tr:nth-child(even) td { background: #f5f8fc; }
-    .doc-body img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
-      margin: 1rem 0;
-      display: block;
-      box-shadow: 0 2px 10px rgba(0,0,0,.13);
-    }
-    .doc-body a { color: var(--accent); }
-    .doc-body blockquote {
-      border-left: 4px solid var(--accent);
-      margin: 1rem 0;
-      padding: 0.6rem 1rem;
-      background: #f0f6ff;
-      border-radius: 0 6px 6px 0;
-    }
-
-    /* search highlight */
-    mark.sh { background: #ffe566; color: #111; border-radius: 2px; padding: 0 1px; }
-    mark.sh.cur { background: #ff9900; color: #fff; }
-
-    /* ── LOAD STATE ── */
+    /* ── LOAD / ERROR ── */
     .load-state {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 5rem 2rem;
-      gap: 1.3rem;
-      color: var(--primary);
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; padding: 5rem 2rem; gap: 1.3rem; color: var(--primary);
     }
     .load-spin { font-size: 2.5rem; animation: _spin 1s linear infinite; }
     @keyframes _spin { to { transform: rotate(360deg); } }
     .load-bar-wrap { width: 260px; height: 7px; background: #d0dcea; border-radius: 10px; overflow: hidden; }
     .load-bar { height: 100%; background: var(--accent); border-radius: 10px; transition: width .4s ease; width: 0%; }
     .load-msg { font-size: 0.88rem; color: #555; text-align: center; }
-    .load-file-size { font-size: 0.75rem; color: #888; }
-
-    /* ── ERROR STATE ── */
-    .err-state {
-      text-align: center;
-      padding: 4rem 2rem;
-      color: #c00;
-    }
+    .err-state { text-align: center; padding: 4rem 2rem; color: #c00; }
     .err-state i { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
-    .err-state p { color: #555; font-size: 0.88rem; margin-top: 0.5rem; }
+    .err-state p { color: #555; font-size: 0.85rem; margin-top: 0.5rem; max-width: 420px; margin-inline: auto; }
+
+    /* ── INJECTED DOC STYLES ── */
+    /* We override LibreOffice's default styles for a cleaner look */
+    .doc-wrap { max-width: 860px; margin: 0 auto; }
+
+    .doc-wrap * { max-width: 100%; }
+
+    /* headings */
+    .doc-wrap h1 {
+      color: var(--primary) !important;
+      font-size: 1.5rem !important; font-weight: 700 !important;
+      margin: 2rem 0 0.9rem !important;
+      padding-bottom: 0.45rem !important;
+      border-bottom: 2px solid var(--primary) !important;
+      scroll-margin-top: calc(var(--nav-h) + 8px);
+    }
+    .doc-wrap h2 {
+      color: var(--secondary) !important;
+      font-size: 1.15rem !important; font-weight: 700 !important;
+      margin: 1.7rem 0 0.6rem !important;
+      padding: 0.35rem 0.85rem !important;
+      border-left: 4px solid var(--accent) !important;
+      background: #f0f5fb !important;
+      border-radius: 0 6px 6px 0 !important;
+      scroll-margin-top: calc(var(--nav-h) + 8px);
+    }
+    .doc-wrap h3 {
+      color: #1a4870 !important;
+      font-size: 1.02rem !important; font-weight: 700 !important;
+      margin: 1.3rem 0 0.45rem !important;
+      scroll-margin-top: calc(var(--nav-h) + 8px);
+    }
+    .doc-wrap h4 {
+      color: #2a5a8a !important; font-size: 0.95rem !important; font-weight: 700 !important;
+      margin: 1rem 0 0.35rem !important;
+      scroll-margin-top: calc(var(--nav-h) + 8px);
+    }
+    .doc-wrap p  { margin-bottom: 0.75rem !important; line-height: 1.85 !important; font-size: 0.96rem !important; }
+    .doc-wrap ul, .doc-wrap ol { margin: 0.3rem 0 0.75rem 1.4rem !important; }
+    .doc-wrap li { margin-bottom: 0.25rem !important; line-height: 1.75 !important; }
+    .doc-wrap table {
+      width: 100% !important; border-collapse: collapse !important;
+      margin: 1.1rem 0 !important; font-size: 0.88rem !important;
+    }
+    .doc-wrap th {
+      background: var(--primary) !important; color: #fff !important;
+      padding: 0.45rem 0.7rem !important; font-weight: 600 !important; text-align: left !important;
+    }
+    .doc-wrap td {
+      padding: 0.38rem 0.7rem !important; border-bottom: 1px solid #e5ecf5 !important; vertical-align: top !important;
+    }
+    .doc-wrap tr:nth-child(even) td { background: #f5f8fc !important; }
+    .doc-wrap img {
+      max-width: 100% !important; height: auto !important; display: block !important;
+      margin: 1rem auto !important; border-radius: 5px !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12) !important;
+    }
+    .doc-wrap a { color: var(--accent) !important; }
+
+    /* search highlight */
+    mark.sh  { background: #ffe566; color: #111; border-radius: 2px; padding: 0 1px; }
+    mark.sh.cur { background: #ff9900; color: #fff; }
 
     /* ── BACK TO TOP ── */
     #back-top {
-      position: fixed;
-      bottom: 1.8rem;
-      right: 1.8rem;
-      width: 40px;
-      height: 40px;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      font-size: 1rem;
-      cursor: pointer;
-      z-index: 500;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .3s;
+      position: fixed; bottom: 1.8rem; right: 1.8rem; width: 40px; height: 40px;
+      background: var(--primary); color: #fff; border: none; border-radius: 50%;
+      font-size: 1rem; cursor: pointer; z-index: 500;
+      opacity: 0; pointer-events: none; transition: opacity .3s;
       box-shadow: 0 2px 8px rgba(0,0,0,.25);
     }
     #back-top.vis { opacity: 1; pointer-events: auto; }
     #back-top:hover { background: var(--accent); }
 
     /* ── FOOTER ── */
-    .site-footer {
-      background: var(--primary);
-      color: #cce0ff;
-      padding: 1.1rem 2rem;
-    }
+    .site-footer { background: var(--primary); color: #cce0ff; padding: 1.1rem 2rem; }
 
     /* ── MOBILE ── */
     @media (max-width: 768px) {
       .sidebar { display: none; }
       .site-header { padding: 0.8rem 3.5rem; }
-      .site-header .site-title { font-size: 1rem; }
+      .site-header .site-title { font-size: 0.95rem; }
       .content-area { padding: 1.2rem 1rem; }
       .tab-btn { padding: 0 0.7rem; font-size: 0.8rem; }
     }
@@ -441,35 +297,31 @@
 <div class="page-layout">
 
   <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
+  <aside class="sidebar">
     <div class="search-wrap">
-      <i class="fas fa-search si"></i>
+      <i class="fas fa-search search-icon"></i>
       <input type="text" id="search-input" autocomplete="off"
         placeholder="অনুসন্ধান… / Search…"
         oninput="schedSearch(this.value)">
     </div>
-
     <div class="search-meta" id="search-meta" style="display:none">
       <span class="search-count" id="search-count"></span>
-      <div class="search-nav">
+      <div class="snav">
         <button class="snav-btn" id="btn-prev" onclick="prevMatch()" disabled>↑</button>
         <button class="snav-btn" id="btn-next" onclick="nextMatch()" disabled>↓</button>
       </div>
     </div>
-
-    <div class="toc-header" id="toc-hdr" style="display:none">
+    <div class="toc-hdr" id="toc-hdr" style="display:none">
       <span class="bn-text">সূচিপত্র</span>
       <span class="en-text">Contents</span>
     </div>
-    <div class="toc-scroll" id="toc-scroll">
+    <div class="toc-scroll">
       <ul class="toc-list" id="toc-list"></ul>
     </div>
   </aside>
 
   <!-- CONTENT -->
   <main class="content-area" id="content-area">
-
-    <!-- ICT panel -->
     <div id="panel-ict">
       <div class="load-state" id="load-ict">
         <div class="load-spin"><i class="fas fa-spinner"></i></div>
@@ -478,12 +330,10 @@
           <span class="bn-text">ডকুমেন্ট লোড হচ্ছে…</span>
           <span class="en-text">Loading document…</span>
         </div>
-        <div class="load-file-size">Digital Transformation Strategy 2025-30.docx (~70 MB)</div>
       </div>
-      <div class="doc-body" id="doc-ict" style="display:none"></div>
+      <div class="doc-wrap" id="doc-ict" style="display:none"></div>
     </div>
 
-    <!-- PTD panel -->
     <div id="panel-ptd" style="display:none">
       <div class="load-state" id="load-ptd">
         <div class="load-spin"><i class="fas fa-spinner"></i></div>
@@ -492,11 +342,9 @@
           <span class="bn-text">ডকুমেন্ট লোড হচ্ছে…</span>
           <span class="en-text">Loading document…</span>
         </div>
-        <div class="load-file-size">PTD_Transformation Strategy 2025-30.docx (~221 MB)</div>
       </div>
-      <div class="doc-body" id="doc-ptd" style="display:none"></div>
+      <div class="doc-wrap" id="doc-ptd" style="display:none"></div>
     </div>
-
   </main>
 </div>
 
@@ -520,221 +368,175 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js"></script>
 <script>
-// ── CONFIG ──────────────────────────────────────────────────────────────────
+// ── CONFIG ───────────────────────────────────────────────────────────────────
 const TABS = {
-  ict: {
-    file:    'https://api.github.com/repos/sushmit0109/archive/releases/assets/448719617',
-    panelId: 'panel-ict',
-    loadId:  'load-ict',
-    barId:   'bar-ict',
-    msgId:   'msg-ict',
-    docId:   'doc-ict',
-    loaded:  false,
-    blobUrls: []
-  },
-  ptd: {
-    file:    'https://api.github.com/repos/sushmit0109/archive/releases/assets/448719615',
-    panelId: 'panel-ptd',
-    loadId:  'load-ptd',
-    barId:   'bar-ptd',
-    msgId:   'msg-ptd',
-    docId:   'doc-ptd',
-    loaded:  false,
-    blobUrls: []
-  }
+  ict: { src: './converted/ict.html', imgBase: './converted/', panelId: 'panel-ict', loadId: 'load-ict', barId: 'bar-ict', msgId: 'msg-ict', docId: 'doc-ict', loaded: false },
+  ptd: { src: './converted/ptd.html', imgBase: './converted/', panelId: 'panel-ptd', loadId: 'load-ptd', barId: 'bar-ptd', msgId: 'msg-ptd', docId: 'doc-ptd', loaded: false }
 };
 
-let curTab     = 'ict';
-let srchTimer  = null;
+let curTab      = 'ict';
+let srchTimer   = null;
 let srchMatches = [];
 let srchIdx     = -1;
 
-// ── LANG ────────────────────────────────────────────────────────────────────
+// ── LANG ─────────────────────────────────────────────────────────────────────
 function toggleLang() {
   document.body.classList.toggle('en', document.getElementById('lang-check').checked);
 }
 
-// ── TAB SWITCH ───────────────────────────────────────────────────────────────
+// ── TABS ─────────────────────────────────────────────────────────────────────
 function switchTab(tab) {
   if (tab === curTab) return;
   curTab = tab;
-
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-' + tab).classList.add('active');
-
   Object.keys(TABS).forEach(k => {
     document.getElementById(TABS[k].panelId).style.display = k === tab ? '' : 'none';
   });
-
   clearSearch();
   loadDoc(tab);
-
-  if (TABS[tab].loaded) {
-    buildTOC(tab);
-  }
+  if (TABS[tab].loaded) buildTOC(tab);
 }
 
-// ── LOAD DOC ─────────────────────────────────────────────────────────────────
+// ── LOAD ─────────────────────────────────────────────────────────────────────
 async function loadDoc(tab) {
-  const t = TABS[tab];
+  const t    = TABS[tab];
   if (t.loaded) return;
 
-  const bar  = document.getElementById(t.barId);
-  const msg  = document.getElementById(t.msgId);
-  const load = document.getElementById(t.loadId);
-  const doc  = document.getElementById(t.docId);
+  const barEl  = document.getElementById(t.barId);
+  const loadEl = document.getElementById(t.loadId);
+  const docEl  = document.getElementById(t.docId);
 
-  const setMsg = html => { msg.innerHTML = html; };
+  // Animate indeterminate progress
+  let pct = 0;
+  const ticker = setInterval(() => {
+    pct = Math.min(pct + (pct < 60 ? 3 : pct < 85 ? 1 : 0.3), 90);
+    barEl.style.width = pct + '%';
+  }, 200);
 
   try {
-    // 1. Fetch with progress tracking
-    setMsg('<span class="bn-text">ফাইল ডাউনলোড হচ্ছে…</span><span class="en-text">Fetching file…</span>');
+    const res = await fetch(t.src);
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' — converted HTML not found at ' + t.src);
 
-    const res = await fetch(t.file, { headers: { 'Accept': 'application/octet-stream' } });
-    if (!res.ok) throw new Error('HTTP ' + res.status + ' — file not found');
+    const html = await res.text();
+    clearInterval(ticker);
+    barEl.style.width = '92%';
 
-    const contentLength = parseInt(res.headers.get('content-length') || '0');
-    const reader = res.body.getReader();
-    const chunks = [];
-    let received = 0;
+    // Parse the LibreOffice HTML and extract body content
+    const parser = new DOMParser();
+    const parsed = parser.parseFromString(html, 'text/html');
+    const body   = parsed.body;
 
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      chunks.push(value);
-      received += value.length;
-      if (contentLength) {
-        bar.style.width = Math.min(75, (received / contentLength) * 75) + '%';
-      } else {
-        bar.style.width = Math.min(75, bar.offsetWidth / 2) + '%';
+    // Fix image src paths: LibreOffice uses bare filenames, prepend our base
+    body.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && !src.startsWith('http') && !src.startsWith('data:') && !src.startsWith('./')) {
+        img.setAttribute('src', t.imgBase + src);
       }
-    }
-
-    bar.style.width = '78%';
-
-    // Reassemble chunks into one ArrayBuffer
-    const full = new Uint8Array(received);
-    let offset = 0;
-    for (const ch of chunks) { full.set(ch, offset); offset += ch.length; }
-
-    // 2. Convert docx → HTML via mammoth (images as blob URLs to save memory)
-    setMsg('<span class="bn-text">ডকুমেন্ট রূপান্তর হচ্ছে… (বড় ফাইলের জন্য একটু সময় লাগতে পারে)</span><span class="en-text">Converting… large files may take a moment</span>');
-    bar.style.width = '82%';
-
-    const result = await mammoth.convertToHtml(
-      { arrayBuffer: full.buffer },
-      {
-        convertImage: mammoth.images.imgElement(function(img) {
-          return img.read().then(function(data) {
-            const blob = new Blob([data], { type: img.contentType });
-            const url  = URL.createObjectURL(blob);
-            t.blobUrls.push(url);   // track for potential cleanup
-            return { src: url };
-          });
-        })
-      }
-    );
-
-    bar.style.width = '92%';
-    setMsg('<span class="bn-text">সূচিপত্র তৈরি হচ্ছে…</span><span class="en-text">Building navigation…</span>');
-
-    // 3. Inject HTML
-    doc.innerHTML = result.value;
-
-    // 4. Add IDs + scroll-margin to headings
-    let hi = 0;
-    doc.querySelectorAll('h1, h2, h3, h4').forEach(h => {
-      h.id = h.id || ('h' + (++hi));
+      img.setAttribute('loading', 'lazy');
+      img.removeAttribute('width');
+      img.removeAttribute('height');
     });
 
-    bar.style.width = '100%';
+    // Add IDs to headings for TOC / anchor links
+    let hi = 0;
+    body.querySelectorAll('h1,h2,h3,h4').forEach(h => {
+      if (!h.id) h.id = 'sec-' + (++hi);
+    });
+
+    // Remove LibreOffice page-break divs and empty paragraphs at start
+    body.querySelectorAll('div[style*="page-break"]').forEach(d => d.remove());
+
+    barEl.style.width = '100%';
 
     setTimeout(() => {
-      load.style.display = 'none';
-      doc.style.display  = '';
+      docEl.innerHTML = body.innerHTML;
+      loadEl.style.display = 'none';
+      docEl.style.display  = '';
       t.loaded = true;
       buildTOC(tab);
       activateScrollSpy(tab);
-    }, 280);
+    }, 250);
 
   } catch (err) {
-    load.innerHTML = `
+    clearInterval(ticker);
+    loadEl.innerHTML = `
       <div class="err-state">
         <i class="fas fa-exclamation-triangle"></i>
-        <div class="bn-text">ডকুমেন্ট লোড করা সম্ভব হয়নি।</div>
-        <div class="en-text">Could not load the document.</div>
+        <div class="bn-text" style="font-weight:700;font-size:1rem">ডকুমেন্ট লোড করা সম্ভব হয়নি।</div>
+        <div class="en-text" style="font-weight:700;font-size:1rem">Could not load the document.</div>
         <p>${err.message}</p>
       </div>`;
   }
 }
 
-// ── TOC ──────────────────────────────────────────────────────────────────────
+// ── TOC ───────────────────────────────────────────────────────────────────────
 function buildTOC(tab) {
-  const doc = document.getElementById(TABS[tab].docId);
-  const list = document.getElementById('toc-list');
+  const docEl = document.getElementById(TABS[tab].docId);
+  const list  = document.getElementById('toc-list');
   list.innerHTML = '';
+  let count = 0;
 
-  doc.querySelectorAll('h1, h2, h3').forEach(h => {
-    const level = h.tagName.toLowerCase();
+  docEl.querySelectorAll('h1,h2,h3').forEach(h => {
+    if (!h.textContent.trim()) return;
+    const tag = h.tagName.toLowerCase();
     const li  = document.createElement('li');
     const a   = document.createElement('a');
-    a.className  = 'toc-link lvl-' + level;
+    a.className  = 'toc-link lvl-' + tag;
     a.href       = '#' + h.id;
-    a.textContent = h.textContent.trim().slice(0, 72) + (h.textContent.trim().length > 72 ? '…' : '');
     a.dataset.id = h.id;
+    a.textContent = h.textContent.trim().slice(0, 70) + (h.textContent.trim().length > 70 ? '…' : '');
     a.addEventListener('click', e => {
       e.preventDefault();
-      document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      list.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+      a.classList.add('active');
     });
     li.appendChild(a);
     list.appendChild(li);
+    count++;
   });
 
-  document.getElementById('toc-hdr').style.display = list.children.length ? '' : 'none';
+  document.getElementById('toc-hdr').style.display = count ? '' : 'none';
 }
 
-// ── SCROLL SPY ───────────────────────────────────────────────────────────────
+// ── SCROLL SPY ────────────────────────────────────────────────────────────────
 function activateScrollSpy(tab) {
-  const doc = document.getElementById(TABS[tab].docId);
-  const headings = Array.from(doc.querySelectorAll('h1, h2, h3'));
-  const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 50;
+  const docEl    = document.getElementById(TABS[tab].docId);
+  const headings = Array.from(docEl.querySelectorAll('h1,h2,h3'));
+  const navH     = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 50;
 
   window.addEventListener('scroll', () => {
     if (curTab !== tab) return;
-    let current = null;
+    let cur = null;
     for (const h of headings) {
-      if (h.getBoundingClientRect().top <= navH + 20) current = h;
+      if (h.getBoundingClientRect().top <= navH + 24) cur = h;
     }
     document.querySelectorAll('.toc-link').forEach(a => {
-      a.classList.toggle('active', current && a.dataset.id === current.id);
+      a.classList.toggle('active', !!(cur && a.dataset.id === cur.id));
     });
   }, { passive: true });
 }
 
-// ── SEARCH ───────────────────────────────────────────────────────────────────
+// ── SEARCH ────────────────────────────────────────────────────────────────────
 function schedSearch(q) {
   clearTimeout(srchTimer);
   srchTimer = setTimeout(() => doSearch(q), 350);
 }
 
 function doSearch(q) {
-  const t       = TABS[curTab];
-  const docEl   = document.getElementById(t.docId);
-  const metaEl  = document.getElementById('search-meta');
-  const countEl = document.getElementById('search-count');
-  const btnPrev = document.getElementById('btn-prev');
-  const btnNext = document.getElementById('btn-next');
+  const docEl    = document.getElementById(TABS[curTab].docId);
+  const metaEl   = document.getElementById('search-meta');
+  const countEl  = document.getElementById('search-count');
+  const btnPrev  = document.getElementById('btn-prev');
+  const btnNext  = document.getElementById('btn-next');
 
-  if (!t.loaded) return;
+  if (!TABS[curTab].loaded) return;
 
-  // Remove old highlights by rebuilding text nodes
-  docEl.querySelectorAll('mark.sh').forEach(m => {
-    m.replaceWith(document.createTextNode(m.textContent));
-  });
+  // Remove existing highlights
+  docEl.querySelectorAll('mark.sh').forEach(m => m.replaceWith(document.createTextNode(m.textContent)));
   docEl.normalize();
-
   srchMatches = []; srchIdx = -1;
 
   if (!q || q.trim().length < 2) {
@@ -742,11 +544,9 @@ function doSearch(q) {
     return;
   }
 
-  // Walk text nodes and highlight
   const re = new RegExp(escRe(q), 'gi');
   const walker = document.createTreeWalker(docEl, NodeFilter.SHOW_TEXT, {
-    acceptNode: n => (n.parentElement.tagName === 'SCRIPT' || n.parentElement.tagName === 'STYLE')
-      ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+    acceptNode: n => (n.parentElement.closest('script,style') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT)
   });
 
   const nodes = [];
@@ -757,7 +557,6 @@ function doSearch(q) {
     const text = node.textContent;
     if (!re.test(text)) continue;
     re.lastIndex = 0;
-
     const frag = document.createDocumentFragment();
     let last = 0, m;
     while ((m = re.exec(text)) !== null) {
@@ -766,8 +565,7 @@ function doSearch(q) {
       mark.className = 'sh';
       mark.textContent = m[0];
       frag.appendChild(mark);
-      last = m.index + m[0].length;
-      total++;
+      last = m.index + m[0].length; total++;
     }
     if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
     node.parentNode.replaceChild(frag, node);
@@ -783,68 +581,49 @@ function doSearch(q) {
   }
 
   srchIdx = 0;
-  updateSearchUI(total);
-  highlightCur();
+  btnPrev.disabled = btnNext.disabled = srchMatches.length < 2;
+  updateCount();
+  hlCur();
   srchMatches[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-function updateSearchUI(total) {
-  const countEl = document.getElementById('search-count');
-  countEl.textContent = (srchIdx + 1) + ' / ' + (total || srchMatches.length);
-  document.getElementById('btn-prev').disabled = srchMatches.length < 2;
-  document.getElementById('btn-next').disabled = srchMatches.length < 2;
+function updateCount() {
+  document.getElementById('search-count').textContent = (srchIdx + 1) + ' / ' + srchMatches.length;
 }
-
-function highlightCur() {
-  srchMatches.forEach((m, i) => {
-    m.className = i === srchIdx ? 'sh cur' : 'sh';
-  });
+function hlCur() {
+  srchMatches.forEach((m, i) => { m.className = i === srchIdx ? 'sh cur' : 'sh'; });
 }
-
 function nextMatch() {
   if (!srchMatches.length) return;
   srchIdx = (srchIdx + 1) % srchMatches.length;
-  highlightCur();
+  hlCur(); updateCount();
   srchMatches[srchIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
-  updateSearchUI();
 }
-
 function prevMatch() {
   if (!srchMatches.length) return;
   srchIdx = (srchIdx - 1 + srchMatches.length) % srchMatches.length;
-  highlightCur();
+  hlCur(); updateCount();
   srchMatches[srchIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
-  updateSearchUI();
 }
-
 function clearSearch() {
-  const input = document.getElementById('search-input');
-  input.value = '';
+  const inp = document.getElementById('search-input');
+  if (inp) inp.value = '';
   doSearch('');
 }
-
-function escRe(s) {
-  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
+function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
 // ── BACK TO TOP ───────────────────────────────────────────────────────────────
 window.addEventListener('scroll', () => {
   document.getElementById('back-top').classList.toggle('vis', window.scrollY > 350);
 }, { passive: true });
 
-// ── KEYBOARD SHORTCUTS ────────────────────────────────────────────────────────
+// ── KEYBOARD ──────────────────────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
-  // Ctrl/Cmd+K focuses search
-  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-    e.preventDefault();
-    document.getElementById('search-input').focus();
-  }
-  // F3 / Enter navigates matches
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); }
   if (e.key === 'F3') { e.preventDefault(); e.shiftKey ? prevMatch() : nextMatch(); }
   if (e.key === 'Enter' && document.activeElement === document.getElementById('search-input')) {
     e.shiftKey ? prevMatch() : nextMatch();
   }
-  // Escape clears
   if (e.key === 'Escape') clearSearch();
 });
 
