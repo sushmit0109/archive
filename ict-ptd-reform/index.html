@@ -95,20 +95,25 @@
     /* ── HUB VIEW ─────────────────────────────────────────────────────────────── */
     .hub-wrap { max-width: 940px; margin: 0 auto; padding: 2.8rem 1.5rem 6rem; }
 
-    .hub-intro { text-align: center; margin-bottom: 2.8rem; }
+    .hub-intro {
+      text-align: center; margin-bottom: 2.8rem;
+      background: rgba(0,28,72,.62);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-radius: 18px; padding: 2rem 2.5rem;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 6px 32px rgba(0,0,0,.22);
+    }
     .hub-intro h2 {
-      color: #fff; font-size: 1.55rem; font-weight: 700;
-      text-shadow: 0 1px 6px rgba(0,0,0,.4); margin-bottom: 0.4rem;
+      color: #fff; font-size: 1.55rem; font-weight: 700; margin-bottom: 0.4rem;
     }
     .hub-intro .sub-label {
-      display: block; font-size: 0.9rem; font-weight: 400;
-      color: rgba(255,255,255,.72); font-family: 'Inter', sans-serif;
+      display: block; font-size: 0.88rem; font-weight: 400;
+      color: rgba(180,210,255,.85); font-family: 'Inter', sans-serif;
       margin-top: 0.1rem;
     }
     .hub-intro p {
-      color: rgba(255,255,255,.82); font-size: 0.9rem;
-      max-width: 600px; margin: 0.8rem auto 0; line-height: 1.75;
-      text-shadow: 0 1px 3px rgba(0,0,0,.28);
+      color: rgba(210,230,255,.9); font-size: 0.9rem;
+      max-width: 600px; margin: 0.9rem auto 0; line-height: 1.75;
     }
 
     .hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(390px, 1fr)); gap: 1.6rem; }
@@ -133,9 +138,7 @@
     }
     .hub-card-icon { font-size: 2.8rem; display: block; margin-bottom: 0.9rem; line-height: 1; }
     .hub-card-title-bn { color: var(--primary); font-size: 1.22rem; font-weight: 700; margin-bottom: 0.15rem; }
-    .hub-card-title-en { color: #5580a8; font-size: 0.84rem; font-family: 'Inter', sans-serif; margin-bottom: 0.1rem; }
-    .hub-card-div-en   { color: #7090b0; font-size: 0.76rem; font-family: 'Inter', sans-serif; margin-bottom: 0.95rem; }
-    .hub-card-div-bn   { color: #7090b0; font-size: 0.78rem; margin-bottom: 0.95rem; }
+    .hub-card-title-en { color: #1e3f6e; font-size: 0.84rem; font-family: 'Inter', sans-serif; margin-bottom: 0.95rem; font-weight: 500; }
     .hub-card-desc { color: #4a5568; font-size: 0.85rem; line-height: 1.75; margin-bottom: 1.2rem; }
     .hub-card-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
     .hub-tag {
@@ -282,6 +285,8 @@
     .doc-wrap p  { margin-bottom:0.75rem!important; line-height:1.85!important; font-size:0.96rem!important; }
     .doc-wrap ul, .doc-wrap ol { margin:0.3rem 0 0.75rem 1.4rem!important; }
     .doc-wrap li { margin-bottom:0.25rem!important; line-height:1.75!important; }
+    .tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.1rem 0; }
+    .tbl-scroll table { margin: 0 !important; }
     .doc-wrap table { width:100%!important; border-collapse:collapse!important; margin:1.1rem 0!important; font-size:0.88rem!important; }
     .doc-wrap th { background:var(--primary)!important; color:#fff!important; padding:0.45rem 0.7rem!important; font-weight:600!important; text-align:left!important; }
     .doc-wrap td { padding:0.38rem 0.7rem!important; border-bottom:1px solid #e5ecf5!important; vertical-align:top!important; }
@@ -371,7 +376,7 @@
         <span class="en-text">Ministry of Posts, Telecommunications and IT</span>
       </div>
       <div class="site-sub">
-        <span class="bn-text">ফয়েজ আহমদ তয়্যব · বিশেষ সহকারী (প্রতিমন্ত্রী মর্যাদা) · ৫ মার্চ ২০২৫ – ১৪ ফেব্রুয়ারি ২০২৬</span>
+        <span class="bn-text">ফয়েজ আহমদ তৈয়্যব · বিশেষ সহকারী (প্রতিমন্ত্রী মর্যাদা) · ৫ মার্চ ২০২৫ – ১৪ ফেব্রুয়ারি ২০২৬</span>
         <span class="en-text">Faiz Ahmad Taiyeb · Special Assistant (State Minister rank) · 5 March 2025 – 14 February 2026</span>
       </div>
     </div>
@@ -415,7 +420,7 @@
         <span class="sub-label en-text">ডাক, টেলিযোগাযোগ ও তথ্যপ্রযুক্তি মন্ত্রণালয়</span>
       </h2>
       <p>
-        <span class="bn-text">ফয়েজ আহমদ তয়্যব রচিত রূপান্তর কৌশল দলিল এবং উত্তরসূরির প্রতি পত্র — আইসিটি বিভাগ ও ডাক ও টেলিযোগাযোগ বিভাগের জন্য।</span>
+        <span class="bn-text">ফয়েজ আহমদ তৈয়্যব রচিত রূপান্তর কৌশল দলিল এবং উত্তরসূরির প্রতি পত্র — আইসিটি বিভাগ ও ডাক ও টেলিযোগাযোগ বিভাগের জন্য।</span>
         <span class="en-text">Transformation strategy documents and notes to successor by Faiz Ahmad Taiyeb, covering the ICT Division and Post &amp; Telecommunications Division.</span>
       </p>
     </div>
@@ -755,6 +760,20 @@ async function renderNote() {
     setTimeout(() => {
       contEl.innerHTML = clone.innerHTML;
 
+      // Wrap tables for mobile horizontal scroll
+      contEl.querySelectorAll('table').forEach(t => {
+        if (t.parentElement.classList.contains('tbl-scroll')) return;
+        const w = document.createElement('div');
+        w.className = 'tbl-scroll';
+        t.parentNode.insertBefore(w, t);
+        w.appendChild(t);
+      });
+      // Strip LibreOffice inline width/height from images
+      contEl.querySelectorAll('img').forEach(img => {
+        const s = img.getAttribute('style') || '';
+        if (s) img.setAttribute('style', s.replace(/\bwidth\s*:[^;]+;?/gi, '').replace(/\bheight\s*:[^;]+;?/gi, ''));
+      });
+
       // Build inline TOC
       const hds = Array.from(contEl.querySelectorAll('h2,h3'));
       if (hds.length > 1) {
@@ -837,6 +856,19 @@ async function renderDoc() {
 
     setTimeout(() => {
       docEl.innerHTML = clone.innerHTML;
+      // Wrap tables so they scroll horizontally on narrow screens
+      docEl.querySelectorAll('table').forEach(t => {
+        if (t.parentElement.classList.contains('tbl-scroll')) return;
+        const w = document.createElement('div');
+        w.className = 'tbl-scroll';
+        t.parentNode.insertBefore(w, t);
+        w.appendChild(t);
+      });
+      // Strip LibreOffice inline style widths from images (max-width CSS handles them)
+      docEl.querySelectorAll('img').forEach(img => {
+        const s = img.getAttribute('style') || '';
+        if (s) img.setAttribute('style', s.replace(/\bwidth\s*:[^;]+;?/gi, '').replace(/\bheight\s*:[^;]+;?/gi, ''));
+      });
       loadEl.style.display = 'none';
       docEl.style.display  = '';
       buildTOC();
