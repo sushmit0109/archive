@@ -303,15 +303,55 @@
     /* ── FOOTER ───────────────────────────────────────────────────────────────── */
     .site-footer { background: var(--primary); color: #cce0ff; padding: 1.1rem 2rem; }
 
+    /* ── TOC TOGGLE (mobile only) ───────────────────────────────────────────── */
+    .toc-toggle-btn {
+      display: none;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22);
+      color: #bcd5ff; border-radius: 6px; padding: 0.3rem 0.65rem;
+      font-size: 0.9rem; cursor: pointer; align-items: center; gap: 0.35rem;
+      transition: all .2s; font-family: inherit;
+    }
+    .toc-toggle-btn:hover { background: rgba(255,255,255,.2); color: #fff; }
+
+    /* ── SIDEBAR OVERLAY (mobile) ────────────────────────────────────────────── */
+    .sidebar-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.48); z-index: 940;
+    }
+
     /* ── MOBILE ───────────────────────────────────────────────────────────────── */
     @media (max-width: 768px) {
-      .sidebar { display: none; }
       .hdr-inner { padding: 0.8rem 3.5rem; }
       .site-title { font-size: 0.92rem; }
       .content-area { padding: 1.2rem 1rem; }
       .hub-grid { grid-template-columns: 1fr; }
       .doc-opt-card { flex-direction: column; gap: 0.9rem; }
       .note-card-shell { padding: 1.5rem 1.2rem; }
+      .hub-wrap { padding: 1.8rem 1rem 4rem; }
+      .reform-wrap { padding: 1.5rem 1rem 4rem; }
+      .note-wrap { padding: 1.5rem 1rem 4rem; }
+
+      /* Sidebar hidden by default; becomes a fixed overlay when toggled */
+      .sidebar {
+        position: fixed; top: var(--nav-h); left: 0;
+        width: min(var(--sidebar-w), 88vw);
+        height: calc(100vh - var(--nav-h));
+        z-index: 950; display: none;
+        box-shadow: 4px 0 24px rgba(0,0,0,.4);
+        transform: translateX(-100%); transition: transform .25s ease;
+      }
+      body.mob-toc .sidebar {
+        display: flex; transform: translateX(0);
+      }
+      body.mob-toc .sidebar-overlay { display: block; }
+
+      /* TOC toggle button: only show in doc view on mobile */
+      body.doc-view .toc-toggle-btn { display: flex; }
+    }
+
+    @media (min-width: 769px) {
+      /* Desktop: sidebar is always visible, no toggle needed */
+      .sidebar { display: flex; }
     }
   </style>
 </head>
@@ -348,6 +388,10 @@
         <span class="en-text">Back</span>
       </button>
       <span id="nav-crumb" class="nav-crumb"></span>
+      <button class="toc-toggle-btn" onclick="openMobileTOC()" title="Table of Contents">
+        <i class="fas fa-list-ul"></i>
+        <span style="font-size:0.75rem">সূচি</span>
+      </button>
     </div>
     <div class="lang-wrap">
       <span>বাংলা</span>
@@ -532,6 +576,9 @@
   </main>
 </div>
 
+<!-- SIDEBAR OVERLAY (closes mobile TOC on tap outside) -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeMobileTOC()"></div>
+
 <!-- BACK TO TOP -->
 <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="ওপরে যান">
   <i class="fas fa-arrow-up"></i>
@@ -613,6 +660,8 @@ function showView(view) {
   const el = document.getElementById('view-' + view);
   el.style.display = view === 'doc' ? 'flex' : 'block';
   requestAnimationFrame(() => el.classList.add('view-active'));
+  document.body.classList.toggle('doc-view', view === 'doc');
+  closeMobileTOC();
   updateNav(view);
   if (view === 'reform') renderReform();
   if (view === 'note')   renderNote();
@@ -718,14 +767,12 @@ async function renderNote() {
           const a  = document.createElement('a');
           a.href = '#';
           a.className = h.tagName === 'H3' ? 'lvl-h3' : '';
+          a.dataset.id = h.id;
           a.textContent = h.textContent.trim().slice(0, 80);
           a.addEventListener('click', e => {
             e.preventDefault();
-            const t = document.getElementById(h.id);
-            if (t) {
-              const top = t.getBoundingClientRect().top + window.scrollY - 56;
-              window.scrollTo({ top, behavior: 'smooth' });
-            }
+            const t = document.getElementById(a.dataset.id);
+            if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
           });
           li.appendChild(a);
           ul.appendChild(li);
@@ -825,21 +872,28 @@ function buildTOC() {
   const list  = document.getElementById('toc-list');
   list.innerHTML = '';
   let count = 0;
+  let serial = 0;
   docEl.querySelectorAll('h1,h2,h3').forEach(h => {
-    if (!h.textContent.trim()) return;
+    const text = h.textContent.trim();
+    if (!text) return;
+    // Guarantee a stable ID on the actual DOM element right now
+    if (!h.id) h.id = 'toc-h-' + (++serial);
+    const storedId = h.id;
     const li = document.createElement('li');
     const a  = document.createElement('a');
-    a.className  = 'toc-link lvl-' + h.tagName.toLowerCase();
-    a.href       = '#';
-    a.dataset.id = h.id;
-    a.textContent = h.textContent.trim().slice(0, 70) + (h.textContent.trim().length > 70 ? '…' : '');
+    a.className   = 'toc-link lvl-' + h.tagName.toLowerCase();
+    a.href        = '#';
+    a.dataset.id  = storedId;
+    a.textContent = text.slice(0, 72) + (text.length > 72 ? '…' : '');
     a.addEventListener('click', e => {
       e.preventDefault();
-      const t = document.getElementById(h.id) || h;
-      const top = t.getBoundingClientRect().top + window.scrollY - 56;
-      window.scrollTo({ top, behavior: 'smooth' });
+      // Fresh lookup by ID — avoids stale closure refs if innerHTML was reset
+      const target = document.getElementById(a.dataset.id);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       list.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
       a.classList.add('active');
+      closeMobileTOC();
     });
     li.appendChild(a);
     list.appendChild(li);
@@ -924,6 +978,10 @@ function clearSearch() {
   if (me) me.style.display = 'none';
 }
 function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+// ── MOBILE TOC ───────────────────────────────────────────────────────────────
+function openMobileTOC()  { document.body.classList.add('mob-toc'); }
+function closeMobileTOC() { document.body.classList.remove('mob-toc'); }
 
 // ── LANG TOGGLE ───────────────────────────────────────────────────────────────
 function toggleLang() {
