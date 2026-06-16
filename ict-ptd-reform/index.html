@@ -760,6 +760,11 @@ async function renderNote() {
     setTimeout(() => {
       contEl.innerHTML = clone.innerHTML;
 
+      // Remove LibreOffice fixed-pixel width/height attributes from table elements
+      contEl.querySelectorAll('table,td,th,tr,col,colgroup').forEach(el => {
+        el.removeAttribute('width');
+        el.removeAttribute('height');
+      });
       // Wrap tables for mobile horizontal scroll
       contEl.querySelectorAll('table').forEach(t => {
         if (t.parentElement.classList.contains('tbl-scroll')) return;
@@ -856,7 +861,13 @@ async function renderDoc() {
 
     setTimeout(() => {
       docEl.innerHTML = clone.innerHTML;
-      // Wrap tables so they scroll horizontally on narrow screens
+      // Remove LibreOffice fixed-pixel width/height HTML attributes from table elements
+      // so CSS width:100% can actually control column sizing on narrow screens
+      docEl.querySelectorAll('table,td,th,tr,col,colgroup').forEach(el => {
+        el.removeAttribute('width');
+        el.removeAttribute('height');
+      });
+      // Wrap tables so they scroll horizontally if content still overflows
       docEl.querySelectorAll('table').forEach(t => {
         if (t.parentElement.classList.contains('tbl-scroll')) return;
         const w = document.createElement('div');
