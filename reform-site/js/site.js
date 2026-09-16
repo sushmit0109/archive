@@ -279,7 +279,10 @@ const App = (() => {
   }
 
   function buildSectionNode(sec) {
-    const isPdf = sec.hasPdf && sec.pdfName;
+    // A section can carry both transcribed text and its source PDF. Text wins
+    // for the icon and for what opens on click; the PDF stays one click away.
+    const hasText = (sec.paragraphs || []).length > 0;
+    const isPdf = !hasText && sec.hasPdf && sec.pdfName;
     return `
       <li class="tree-item">
         <div class="tree-label sec-label tree-section"
@@ -314,10 +317,15 @@ const App = (() => {
         const pdfName = el.dataset.secpdf;
         const title   = el.dataset.title || el.textContent.trim();
 
-        if (pdfName) {
+        const secId = el.dataset.secid ? parseInt(el.dataset.secid, 10) : null;
+        const cached = secId !== null ? _secCache[secId] : null;
+
+        if (cached && (cached.paragraphs || []).length > 0) {
+          showSectionContent(title, secId);
+        } else if (pdfName) {
           showPdfContent(title, pdfName);
-        } else if (el.dataset.secid) {
-          showSectionContent(title, parseInt(el.dataset.secid, 10));
+        } else if (secId !== null) {
+          showSectionContent(title, secId);
         } else if (el.dataset.chid) {
           showChapterPlaceholder(title);
         }
@@ -337,14 +345,24 @@ const App = (() => {
     if (!sec) { area.innerHTML = `<h5 class="content-heading">${title}</h5><p class="text-muted">বিষয়বস্তু পাওয়া যায়নি।</p>`; return; }
 
     const paragraphs = [...(sec.paragraphs || [])].sort((a, b) => (a.serial - b.serial) || (a.id - b.id));
+    // Some sections carry the text *and* the source PDF it was taken from.
+    const src = sec.hasPdf && sec.pdfName ? pdfUrl(sec.pdfName) : '';
+    const srcBar = src ? `
+      <div class="d-flex gap-2 mb-3 flex-wrap">
+        <a href="${src}" target="_blank" class="btn btn-outline-secondary btn-sm">
+          <i class="fas fa-file-pdf me-1"></i>${_lang === 'bn' ? 'মূল পিডিএফ' : 'Source PDF'}</a>
+        <a href="${src}" download class="btn btn-outline-secondary btn-sm">
+          <i class="fas fa-download me-1"></i>${_lang === 'bn' ? 'ডাউনলোড করুন' : 'Download'}</a>
+      </div>` : '';
     area.innerHTML = `
       <h5 class="content-heading">${title}</h5>
+      ${srcBar}
       ${paragraphs.map(p => `
         <div class="paragraph-block">
-          ${p.header ? `<div class="para-header">${p.header}</div>` : ''}
+          ${p.header ? `<div class="para-header">${escHtml(p.header)}</div>` : ''}
           <div class="para-body">
-            ${p.indexChar ? `<span class="para-index">${p.indexChar}</span>` : ''}
-            <span>${p.content ? p.content.replace(/\n/g, '<br>') : ''}</span>
+            ${p.indexChar ? `<span class="para-index">${escHtml(p.indexChar)}</span>` : ''}
+            <span>${p.content ? escHtml(p.content).replace(/\n/g, '<br>') : ''}</span>
           </div>
           ${p.hasImage && p.fileName ? `<img src="${pdfUrl(p.fileName)}" style="max-width:100%; margin-top:0.5rem; border-radius:4px;">` : ''}
         </div>`).join('')}`;
@@ -505,6 +523,13 @@ const App = (() => {
   }
 
   // ── UTILS ──────────────────────────────────────────────────────
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
   function escAttr(str) {
     return String(str)
       .replace(/&/g, '&amp;')
