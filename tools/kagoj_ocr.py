@@ -18,6 +18,7 @@ State lives in a JSON ledger so an interrupted run resumes instead of
 re-spending credits on chunks that already succeeded.
 """
 import argparse, json, os, sys, time
+import requests
 
 # kagoj.ai only *records* finished jobs -- verified against a live account:
 # POSTing a PDF there returns 201 but never processes it (page_count stays 0,
@@ -25,7 +26,7 @@ import argparse, json, os, sys, time
 # Computer Council service below; the browser OCRs there, then posts the result
 # to kagoj for billing at 20 credits/page.
 LEDGER_BASE = "https://kagoj.ai"
-OCR_BASE = "https://ocr.bangla.gov.bd/dev"
+OCR_BASE = "https://kagoj.ai"
 MAX_PAGES = 50           # the playground's own cap
 POLL_SECONDS = 8         # matches the playground's polling interval
 POLL_TIMEOUT = 600       # 10 minutes, as the playground uses
@@ -273,7 +274,7 @@ def main():
     auth = Auth.load(args)
     # The OCR host serves a valid cert but omits the intermediate; this
     # completes the chain with verification left on.
-    session = ChainAdapter.session("ocr.bangla.gov.bd", 443)
+    session = requests.Session()
 
     if args.discover:
         discover(session, auth)
